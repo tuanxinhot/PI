@@ -1,0 +1,2 @@
+#Update to reflect the distribution that will be used to update this device.  Lines that start with # are ignored.
+docker

@@ -1,0 +1,4 @@
+#Update to reflect the risk level should this system become unavailable.  Lines that start with # are ignored.
+#Must be one of test, low, medium, high. Each is an increasing level of risk
+#Default is high, and should an invalid value be used, high is assumed.
+medium
