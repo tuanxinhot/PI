@@ -1,0 +1,12 @@
+#version=1.0.5
+[Unit]
+Description=Install sqlite3 package
+After=docker.service network.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/jpiadmapi
+ExecStart=/bin/sh /root/jpiadmapi/sqlite-cli-install.sh
+RemainAfterExit=false
+Restart=no

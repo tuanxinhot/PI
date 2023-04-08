@@ -1,0 +1,18 @@
+{
+    "__ts__": "2020-12-24T02:05:59.125Z",
+    "sys": {
+        "ts_api": "/pico-hq/v2/sys/ts",
+        "fetch_api": "/pico-hq/v2/sys/fetch",
+        "check_for_updates_mins": 720
+    },
+    "hq": {
+        "endpoint": "lq7mpxkdc3-vpce-049e6ae94d0fa18eb.execute-api.ap-southeast-1.amazonaws.com",
+        "default": "/pico-hq/v2"
+    },
+    "logs": {
+        "log_api": "/pico-hq/v2/logs/fill",
+        "ts_api": "/pico-hq/v2/logs/ts",
+        "send_frequency_mins": 30,
+        "bytes_per_send": 50000
+    }
+}

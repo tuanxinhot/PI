@@ -1,0 +1,700 @@
+Feb 21 04:08:10 localhost kernel: [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+Feb 21 04:08:10 localhost kernel: [    0.000000] Linux version 5.15.84-v8+ (dom@buildbot) (aarch64-linux-gnu-gcc-8 (Ubuntu/Linaro 8.4.0-3ubuntu1) 8.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #1613 SMP PREEMPT Thu Jan 5 12:03:08 GMT 2023
+Feb 21 04:08:10 localhost kernel: [    0.000000] random: crng init done
+Feb 21 04:08:10 localhost kernel: [    0.000000] Machine model: Raspberry Pi 3 Model B Rev 1.2
+Feb 21 04:08:10 localhost kernel: [    0.000000] efi: UEFI not found.
+Feb 21 04:08:10 localhost kernel: [    0.000000] Reserved memory: created CMA memory pool at 0x000000001ec00000, size 256 MiB
+Feb 21 04:08:10 localhost kernel: [    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+Feb 21 04:08:10 localhost kernel: [    0.000000] Zone ranges:
+Feb 21 04:08:10 localhost kernel: [    0.000000]   DMA      [mem 0x0000000000000000-0x000000003b3fffff]
+Feb 21 04:08:10 localhost kernel: [    0.000000]   DMA32    empty
+Feb 21 04:08:10 localhost kernel: [    0.000000]   Normal   empty
+Feb 21 04:08:10 localhost kernel: [    0.000000] Movable zone start for each node
+Feb 21 04:08:10 localhost kernel: [    0.000000] Early memory node ranges
+Feb 21 04:08:10 localhost kernel: [    0.000000]   node   0: [mem 0x0000000000000000-0x000000003b3fffff]
+Feb 21 04:08:10 localhost kernel: [    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000003b3fffff]
+Feb 21 04:08:10 localhost kernel: [    0.000000] On node 0, zone DMA: 19456 pages in unavailable ranges
+Feb 21 04:08:10 localhost kernel: [    0.000000] percpu: Embedded 28 pages/cpu s77336 r8192 d29160 u114688
+Feb 21 04:08:10 localhost kernel: [    0.000000] Detected VIPT I-cache on CPU0
+Feb 21 04:08:10 localhost kernel: [    0.000000] CPU features: kernel page table isolation forced ON by KASLR
+Feb 21 04:08:10 localhost kernel: [    0.000000] CPU features: detected: Kernel page table isolation (KPTI)
+Feb 21 04:08:10 localhost kernel: [    0.000000] CPU features: detected: ARM erratum 843419
+Feb 21 04:08:10 localhost kernel: [    0.000000] CPU features: detected: ARM erratum 845719
+Feb 21 04:08:10 localhost kernel: [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 238896
+Feb 21 04:08:10 localhost kernel: [    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 video=HDMI-A-1:640x480M@60 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  console=ttyS0,115200 console=tty1 root=PARTUUID=96427aa2-02 cgroup_enable=memory cgroup_memory=1 systemd.unified_cgroup_hierarchy=0 rootfstype=ext4 fsck.repair=yes rootwait
+Feb 21 04:08:10 localhost kernel: [    0.000000] cgroup: Enabling memory control group subsystem
+Feb 21 04:08:10 localhost kernel: [    0.000000] Unknown kernel command line parameters "cgroup_memory=1", will be passed to user space.
+Feb 21 04:08:10 localhost kernel: [    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+Feb 21 04:08:10 localhost kernel: [    0.000000] Memory: 665540K/970752K available (11520K kernel code, 1956K rwdata, 4136K rodata, 3776K init, 975K bss, 43068K reserved, 262144K cma-reserved)
+Feb 21 04:08:10 localhost kernel: [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Feb 21 04:08:10 localhost kernel: [    0.000000] ftrace: allocating 38065 entries in 149 pages
+Feb 21 04:08:10 localhost kernel: [    0.000000] ftrace: allocated 149 pages with 4 groups
+Feb 21 04:08:10 localhost kernel: [    0.000000] trace event string verifier disabled
+Feb 21 04:08:10 localhost kernel: [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+Feb 21 04:08:10 localhost kernel: [    0.000000] rcu: 	RCU event tracing is enabled.
+Feb 21 04:08:10 localhost kernel: [    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+Feb 21 04:08:10 localhost kernel: [    0.000000] 	Trampoline variant of Tasks RCU enabled.
+Feb 21 04:08:10 localhost kernel: [    0.000000] 	Rude variant of Tasks RCU enabled.
+Feb 21 04:08:10 localhost kernel: [    0.000000] 	Tracing variant of Tasks RCU enabled.
+Feb 21 04:08:10 localhost kernel: [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+Feb 21 04:08:10 localhost kernel: [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+Feb 21 04:08:10 localhost kernel: [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Feb 21 04:08:10 localhost kernel: [    0.000000] Root IRQ handler: bcm2836_arm_irqchip_handle_irq
+Feb 21 04:08:10 localhost kernel: [    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+Feb 21 04:08:10 localhost kernel: [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+Feb 21 04:08:10 localhost kernel: [    0.000001] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+Feb 21 04:08:10 localhost kernel: [    0.000386] Console: colour dummy device 80x25
+Feb 21 04:08:10 localhost kernel: [    0.001365] printk: console [tty1] enabled
+Feb 21 04:08:10 localhost kernel: [    0.001448] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
+Feb 21 04:08:10 localhost kernel: [    0.001513] pid_max: default: 32768 minimum: 301
+Feb 21 04:08:10 localhost kernel: [    0.001715] LSM: Security Framework initializing
+Feb 21 04:08:10 localhost kernel: [    0.001996] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.002065] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.007388] rcu: Hierarchical SRCU implementation.
+Feb 21 04:08:10 localhost kernel: [    0.008972] EFI services will not be available.
+Feb 21 04:08:10 localhost kernel: [    0.009752] smp: Bringing up secondary CPUs ...
+Feb 21 04:08:10 localhost kernel: [    0.011336] Detected VIPT I-cache on CPU1
+Feb 21 04:08:10 localhost kernel: [    0.011432] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+Feb 21 04:08:10 localhost kernel: [    0.013233] Detected VIPT I-cache on CPU2
+Feb 21 04:08:10 localhost kernel: [    0.013299] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+Feb 21 04:08:10 localhost kernel: [    0.014941] Detected VIPT I-cache on CPU3
+Feb 21 04:08:10 localhost kernel: [    0.014998] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+Feb 21 04:08:10 localhost kernel: [    0.015211] smp: Brought up 1 node, 4 CPUs
+Feb 21 04:08:10 localhost kernel: [    0.015366] SMP: Total of 4 processors activated.
+Feb 21 04:08:10 localhost kernel: [    0.015401] CPU features: detected: 32-bit EL0 Support
+Feb 21 04:08:10 localhost kernel: [    0.015432] CPU features: detected: 32-bit EL1 Support
+Feb 21 04:08:10 localhost kernel: [    0.015467] CPU features: detected: CRC32 instructions
+Feb 21 04:08:10 localhost kernel: [    0.057928] CPU: All CPU(s) started at EL2
+Feb 21 04:08:10 localhost kernel: [    0.058078] alternatives: patching kernel code
+Feb 21 04:08:10 localhost kernel: [    0.060083] devtmpfs: initialized
+Feb 21 04:08:10 localhost kernel: [    0.083104] Enabled cp15_barrier support
+Feb 21 04:08:10 localhost kernel: [    0.083188] Enabled setend support
+Feb 21 04:08:10 localhost kernel: [    0.083233] KASLR enabled
+Feb 21 04:08:10 localhost kernel: [    0.083518] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Feb 21 04:08:10 localhost kernel: [    0.083589] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.095501] pinctrl core: initialized pinctrl subsystem
+Feb 21 04:08:10 localhost kernel: [    0.096807] DMI not present or invalid.
+Feb 21 04:08:10 localhost kernel: [    0.097805] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Feb 21 04:08:10 localhost kernel: [    0.109345] DMA: preallocated 1024 KiB GFP_KERNEL pool for atomic allocations
+Feb 21 04:08:10 localhost kernel: [    0.109899] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+Feb 21 04:08:10 localhost kernel: [    0.111374] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+Feb 21 04:08:10 localhost kernel: [    0.111568] audit: initializing netlink subsys (disabled)
+Feb 21 04:08:10 localhost kernel: [    0.112017] audit: type=2000 audit(0.108:1): state=initialized audit_enabled=0 res=1
+Feb 21 04:08:10 localhost kernel: [    0.112995] thermal_sys: Registered thermal governor 'step_wise'
+Feb 21 04:08:10 localhost kernel: [    0.113328] cpuidle: using governor menu
+Feb 21 04:08:10 localhost kernel: [    0.113989] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+Feb 21 04:08:10 localhost kernel: [    0.114300] ASID allocator initialised with 32768 entries
+Feb 21 04:08:10 localhost kernel: [    0.114572] Serial: AMBA PL011 UART driver
+Feb 21 04:08:10 localhost kernel: [    0.129115] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+Feb 21 04:08:10 localhost kernel: [    0.156752] raspberrypi-firmware soc:firmware: Attached to firmware from 2023-02-22T10:48:01, variant start
+Feb 21 04:08:10 localhost kernel: [    0.160771] raspberrypi-firmware soc:firmware: Firmware hash is 74a4b109e7f5be465332a1f102649d34f8498d05
+Feb 21 04:08:10 localhost kernel: [    0.222464] bcm2835-dma 3f007000.dma: DMA legacy API manager, dmachans=0x1
+Feb 21 04:08:10 localhost kernel: [    0.228157] vgaarb: loaded
+Feb 21 04:08:10 localhost kernel: [    0.228848] SCSI subsystem initialized
+Feb 21 04:08:10 localhost kernel: [    0.229263] usbcore: registered new interface driver usbfs
+Feb 21 04:08:10 localhost kernel: [    0.229371] usbcore: registered new interface driver hub
+Feb 21 04:08:10 localhost kernel: [    0.229490] usbcore: registered new device driver usb
+Feb 21 04:08:10 localhost kernel: [    0.230041] usb_phy_generic phy: supply vcc not found, using dummy regulator
+Feb 21 04:08:10 localhost kernel: [    0.230386] usb_phy_generic phy: dummy supplies not allowed for exclusive requests
+Feb 21 04:08:10 localhost kernel: [    0.230789] pps_core: LinuxPPS API ver. 1 registered
+Feb 21 04:08:10 localhost kernel: [    0.230827] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+Feb 21 04:08:10 localhost kernel: [    0.230905] PTP clock support registered
+Feb 21 04:08:10 localhost kernel: [    0.233298] clocksource: Switched to clocksource arch_sys_counter
+Feb 21 04:08:10 localhost kernel: [    0.358100] VFS: Disk quotas dquot_6.6.0
+Feb 21 04:08:10 localhost kernel: [    0.358281] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+Feb 21 04:08:10 localhost kernel: [    0.358566] FS-Cache: Loaded
+Feb 21 04:08:10 localhost kernel: [    0.358901] CacheFiles: Loaded
+Feb 21 04:08:10 localhost kernel: [    0.360267] simple-framebuffer 3eace000.framebuffer: framebuffer at 0x3eace000, 0x12c000 bytes
+Feb 21 04:08:10 localhost kernel: [    0.360323] simple-framebuffer 3eace000.framebuffer: format=a8r8g8b8, mode=640x480x32, linelength=2560
+Feb 21 04:08:10 localhost kernel: [    0.366137] Console: switching to colour frame buffer device 80x30
+Feb 21 04:08:10 localhost kernel: [    0.374095] simple-framebuffer 3eace000.framebuffer: fb0: simplefb registered!
+Feb 21 04:08:10 localhost kernel: [    0.395684] NET: Registered PF_INET protocol family
+Feb 21 04:08:10 localhost kernel: [    0.399127] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.407469] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.414286] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.421244] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.428378] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.435737] TCP: Hash tables configured (established 8192 bind 8192)
+Feb 21 04:08:10 localhost kernel: [    0.439751] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.443526] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+Feb 21 04:08:10 localhost kernel: [    0.448178] NET: Registered PF_UNIX/PF_LOCAL protocol family
+Feb 21 04:08:10 localhost kernel: [    0.453204] RPC: Registered named UNIX socket transport module.
+Feb 21 04:08:10 localhost kernel: [    0.456992] RPC: Registered udp transport module.
+Feb 21 04:08:10 localhost kernel: [    0.460692] RPC: Registered tcp transport module.
+Feb 21 04:08:10 localhost kernel: [    0.464257] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Feb 21 04:08:10 localhost kernel: [    0.467796] PCI: CLS 0 bytes, default 64
+Feb 21 04:08:10 localhost kernel: [    0.473829] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+Feb 21 04:08:10 localhost kernel: [    0.481008] kvm [1]: IPA Size Limit: 40 bits
+Feb 21 04:08:10 localhost kernel: [    0.486126] kvm [1]: Hyp mode initialized successfully
+Feb 21 04:08:10 localhost kernel: [    1.742900] Initialise system trusted keyrings
+Feb 21 04:08:10 localhost kernel: [    1.746790] workingset: timestamp_bits=46 max_order=18 bucket_order=0
+Feb 21 04:08:10 localhost kernel: [    1.761027] zbud: loaded
+Feb 21 04:08:10 localhost kernel: [    1.767110] FS-Cache: Netfs 'nfs' registered for caching
+Feb 21 04:08:10 localhost kernel: [    1.771339] NFS: Registering the id_resolver key type
+Feb 21 04:08:10 localhost kernel: [    1.774572] Key type id_resolver registered
+Feb 21 04:08:10 localhost kernel: [    1.777664] Key type id_legacy registered
+Feb 21 04:08:10 localhost kernel: [    1.780766] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Feb 21 04:08:10 localhost kernel: [    1.783795] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+Feb 21 04:08:10 localhost kernel: [    1.791437] Key type asymmetric registered
+Feb 21 04:08:10 localhost kernel: [    1.794338] Asymmetric key parser 'x509' registered
+Feb 21 04:08:10 localhost kernel: [    1.797294] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+Feb 21 04:08:10 localhost kernel: [    1.803304] io scheduler mq-deadline registered
+Feb 21 04:08:10 localhost kernel: [    1.806144] io scheduler kyber registered
+Feb 21 04:08:10 localhost kernel: [    1.826744] bcm2835-rng 3f104000.rng: hwrng registered
+Feb 21 04:08:10 localhost kernel: [    1.830578] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+Feb 21 04:08:10 localhost kernel: [    1.838514] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+Feb 21 04:08:10 localhost kernel: [    1.863954] brd: module loaded
+Feb 21 04:08:10 localhost kernel: [    1.881965] loop: module loaded
+Feb 21 04:08:10 localhost kernel: [    1.885916] Loading iSCSI transport class v2.0-870.
+Feb 21 04:08:10 localhost kernel: [    1.895903] usbcore: registered new interface driver r8152
+Feb 21 04:08:10 localhost kernel: [    1.899037] usbcore: registered new interface driver lan78xx
+Feb 21 04:08:10 localhost kernel: [    1.901982] usbcore: registered new interface driver smsc95xx
+Feb 21 04:08:10 localhost kernel: [    1.905418] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+Feb 21 04:08:10 localhost kernel: [    2.636791] Core Release: 2.80a
+Feb 21 04:08:10 localhost kernel: [    2.639573] Setting default values for core params
+Feb 21 04:08:10 localhost kernel: [    2.642366] Finished setting default values for core params
+Feb 21 04:08:10 localhost kernel: [    2.845690] Using Buffer DMA mode
+Feb 21 04:08:10 localhost kernel: [    2.848439] Periodic Transfer Interrupt Enhancement - disabled
+Feb 21 04:08:10 localhost kernel: [    2.851250] Multiprocessor Interrupt Enhancement - disabled
+Feb 21 04:08:10 localhost kernel: [    2.854011] OTG VER PARAM: 0, OTG VER FLAG: 0
+Feb 21 04:08:10 localhost kernel: [    2.856746] Dedicated Tx FIFOs mode
+Feb 21 04:08:10 localhost kernel: [    2.864132] 
+Feb 21 04:08:10 localhost kernel: [    2.864150] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = ffffffc008471000 dma = 0x00000000df000000 len=9024
+Feb 21 04:08:10 localhost kernel: [    2.872094] FIQ FSM acceleration enabled for :
+Feb 21 04:08:10 localhost kernel: [    2.872094] Non-periodic Split Transactions
+Feb 21 04:08:10 localhost kernel: [    2.872094] Periodic Split Transactions
+Feb 21 04:08:10 localhost kernel: [    2.872094] High-Speed Isochronous Endpoints
+Feb 21 04:08:10 localhost kernel: [    2.872094] Interrupt/Control Split Transaction hack enabled
+Feb 21 04:08:10 localhost kernel: [    2.885077] 
+Feb 21 04:08:10 localhost kernel: [    2.885090] WARN::hcd_init_fiq:497: MPHI regs_base at ffffffc00806d000
+Feb 21 04:08:10 localhost kernel: [    2.890055] dwc_otg 3f980000.usb: DWC OTG Controller
+Feb 21 04:08:10 localhost kernel: [    2.892650] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+Feb 21 04:08:10 localhost kernel: [    2.897819] dwc_otg 3f980000.usb: irq 74, io mem 0x00000000
+Feb 21 04:08:10 localhost kernel: [    2.900604] Init: Port Power? op_state=1
+Feb 21 04:08:10 localhost kernel: [    2.903383] Init: Power Port (0)
+Feb 21 04:08:10 localhost kernel: [    2.906626] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.15
+Feb 21 04:08:10 localhost kernel: [    2.912174] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Feb 21 04:08:10 localhost kernel: [    2.917906] usb usb1: Product: DWC OTG Controller
+Feb 21 04:08:10 localhost kernel: [    2.920813] usb usb1: Manufacturer: Linux 5.15.84-v8+ dwc_otg_hcd
+Feb 21 04:08:10 localhost kernel: [    2.923784] usb usb1: SerialNumber: 3f980000.usb
+Feb 21 04:08:10 localhost kernel: [    2.927733] hub 1-0:1.0: USB hub found
+Feb 21 04:08:10 localhost kernel: [    2.930707] hub 1-0:1.0: 1 port detected
+Feb 21 04:08:10 localhost kernel: [    2.935692] usbcore: registered new interface driver uas
+Feb 21 04:08:10 localhost kernel: [    2.938697] usbcore: registered new interface driver usb-storage
+Feb 21 04:08:10 localhost kernel: [    2.942029] mousedev: PS/2 mouse device common for all mice
+Feb 21 04:08:10 localhost kernel: [    2.950491] sdhci: Secure Digital Host Controller Interface driver
+Feb 21 04:08:10 localhost kernel: [    2.953370] sdhci: Copyright(c) Pierre Ossman
+Feb 21 04:08:10 localhost kernel: [    2.956977] sdhci-pltfm: SDHCI platform and OF driver helper
+Feb 21 04:08:10 localhost kernel: [    2.963987] ledtrig-cpu: registered to indicate activity on CPUs
+Feb 21 04:08:10 localhost kernel: [    2.967886] hid: raw HID events driver (C) Jiri Kosina
+Feb 21 04:08:10 localhost kernel: [    2.971006] usbcore: registered new interface driver usbhid
+Feb 21 04:08:10 localhost kernel: [    2.973892] usbhid: USB HID core driver
+Feb 21 04:08:10 localhost kernel: [    2.977110] ashmem: initialized
+Feb 21 04:08:10 localhost kernel: [    2.988247] NET: Registered PF_PACKET protocol family
+Feb 21 04:08:10 localhost kernel: [    2.991233] Key type dns_resolver registered
+Feb 21 04:08:10 localhost kernel: [    2.995837] registered taskstats version 1
+Feb 21 04:08:10 localhost kernel: [    2.998570] Loading compiled-in X.509 certificates
+Feb 21 04:08:10 localhost kernel: [    3.002226] Key type .fscrypt registered
+Feb 21 04:08:10 localhost kernel: [    3.004863] Key type fscrypt-provisioning registered
+Feb 21 04:08:10 localhost kernel: [    3.026228] uart-pl011 3f201000.serial: cts_event_workaround enabled
+Feb 21 04:08:10 localhost kernel: [    3.029041] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 99, base_baud = 0) is a PL011 rev2
+Feb 21 04:08:10 localhost kernel: [    3.041258] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+Feb 21 04:08:10 localhost kernel: [    3.044691] bcm2835-power bcm2835-power: Broadcom BCM2835 power domains driver
+Feb 21 04:08:10 localhost kernel: [    3.045570] Indeed it is in host mode hprt0 = 00021501
+Feb 21 04:08:10 localhost kernel: [    3.052780] mmc-bcm2835 3f300000.mmcnr: mmc_debug:0 mmc_debug2:0
+Feb 21 04:08:10 localhost kernel: [    3.055661] mmc-bcm2835 3f300000.mmcnr: DMA channel allocated
+Feb 21 04:08:10 localhost kernel: [    3.085829] sdhost: log_buf @ 00000000e98bc777 (c2691000)
+Feb 21 04:08:10 localhost kernel: [    3.159176] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+Feb 21 04:08:10 localhost kernel: [    3.167211] of_cfs_init
+Feb 21 04:08:10 localhost kernel: [    3.170262] of_cfs_init: OK
+Feb 21 04:08:10 localhost kernel: [    3.174884] Waiting for root device PARTUUID=96427aa2-02...
+Feb 21 04:08:10 localhost kernel: [    3.229757] mmc0: host does not support reading read-only switch, assuming write-enable
+Feb 21 04:08:10 localhost kernel: [    3.237362] usb 1-1: new high-speed USB device number 2 using dwc_otg
+Feb 21 04:08:10 localhost kernel: [    3.240548] Indeed it is in host mode hprt0 = 00001101
+Feb 21 04:08:10 localhost kernel: [    3.241323] mmc0: new high speed SDHC card at address aaaa
+Feb 21 04:08:10 localhost kernel: [    3.248442] mmcblk0: mmc0:aaaa SC16G 14.8 GiB 
+Feb 21 04:08:10 localhost kernel: [    3.260633]  mmcblk0: p1 p2 p3 p4
+Feb 21 04:08:10 localhost kernel: [    3.266768] mmc1: new high speed SDIO card at address 0001
+Feb 21 04:08:10 localhost kernel: [    3.271467] mmcblk0: mmc0:aaaa SC16G 14.8 GiB (quirks 0x00004000)
+Feb 21 04:08:10 localhost kernel: [    3.305181] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+Feb 21 04:08:10 localhost kernel: [    3.311512] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+Feb 21 04:08:10 localhost kernel: [    3.326050] devtmpfs: mounted
+Feb 21 04:08:10 localhost kernel: [    3.340751] Freeing unused kernel memory: 3776K
+Feb 21 04:08:10 localhost kernel: [    3.344033] Run /sbin/init as init process
+Feb 21 04:08:10 localhost kernel: [    3.449938] usb 1-1: New USB device found, idVendor=0424, idProduct=9514, bcdDevice= 2.00
+Feb 21 04:08:10 localhost kernel: [    3.456022] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Feb 21 04:08:10 localhost kernel: [    3.460450] hub 1-1:1.0: USB hub found
+Feb 21 04:08:10 localhost kernel: [    3.464023] hub 1-1:1.0: 5 ports detected
+Feb 21 04:08:10 localhost kernel: [    3.757364] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+Feb 21 04:08:10 localhost kernel: [    3.857899] usb 1-1.1: New USB device found, idVendor=0424, idProduct=ec00, bcdDevice= 2.00
+Feb 21 04:08:10 localhost kernel: [    3.864213] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Feb 21 04:08:10 localhost kernel: [    3.874046] smsc95xx v2.0.0
+Feb 21 04:08:10 localhost kernel: [    4.122502] SMSC LAN8700 usb-001:003:01: attached PHY driver (mii_bus:phy_addr=usb-001:003:01, irq=POLL)
+Feb 21 04:08:10 localhost kernel: [    4.130229] smsc95xx 1-1.1:1.0 eth0: register 'smsc95xx' at usb-3f980000.usb-1.1, smsc95xx USB 2.0 Ethernet, b8:27:eb:89:43:91
+Feb 21 04:08:10 localhost kernel: [    4.264472] NET: Registered PF_INET6 protocol family
+Feb 21 04:08:10 localhost kernel: [    4.270625] Segment Routing with IPv6
+Feb 21 04:08:10 localhost kernel: [    4.274117] In-situ OAM (IOAM) with IPv6
+Feb 21 04:08:10 localhost kernel: [    6.396724] fuse: init (API version 7.34)
+Feb 21 04:08:10 localhost kernel: [    7.119810] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null). Quota mode: none.
+Feb 21 04:08:10 localhost kernel: [    8.680488] vc_sm_cma: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.692047] bcm2835_vc_sm_cma_probe: Videocore shared memory driver
+Feb 21 04:08:10 localhost kernel: [    8.692104] [vc_sm_connected_init]: start
+Feb 21 04:08:10 localhost kernel: [    8.710999] [vc_sm_connected_init]: installed successfully
+Feb 21 04:08:10 localhost kernel: [    8.712701] mc: Linux media interface: v0.10
+Feb 21 04:08:10 localhost kernel: [    8.812795] videodev: Linux video capture interface: v2.00
+Feb 21 04:08:10 localhost kernel: [    8.897158] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.899411] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.931232] bcm2835_v4l2: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.953236] bcm2835_isp: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.978484] bcm2835-isp bcm2835-isp: Device node output[0] registered as /dev/video13
+Feb 21 04:08:10 localhost kernel: [    8.980227] snd_bcm2835: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    8.982258] bcm2835-isp bcm2835-isp: Device node capture[0] registered as /dev/video14
+Feb 21 04:08:10 localhost kernel: [    8.982991] bcm2835-isp bcm2835-isp: Device node capture[1] registered as /dev/video15
+Feb 21 04:08:10 localhost kernel: [    8.986915] bcm2835-isp bcm2835-isp: Device node stats[2] registered as /dev/video16
+Feb 21 04:08:10 localhost kernel: [    8.987005] bcm2835-isp bcm2835-isp: Register output node 0 with media controller
+Feb 21 04:08:10 localhost kernel: [    8.987041] bcm2835-isp bcm2835-isp: Register capture node 1 with media controller
+Feb 21 04:08:10 localhost kernel: [    8.987070] bcm2835-isp bcm2835-isp: Register capture node 2 with media controller
+Feb 21 04:08:10 localhost kernel: [    8.987114] bcm2835-isp bcm2835-isp: Register capture node 3 with media controller
+Feb 21 04:08:10 localhost kernel: [    8.999616] bcm2835-isp bcm2835-isp: Device node output[0] registered as /dev/video20
+Feb 21 04:08:10 localhost kernel: [    9.000330] bcm2835-isp bcm2835-isp: Device node capture[0] registered as /dev/video21
+Feb 21 04:08:10 localhost kernel: [    9.000951] bcm2835-isp bcm2835-isp: Device node capture[1] registered as /dev/video22
+Feb 21 04:08:10 localhost kernel: [    9.006032] bcm2835-isp bcm2835-isp: Device node stats[2] registered as /dev/video23
+Feb 21 04:08:10 localhost kernel: [    9.006094] bcm2835-isp bcm2835-isp: Register output node 0 with media controller
+Feb 21 04:08:10 localhost kernel: [    9.006128] bcm2835-isp bcm2835-isp: Register capture node 1 with media controller
+Feb 21 04:08:10 localhost kernel: [    9.006157] bcm2835-isp bcm2835-isp: Register capture node 2 with media controller
+Feb 21 04:08:10 localhost kernel: [    9.006185] bcm2835-isp bcm2835-isp: Register capture node 3 with media controller
+Feb 21 04:08:10 localhost kernel: [    9.006538] bcm2835-isp bcm2835-isp: Loaded V4L2 bcm2835-isp
+Feb 21 04:08:10 localhost kernel: [    9.009588] bcm2835_audio bcm2835_audio: card created with 8 channels
+Feb 21 04:08:10 localhost kernel: [    9.010123] bcm2835_codec: module is from the staging directory, the quality is unknown, you have been warned.
+Feb 21 04:08:10 localhost kernel: [    9.018873] bcm2835-codec bcm2835-codec: Device registered as /dev/video10
+Feb 21 04:08:10 localhost kernel: [    9.018997] bcm2835-codec bcm2835-codec: Loaded V4L2 decode
+Feb 21 04:08:10 localhost kernel: [    9.023056] bcm2835-codec bcm2835-codec: Device registered as /dev/video11
+Feb 21 04:08:10 localhost kernel: [    9.023135] bcm2835-codec bcm2835-codec: Loaded V4L2 encode
+Feb 21 04:08:10 localhost kernel: [    9.039352] bcm2835-codec bcm2835-codec: Device registered as /dev/video12
+Feb 21 04:08:10 localhost kernel: [    9.039433] bcm2835-codec bcm2835-codec: Loaded V4L2 isp
+Feb 21 04:08:10 localhost kernel: [    9.044969] bcm2835-codec bcm2835-codec: Device registered as /dev/video18
+Feb 21 04:08:10 localhost kernel: [    9.045063] bcm2835-codec bcm2835-codec: Loaded V4L2 image_fx
+Feb 21 04:08:10 localhost kernel: [    9.048861] bcm2835-codec bcm2835-codec: Device registered as /dev/video31
+Feb 21 04:08:10 localhost kernel: [    9.048939] bcm2835-codec bcm2835-codec: Loaded V4L2 encode_image
+Feb 21 04:08:10 localhost kernel: [    9.563615] EXT4-fs (mmcblk0p4): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+Feb 21 04:08:10 localhost kernel: [    9.709836] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Feb 21 04:08:10 localhost kernel: [    9.767016] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Feb 21 04:08:10 localhost kernel: [    9.790148] cfg80211: loaded regulatory.db is malformed or signature is missing/invalid
+Feb 21 04:08:10 localhost kernel: [   10.205217] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43430-sdio for chip BCM43430/1
+Feb 21 04:08:10 localhost kernel: [   10.206358] usbcore: registered new interface driver brcmfmac
+Feb 21 04:08:10 localhost kernel: [   10.465228] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43430-sdio for chip BCM43430/1
+Feb 21 04:08:10 localhost kernel: [   10.478173] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM43430/1 wl0: Jul 19 2021 03:24:18 version 7.45.98 (TOB) (56df937 CY) FWID 01-8e14b897
+Feb 21 04:08:10 localhost kernel: [   10.655539] fb0: switching to vc4 from simple
+Feb 21 04:08:10 localhost kernel: [   10.661886] Console: switching to colour dummy device 80x25
+Feb 21 04:08:10 localhost kernel: [   10.669840] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.682249] Registered IR keymap rc-cec
+Feb 21 04:08:10 localhost kernel: [   10.682587] rc rc0: vc4 as /devices/platform/soc/3f902000.hdmi/rc/rc0
+Feb 21 04:08:10 localhost kernel: [   10.682952] input: vc4 as /devices/platform/soc/3f902000.hdmi/rc/rc0/input0
+Feb 21 04:08:10 localhost kernel: [   10.809642] vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.810327] vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.810921] vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops vc4_crtc_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.811450] vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops vc4_crtc_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.827320] vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops vc4_crtc_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.828022] vc4-drm soc:gpu: bound 3fc00000.v3d (ops vc4_v3d_ops [vc4])
+Feb 21 04:08:10 localhost kernel: [   10.855552] [drm] Initialized vc4 0.0.0 20140616 for soc:gpu on minor 0
+Feb 21 04:08:10 localhost kernel: [   10.922151] Console: switching to colour frame buffer device 80x30
+Feb 21 04:08:10 localhost kernel: [   10.943240] vc4-drm soc:gpu: [drm] fb0: vc4drmfb frame buffer device
+Feb 21 04:08:10 localhost kernel: [   12.438237] uart-pl011 3f201000.serial: no DMA platform data
+Feb 21 04:08:10 localhost mtp-probe: checking bus 1, device 3: "/sys/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1"
+Feb 21 04:08:10 localhost mtp-probe: bus: 1, device: 3 was not an MTP device
+Feb 21 04:08:10 localhost rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2102.0]
+Feb 21 04:08:10 localhost rsyslogd: [origin software="rsyslogd" swVersion="8.2102.0" x-pid="444" x-info="https://www.rsyslog.com"] start
+Feb 21 04:08:10 localhost kernel: [   13.086667] Adding 102396k swap on /var/swap.  Priority:-2 extents:1 across:102396k SSFS
+Feb 21 04:08:15 localhost kernel: [   18.180006] Bluetooth: Core ver 2.22
+Feb 21 04:08:15 localhost kernel: [   18.180180] NET: Registered PF_BLUETOOTH protocol family
+Feb 21 04:08:15 localhost kernel: [   18.180191] Bluetooth: HCI device and connection manager initialized
+Feb 21 04:08:15 localhost kernel: [   18.180218] Bluetooth: HCI socket layer initialized
+Feb 21 04:08:15 localhost kernel: [   18.180234] Bluetooth: L2CAP socket layer initialized
+Feb 21 04:08:15 localhost kernel: [   18.180264] Bluetooth: SCO socket layer initialized
+Feb 21 04:08:15 localhost kernel: [   18.196538] Bluetooth: HCI UART driver ver 2.3
+Feb 21 04:08:15 localhost kernel: [   18.196570] Bluetooth: HCI UART protocol H4 registered
+Feb 21 04:08:15 localhost kernel: [   18.196677] Bluetooth: HCI UART protocol Three-wire (H5) registered
+Feb 21 04:08:15 localhost kernel: [   18.197018] Bluetooth: HCI UART protocol Broadcom registered
+Feb 21 04:08:16 localhost kernel: [   18.897529] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Feb 21 04:08:16 localhost kernel: [   18.897558] Bluetooth: BNEP filters: protocol multicast
+Feb 21 04:08:16 localhost kernel: [   18.897583] Bluetooth: BNEP socket layer initialized
+Feb 21 04:08:16 localhost kernel: [   18.922325] NET: Registered PF_ALG protocol family
+Feb 21 04:08:27 localhost kernel: [   29.498837] 8021q: 802.1Q VLAN Support v1.8
+Feb 21 04:08:27 localhost kernel: [   29.880159] smsc95xx 1-1.1:1.0 eth0: hardware isn't capable of remote wakeup
+Feb 21 04:08:27 localhost kernel: [   30.003201] smsc95xx 1-1.1:1.0 eth0: Link is Down
+Feb 21 04:08:29 localhost kernel: [   32.126377] smsc95xx 1-1.1:1.0 eth0: Link is Up - 100Mbps/Full - flow control off
+Feb 21 04:08:29 localhost kernel: [   32.126460] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Feb 21 04:08:31 localhost kernel: [   33.757329] cam-dummy-reg: disabling
+Feb 21 04:08:36 localhost rfkill: unblock set for type wlan
+Feb 21 04:08:36 localhost rfkill: unblock set for type wifi
+Feb 21 04:08:36 localhost kernel: [   38.689968] brcmfmac: brcmf_cfg80211_set_power_mgmt: power save disabled
+Apr  7 03:45:29 localhost kernel: [   42.433149] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+Apr  7 03:45:29 localhost kernel: [   42.438892] Bridge firewalling registered
+Apr  7 03:45:30 localhost kernel: [   43.014291] Initializing XFRM netlink socket
+Apr  7 03:46:14 localhost kernel: [   87.334933] br-46df242588a3: port 1(veth07a71e9) entered blocking state
+Apr  7 03:46:14 localhost kernel: [   87.334978] br-46df242588a3: port 1(veth07a71e9) entered disabled state
+Apr  7 03:46:14 localhost kernel: [   87.335364] device veth07a71e9 entered promiscuous mode
+Apr  7 03:46:14 localhost kernel: [   87.455059] IPv6: ADDRCONF(NETDEV_CHANGE): veth0b8376f: link becomes ready
+Apr  7 03:46:14 localhost kernel: [   87.455250] IPv6: ADDRCONF(NETDEV_CHANGE): veth07a71e9: link becomes ready
+Apr  7 03:46:14 localhost kernel: [   87.455387] br-46df242588a3: port 1(veth07a71e9) entered blocking state
+Apr  7 03:46:14 localhost kernel: [   87.455404] br-46df242588a3: port 1(veth07a71e9) entered forwarding state
+Apr  7 03:46:14 localhost kernel: [   87.455611] IPv6: ADDRCONF(NETDEV_CHANGE): br-46df242588a3: link becomes ready
+Apr  7 03:46:16 localhost kernel: [   89.534224] br-46df242588a3: port 1(veth07a71e9) entered disabled state
+Apr  7 03:46:16 localhost kernel: [   89.535678] eth0: renamed from veth0b8376f
+Apr  7 03:46:16 localhost kernel: [   89.559064] br-46df242588a3: port 1(veth07a71e9) entered blocking state
+Apr  7 03:46:16 localhost kernel: [   89.559096] br-46df242588a3: port 1(veth07a71e9) entered forwarding state
+Apr  7 02:47:03 localhost mtp-probe: checking bus 1, device 3: "/sys/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1"
+Apr  7 02:47:03 localhost mtp-probe: bus: 1, device: 3 was not an MTP device
+Apr  7 02:47:03 localhost kernel: [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+Apr  7 02:47:03 localhost kernel: [    0.000000] Linux version 5.15.84-v8+ (dom@buildbot) (aarch64-linux-gnu-gcc-8 (Ubuntu/Linaro 8.4.0-3ubuntu1) 8.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #1613 SMP PREEMPT Thu Jan 5 12:03:08 GMT 2023
+Apr  7 02:47:03 localhost kernel: [    0.000000] random: crng init done
+Apr  7 02:47:03 localhost kernel: [    0.000000] Machine model: Raspberry Pi 3 Model B Rev 1.2
+Apr  7 02:47:03 localhost kernel: [    0.000000] efi: UEFI not found.
+Apr  7 02:47:03 localhost kernel: [    0.000000] Reserved memory: created CMA memory pool at 0x0000000037400000, size 64 MiB
+Apr  7 02:47:03 localhost kernel: [    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+Apr  7 02:47:03 localhost kernel: [    0.000000] Zone ranges:
+Apr  7 02:47:03 localhost kernel: [    0.000000]   DMA      [mem 0x0000000000000000-0x000000003b3fffff]
+Apr  7 02:47:03 localhost kernel: [    0.000000]   DMA32    empty
+Apr  7 02:47:03 localhost kernel: [    0.000000]   Normal   empty
+Apr  7 02:47:03 localhost kernel: [    0.000000] Movable zone start for each node
+Apr  7 02:47:03 localhost kernel: [    0.000000] Early memory node ranges
+Apr  7 02:47:03 localhost kernel: [    0.000000]   node   0: [mem 0x0000000000000000-0x000000003b3fffff]
+Apr  7 02:47:03 localhost kernel: [    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000003b3fffff]
+Apr  7 02:47:03 localhost kernel: [    0.000000] On node 0, zone DMA: 19456 pages in unavailable ranges
+Apr  7 02:47:03 localhost kernel: [    0.000000] percpu: Embedded 28 pages/cpu s77336 r8192 d29160 u114688
+Apr  7 02:47:03 localhost kernel: [    0.000000] Detected VIPT I-cache on CPU0
+Apr  7 02:47:03 localhost kernel: [    0.000000] CPU features: kernel page table isolation forced ON by KASLR
+Apr  7 02:47:03 localhost kernel: [    0.000000] CPU features: detected: Kernel page table isolation (KPTI)
+Apr  7 02:47:03 localhost kernel: [    0.000000] CPU features: detected: ARM erratum 843419
+Apr  7 02:47:03 localhost kernel: [    0.000000] CPU features: detected: ARM erratum 845719
+Apr  7 02:47:03 localhost kernel: [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 238896
+Apr  7 02:47:03 localhost kernel: [    0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 bcm2708_fb.fbwidth=800 bcm2708_fb.fbheight=480 bcm2708_fb.fbswap=1 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  console=ttyS0,115200 console=tty1 root=PARTUUID=96427aa2-02 cgroup_enable=memory cgroup_memory=1 systemd.unified_cgroup_hierarchy=0 rootfstype=ext4 fsck.repair=yes rootwait
+Apr  7 02:47:03 localhost kernel: [    0.000000] cgroup: Enabling memory control group subsystem
+Apr  7 02:47:03 localhost kernel: [    0.000000] Unknown kernel command line parameters "cgroup_memory=1", will be passed to user space.
+Apr  7 02:47:03 localhost kernel: [    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+Apr  7 02:47:03 localhost kernel: [    0.000000] Memory: 862144K/970752K available (11520K kernel code, 1956K rwdata, 4136K rodata, 3776K init, 975K bss, 43072K reserved, 65536K cma-reserved)
+Apr  7 02:47:03 localhost kernel: [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Apr  7 02:47:03 localhost kernel: [    0.000000] ftrace: allocating 38065 entries in 149 pages
+Apr  7 02:47:03 localhost kernel: [    0.000000] ftrace: allocated 149 pages with 4 groups
+Apr  7 02:47:03 localhost kernel: [    0.000000] trace event string verifier disabled
+Apr  7 02:47:03 localhost kernel: [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+Apr  7 02:47:03 localhost kernel: [    0.000000] rcu: 	RCU event tracing is enabled.
+Apr  7 02:47:03 localhost kernel: [    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+Apr  7 02:47:03 localhost kernel: [    0.000000] 	Trampoline variant of Tasks RCU enabled.
+Apr  7 02:47:03 localhost kernel: [    0.000000] 	Rude variant of Tasks RCU enabled.
+Apr  7 02:47:03 localhost kernel: [    0.000000] 	Tracing variant of Tasks RCU enabled.
+Apr  7 02:47:03 localhost kernel: [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+Apr  7 02:47:03 localhost kernel: [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+Apr  7 02:47:03 localhost kernel: [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Apr  7 02:47:03 localhost kernel: [    0.000000] Root IRQ handler: bcm2836_arm_irqchip_handle_irq
+Apr  7 02:47:03 localhost kernel: [    0.000000] arch_timer: cp15 timer(s) running at 19.20MHz (phys).
+Apr  7 02:47:03 localhost kernel: [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+Apr  7 02:47:03 localhost kernel: [    0.000001] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+Apr  7 02:47:03 localhost kernel: [    0.000388] Console: colour dummy device 80x25
+Apr  7 02:47:03 localhost kernel: [    0.001375] printk: console [tty1] enabled
+Apr  7 02:47:03 localhost kernel: [    0.001458] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
+Apr  7 02:47:03 localhost kernel: [    0.001524] pid_max: default: 32768 minimum: 301
+Apr  7 02:47:03 localhost kernel: [    0.001734] LSM: Security Framework initializing
+Apr  7 02:47:03 localhost kernel: [    0.002018] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.002086] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.007370] rcu: Hierarchical SRCU implementation.
+Apr  7 02:47:03 localhost kernel: [    0.008982] EFI services will not be available.
+Apr  7 02:47:03 localhost kernel: [    0.009748] smp: Bringing up secondary CPUs ...
+Apr  7 02:47:03 localhost kernel: [    0.011334] Detected VIPT I-cache on CPU1
+Apr  7 02:47:03 localhost kernel: [    0.011428] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+Apr  7 02:47:03 localhost kernel: [    0.013222] Detected VIPT I-cache on CPU2
+Apr  7 02:47:03 localhost kernel: [    0.013287] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+Apr  7 02:47:03 localhost kernel: [    0.014952] Detected VIPT I-cache on CPU3
+Apr  7 02:47:03 localhost kernel: [    0.015009] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+Apr  7 02:47:03 localhost kernel: [    0.015239] smp: Brought up 1 node, 4 CPUs
+Apr  7 02:47:03 localhost kernel: [    0.015395] SMP: Total of 4 processors activated.
+Apr  7 02:47:03 localhost kernel: [    0.015429] CPU features: detected: 32-bit EL0 Support
+Apr  7 02:47:03 localhost kernel: [    0.015461] CPU features: detected: 32-bit EL1 Support
+Apr  7 02:47:03 localhost kernel: [    0.015496] CPU features: detected: CRC32 instructions
+Apr  7 02:47:03 localhost kernel: [    0.058028] CPU: All CPU(s) started at EL2
+Apr  7 02:47:03 localhost kernel: [    0.058174] alternatives: patching kernel code
+Apr  7 02:47:03 localhost kernel: [    0.060193] devtmpfs: initialized
+Apr  7 02:47:03 localhost kernel: [    0.083416] Enabled cp15_barrier support
+Apr  7 02:47:03 localhost kernel: [    0.083499] Enabled setend support
+Apr  7 02:47:03 localhost kernel: [    0.083544] KASLR enabled
+Apr  7 02:47:03 localhost kernel: [    0.083866] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Apr  7 02:47:03 localhost kernel: [    0.083938] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.087155] pinctrl core: initialized pinctrl subsystem
+Apr  7 02:47:03 localhost kernel: [    0.088426] DMI not present or invalid.
+Apr  7 02:47:03 localhost kernel: [    0.089451] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Apr  7 02:47:03 localhost kernel: [    0.101016] DMA: preallocated 1024 KiB GFP_KERNEL pool for atomic allocations
+Apr  7 02:47:03 localhost kernel: [    0.101632] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+Apr  7 02:47:03 localhost kernel: [    0.103147] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+Apr  7 02:47:03 localhost kernel: [    0.103337] audit: initializing netlink subsys (disabled)
+Apr  7 02:47:03 localhost kernel: [    0.103800] audit: type=2000 audit(0.100:1): state=initialized audit_enabled=0 res=1
+Apr  7 02:47:03 localhost kernel: [    0.104770] thermal_sys: Registered thermal governor 'step_wise'
+Apr  7 02:47:03 localhost kernel: [    0.105092] cpuidle: using governor menu
+Apr  7 02:47:03 localhost kernel: [    0.105766] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+Apr  7 02:47:03 localhost kernel: [    0.106076] ASID allocator initialised with 32768 entries
+Apr  7 02:47:03 localhost kernel: [    0.106348] Serial: AMBA PL011 UART driver
+Apr  7 02:47:03 localhost kernel: [    0.119443] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+Apr  7 02:47:03 localhost kernel: [    0.144660] raspberrypi-firmware soc:firmware: Attached to firmware from 2023-02-22T10:48:01, variant start
+Apr  7 02:47:03 localhost kernel: [    0.148678] raspberrypi-firmware soc:firmware: Firmware hash is 74a4b109e7f5be465332a1f102649d34f8498d05
+Apr  7 02:47:03 localhost kernel: [    0.210395] bcm2835-dma 3f007000.dma: DMA legacy API manager, dmachans=0x1
+Apr  7 02:47:03 localhost kernel: [    0.215941] vgaarb: loaded
+Apr  7 02:47:03 localhost kernel: [    0.216639] SCSI subsystem initialized
+Apr  7 02:47:03 localhost kernel: [    0.217035] usbcore: registered new interface driver usbfs
+Apr  7 02:47:03 localhost kernel: [    0.217143] usbcore: registered new interface driver hub
+Apr  7 02:47:03 localhost kernel: [    0.217261] usbcore: registered new device driver usb
+Apr  7 02:47:03 localhost kernel: [    0.217787] usb_phy_generic phy: supply vcc not found, using dummy regulator
+Apr  7 02:47:03 localhost kernel: [    0.218132] usb_phy_generic phy: dummy supplies not allowed for exclusive requests
+Apr  7 02:47:03 localhost kernel: [    0.218548] pps_core: LinuxPPS API ver. 1 registered
+Apr  7 02:47:03 localhost kernel: [    0.218586] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+Apr  7 02:47:03 localhost kernel: [    0.218651] PTP clock support registered
+Apr  7 02:47:03 localhost kernel: [    0.221047] clocksource: Switched to clocksource arch_sys_counter
+Apr  7 02:47:03 localhost kernel: [    0.345829] VFS: Disk quotas dquot_6.6.0
+Apr  7 02:47:03 localhost kernel: [    0.346008] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+Apr  7 02:47:03 localhost kernel: [    0.346292] FS-Cache: Loaded
+Apr  7 02:47:03 localhost kernel: [    0.346624] CacheFiles: Loaded
+Apr  7 02:47:03 localhost kernel: [    0.362336] NET: Registered PF_INET protocol family
+Apr  7 02:47:03 localhost kernel: [    0.362704] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.364790] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.364876] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.364935] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.365136] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.365377] TCP: Hash tables configured (established 8192 bind 8192)
+Apr  7 02:47:03 localhost kernel: [    0.365686] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.365773] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+Apr  7 02:47:03 localhost kernel: [    0.366738] NET: Registered PF_UNIX/PF_LOCAL protocol family
+Apr  7 02:47:03 localhost kernel: [    0.368033] RPC: Registered named UNIX socket transport module.
+Apr  7 02:47:03 localhost kernel: [    0.368077] RPC: Registered udp transport module.
+Apr  7 02:47:03 localhost kernel: [    0.368111] RPC: Registered tcp transport module.
+Apr  7 02:47:03 localhost kernel: [    0.368144] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Apr  7 02:47:03 localhost kernel: [    0.368191] PCI: CLS 0 bytes, default 64
+Apr  7 02:47:03 localhost kernel: [    0.370384] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+Apr  7 02:47:03 localhost kernel: [    0.370744] kvm [1]: IPA Size Limit: 40 bits
+Apr  7 02:47:03 localhost kernel: [    0.372455] kvm [1]: Hyp mode initialized successfully
+Apr  7 02:47:03 localhost kernel: [    1.730549] Initialise system trusted keyrings
+Apr  7 02:47:03 localhost kernel: [    1.731121] workingset: timestamp_bits=46 max_order=18 bucket_order=0
+Apr  7 02:47:03 localhost kernel: [    1.742135] zbud: loaded
+Apr  7 02:47:03 localhost kernel: [    1.744996] FS-Cache: Netfs 'nfs' registered for caching
+Apr  7 02:47:03 localhost kernel: [    1.746026] NFS: Registering the id_resolver key type
+Apr  7 02:47:03 localhost kernel: [    1.746097] Key type id_resolver registered
+Apr  7 02:47:03 localhost kernel: [    1.746131] Key type id_legacy registered
+Apr  7 02:47:03 localhost kernel: [    1.746310] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Apr  7 02:47:03 localhost kernel: [    1.746353] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+Apr  7 02:47:03 localhost kernel: [    1.748120] Key type asymmetric registered
+Apr  7 02:47:03 localhost kernel: [    1.748160] Asymmetric key parser 'x509' registered
+Apr  7 02:47:03 localhost kernel: [    1.748295] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+Apr  7 02:47:03 localhost kernel: [    1.748715] io scheduler mq-deadline registered
+Apr  7 02:47:03 localhost kernel: [    1.748755] io scheduler kyber registered
+Apr  7 02:47:03 localhost kernel: [    1.757403] bcm2708_fb soc:fb: FB found 1 display(s)
+Apr  7 02:47:03 localhost kernel: [    1.778955] Console: switching to colour frame buffer device 100x30
+Apr  7 02:47:03 localhost kernel: [    1.788229] bcm2708_fb soc:fb: Registered framebuffer for display 0, size 800x480
+Apr  7 02:47:03 localhost kernel: [    1.799987] bcm2835-rng 3f104000.rng: hwrng registered
+Apr  7 02:47:03 localhost kernel: [    1.803878] vc-mem: phys_addr:0x00000000 mem_base=0x3ec00000 mem_size:0x40000000(1024 MiB)
+Apr  7 02:47:03 localhost kernel: [    1.808843] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+Apr  7 02:47:03 localhost kernel: [    1.831903] brd: module loaded
+Apr  7 02:47:03 localhost kernel: [    1.850043] loop: module loaded
+Apr  7 02:47:03 localhost kernel: [    1.854053] Loading iSCSI transport class v2.0-870.
+Apr  7 02:47:03 localhost kernel: [    1.863846] usbcore: registered new interface driver r8152
+Apr  7 02:47:03 localhost kernel: [    1.867051] usbcore: registered new interface driver lan78xx
+Apr  7 02:47:03 localhost kernel: [    1.870069] usbcore: registered new interface driver smsc95xx
+Apr  7 02:47:03 localhost kernel: [    1.873489] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+Apr  7 02:47:03 localhost kernel: [    2.604962] Core Release: 2.80a
+Apr  7 02:47:03 localhost kernel: [    2.607836] Setting default values for core params
+Apr  7 02:47:03 localhost kernel: [    2.610771] Finished setting default values for core params
+Apr  7 02:47:03 localhost kernel: [    2.814152] Using Buffer DMA mode
+Apr  7 02:47:03 localhost kernel: [    2.816966] Periodic Transfer Interrupt Enhancement - disabled
+Apr  7 02:47:03 localhost kernel: [    2.819817] Multiprocessor Interrupt Enhancement - disabled
+Apr  7 02:47:03 localhost kernel: [    2.822683] OTG VER PARAM: 0, OTG VER FLAG: 0
+Apr  7 02:47:03 localhost kernel: [    2.825549] Dedicated Tx FIFOs mode
+Apr  7 02:47:03 localhost kernel: [    2.829182] 
+Apr  7 02:47:03 localhost kernel: [    2.829199] WARN::dwc_otg_hcd_init:1074: FIQ DMA bounce buffers: virt = ffffffc008471000 dma = 0x00000000f7810000 len=9024
+Apr  7 02:47:03 localhost kernel: [    2.837531] FIQ FSM acceleration enabled for :
+Apr  7 02:47:03 localhost kernel: [    2.837531] Non-periodic Split Transactions
+Apr  7 02:47:03 localhost kernel: [    2.837531] Periodic Split Transactions
+Apr  7 02:47:03 localhost kernel: [    2.837531] High-Speed Isochronous Endpoints
+Apr  7 02:47:03 localhost kernel: [    2.837531] Interrupt/Control Split Transaction hack enabled
+Apr  7 02:47:03 localhost kernel: [    2.851380] 
+Apr  7 02:47:03 localhost kernel: [    2.851394] WARN::hcd_init_fiq:497: MPHI regs_base at ffffffc00806d000
+Apr  7 02:47:03 localhost kernel: [    2.856618] dwc_otg 3f980000.usb: DWC OTG Controller
+Apr  7 02:47:03 localhost kernel: [    2.859343] dwc_otg 3f980000.usb: new USB bus registered, assigned bus number 1
+Apr  7 02:47:03 localhost kernel: [    2.862148] dwc_otg 3f980000.usb: irq 74, io mem 0x00000000
+Apr  7 02:47:03 localhost kernel: [    2.864876] Init: Port Power? op_state=1
+Apr  7 02:47:03 localhost kernel: [    2.867610] Init: Power Port (0)
+Apr  7 02:47:03 localhost kernel: [    2.870862] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.15
+Apr  7 02:47:03 localhost kernel: [    2.873813] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Apr  7 02:47:03 localhost kernel: [    2.876713] usb usb1: Product: DWC OTG Controller
+Apr  7 02:47:03 localhost kernel: [    2.879612] usb usb1: Manufacturer: Linux 5.15.84-v8+ dwc_otg_hcd
+Apr  7 02:47:03 localhost kernel: [    2.882526] usb usb1: SerialNumber: 3f980000.usb
+Apr  7 02:47:03 localhost kernel: [    2.886436] hub 1-0:1.0: USB hub found
+Apr  7 02:47:03 localhost kernel: [    2.889338] hub 1-0:1.0: 1 port detected
+Apr  7 02:47:03 localhost kernel: [    2.894186] usbcore: registered new interface driver uas
+Apr  7 02:47:03 localhost kernel: [    2.897330] usbcore: registered new interface driver usb-storage
+Apr  7 02:47:03 localhost kernel: [    2.900375] mousedev: PS/2 mouse device common for all mice
+Apr  7 02:47:03 localhost kernel: [    2.908522] sdhci: Secure Digital Host Controller Interface driver
+Apr  7 02:47:03 localhost kernel: [    2.911327] sdhci: Copyright(c) Pierre Ossman
+Apr  7 02:47:03 localhost kernel: [    2.914590] sdhci-pltfm: SDHCI platform and OF driver helper
+Apr  7 02:47:03 localhost kernel: [    2.921092] ledtrig-cpu: registered to indicate activity on CPUs
+Apr  7 02:47:03 localhost kernel: [    2.924596] hid: raw HID events driver (C) Jiri Kosina
+Apr  7 02:47:03 localhost kernel: [    2.927560] usbcore: registered new interface driver usbhid
+Apr  7 02:47:03 localhost kernel: [    2.930495] usbhid: USB HID core driver
+Apr  7 02:47:03 localhost kernel: [    2.933723] ashmem: initialized
+Apr  7 02:47:03 localhost kernel: [    2.944797] NET: Registered PF_PACKET protocol family
+Apr  7 02:47:03 localhost kernel: [    2.947797] Key type dns_resolver registered
+Apr  7 02:47:03 localhost kernel: [    2.952378] registered taskstats version 1
+Apr  7 02:47:03 localhost kernel: [    2.955043] Loading compiled-in X.509 certificates
+Apr  7 02:47:03 localhost kernel: [    2.958586] Key type .fscrypt registered
+Apr  7 02:47:03 localhost kernel: [    2.961185] Key type fscrypt-provisioning registered
+Apr  7 02:47:03 localhost kernel: [    2.982698] uart-pl011 3f201000.serial: cts_event_workaround enabled
+Apr  7 02:47:03 localhost kernel: [    2.985572] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 99, base_baud = 0) is a PL011 rev2
+Apr  7 02:47:03 localhost kernel: [    2.994190] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+Apr  7 02:47:03 localhost kernel: [    2.997639] bcm2835-power bcm2835-power: Broadcom BCM2835 power domains driver
+Apr  7 02:47:03 localhost kernel: [    3.001291] Indeed it is in host mode hprt0 = 00021501
+Apr  7 02:47:03 localhost kernel: [    3.003220] mmc-bcm2835 3f300000.mmcnr: mmc_debug:0 mmc_debug2:0
+Apr  7 02:47:03 localhost kernel: [    3.006904] mmc-bcm2835 3f300000.mmcnr: DMA channel allocated
+Apr  7 02:47:03 localhost kernel: [    3.037006] sdhost: log_buf @ 00000000fd9672dd (c2e4e000)
+Apr  7 02:47:03 localhost kernel: [    3.110461] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+Apr  7 02:47:03 localhost kernel: [    3.118875] of_cfs_init
+Apr  7 02:47:03 localhost kernel: [    3.122012] of_cfs_init: OK
+Apr  7 02:47:03 localhost kernel: [    3.126654] Waiting for root device PARTUUID=96427aa2-02...
+Apr  7 02:47:03 localhost kernel: [    3.181304] mmc0: host does not support reading read-only switch, assuming write-enable
+Apr  7 02:47:03 localhost kernel: [    3.188679] mmc0: new high speed SDHC card at address aaaa
+Apr  7 02:47:03 localhost kernel: [    3.189104] usb 1-1: new high-speed USB device number 2 using dwc_otg
+Apr  7 02:47:03 localhost kernel: [    3.193460] mmcblk0: mmc0:aaaa SC16G 14.8 GiB 
+Apr  7 02:47:03 localhost kernel: [    3.197752] Indeed it is in host mode hprt0 = 00001101
+Apr  7 02:47:03 localhost kernel: [    3.206958]  mmcblk0: p1 p2 p3 p4
+Apr  7 02:47:03 localhost kernel: [    3.215258] mmc1: new high speed SDIO card at address 0001
+Apr  7 02:47:03 localhost kernel: [    3.219713] mmcblk0: mmc0:aaaa SC16G 14.8 GiB (quirks 0x00004000)
+Apr  7 02:47:03 localhost kernel: [    3.242425] EXT4-fs (mmcblk0p2): INFO: recovery required on readonly filesystem
+Apr  7 02:47:03 localhost kernel: [    3.245633] EXT4-fs (mmcblk0p2): write access will be enabled during recovery
+Apr  7 02:47:03 localhost kernel: [    3.405656] usb 1-1: New USB device found, idVendor=0424, idProduct=9514, bcdDevice= 2.00
+Apr  7 02:47:03 localhost kernel: [    3.409129] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Apr  7 02:47:03 localhost kernel: [    3.413658] hub 1-1:1.0: USB hub found
+Apr  7 02:47:03 localhost kernel: [    3.417091] hub 1-1:1.0: 5 ports detected
+Apr  7 02:47:03 localhost kernel: [    3.706243] EXT4-fs (mmcblk0p2): recovery complete
+Apr  7 02:47:03 localhost kernel: [    3.709091] usb 1-1.1: new high-speed USB device number 3 using dwc_otg
+Apr  7 02:47:03 localhost kernel: [    3.715819] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+Apr  7 02:47:03 localhost kernel: [    3.722008] VFS: Mounted root (ext4 filesystem) readonly on device 179:2.
+Apr  7 02:47:03 localhost kernel: [    3.725487] devtmpfs: mounted
+Apr  7 02:47:03 localhost kernel: [    3.739576] Freeing unused kernel memory: 3776K
+Apr  7 02:47:03 localhost kernel: [    3.742984] Run /sbin/init as init process
+Apr  7 02:47:03 localhost kernel: [    3.809840] usb 1-1.1: New USB device found, idVendor=0424, idProduct=ec00, bcdDevice= 2.00
+Apr  7 02:47:03 localhost kernel: [    3.813476] usb 1-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Apr  7 02:47:03 localhost kernel: [    3.820158] smsc95xx v2.0.0
+Apr  7 02:47:03 localhost kernel: [    4.278305] SMSC LAN8700 usb-001:003:01: attached PHY driver (mii_bus:phy_addr=usb-001:003:01, irq=POLL)
+Apr  7 02:47:03 localhost kernel: [    4.286409] smsc95xx 1-1.1:1.0 eth0: register 'smsc95xx' at usb-3f980000.usb-1.1, smsc95xx USB 2.0 Ethernet, b8:27:eb:89:43:91
+Apr  7 02:47:03 localhost kernel: [    4.569990] NET: Registered PF_INET6 protocol family
+Apr  7 02:47:03 localhost kernel: [    4.576439] Segment Routing with IPv6
+Apr  7 02:47:03 localhost kernel: [    4.580221] In-situ OAM (IOAM) with IPv6
+Apr  7 02:47:03 localhost kernel: [    6.681714] fuse: init (API version 7.34)
+Apr  7 02:47:03 localhost kernel: [    7.587215] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null). Quota mode: none.
+Apr  7 02:47:03 localhost kernel: [    9.210869] Driver for 1-wire Dallas network protocol.
+Apr  7 02:47:03 localhost kernel: [    9.226747] gpio-4 (onewire@4): enforced open drain please flag it properly in DT/ACPI DSDT/board file
+Apr  7 02:47:03 localhost kernel: [    9.331505] vc_sm_cma: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [    9.342033] bcm2835_vc_sm_cma_probe: Videocore shared memory driver
+Apr  7 02:47:03 localhost kernel: [    9.342084] [vc_sm_connected_init]: start
+Apr  7 02:47:03 localhost kernel: [    9.358855] mc: Linux media interface: v0.10
+Apr  7 02:47:03 localhost kernel: [    9.369279] [vc_sm_connected_init]: installed successfully
+Apr  7 02:47:03 localhost kernel: [    9.679076] snd_bcm2835: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [    9.697555] bcm2835_audio bcm2835_audio: card created with 4 channels
+Apr  7 02:47:03 localhost kernel: [    9.702612] bcm2835_audio bcm2835_audio: card created with 4 channels
+Apr  7 02:47:03 localhost kernel: [    9.751096] videodev: Linux video capture interface: v2.00
+Apr  7 02:47:03 localhost kernel: [    9.977188] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [    9.991664] bcm2835_mmal_vchiq: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [   10.056203] bcm2835_isp: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [   10.080321] bcm2835_v4l2: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [   10.084512] bcm2835-isp bcm2835-isp: Device node output[0] registered as /dev/video13
+Apr  7 02:47:03 localhost kernel: [   10.087079] bcm2835-isp bcm2835-isp: Device node capture[0] registered as /dev/video14
+Apr  7 02:47:03 localhost kernel: [   10.088518] bcm2835-isp bcm2835-isp: Device node capture[1] registered as /dev/video15
+Apr  7 02:47:03 localhost kernel: [   10.091232] bcm2835-isp bcm2835-isp: Device node stats[2] registered as /dev/video16
+Apr  7 02:47:03 localhost kernel: [   10.091298] bcm2835-isp bcm2835-isp: Register output node 0 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.091333] bcm2835-isp bcm2835-isp: Register capture node 1 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.091362] bcm2835-isp bcm2835-isp: Register capture node 2 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.091390] bcm2835-isp bcm2835-isp: Register capture node 3 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.111321] bcm2835_codec: module is from the staging directory, the quality is unknown, you have been warned.
+Apr  7 02:47:03 localhost kernel: [   10.129500] bcm2835-isp bcm2835-isp: Device node output[0] registered as /dev/video20
+Apr  7 02:47:03 localhost kernel: [   10.135670] bcm2835-isp bcm2835-isp: Device node capture[0] registered as /dev/video21
+Apr  7 02:47:03 localhost kernel: [   10.137266] bcm2835-isp bcm2835-isp: Device node capture[1] registered as /dev/video22
+Apr  7 02:47:03 localhost kernel: [   10.139227] bcm2835-isp bcm2835-isp: Device node stats[2] registered as /dev/video23
+Apr  7 02:47:03 localhost kernel: [   10.139282] bcm2835-isp bcm2835-isp: Register output node 0 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.139316] bcm2835-isp bcm2835-isp: Register capture node 1 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.139380] bcm2835-isp bcm2835-isp: Register capture node 2 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.139410] bcm2835-isp bcm2835-isp: Register capture node 3 with media controller
+Apr  7 02:47:03 localhost kernel: [   10.139719] bcm2835-isp bcm2835-isp: Loaded V4L2 bcm2835-isp
+Apr  7 02:47:03 localhost kernel: [   10.142737] bcm2835-codec bcm2835-codec: Device registered as /dev/video10
+Apr  7 02:47:03 localhost kernel: [   10.142816] bcm2835-codec bcm2835-codec: Loaded V4L2 decode
+Apr  7 02:47:03 localhost kernel: [   10.153386] bcm2835-codec bcm2835-codec: Device registered as /dev/video11
+Apr  7 02:47:03 localhost kernel: [   10.153483] bcm2835-codec bcm2835-codec: Loaded V4L2 encode
+Apr  7 02:47:03 localhost kernel: [   10.161202] bcm2835-codec bcm2835-codec: Device registered as /dev/video12
+Apr  7 02:47:03 localhost kernel: [   10.161281] bcm2835-codec bcm2835-codec: Loaded V4L2 isp
+Apr  7 02:47:03 localhost kernel: [   10.180011] bcm2835-codec bcm2835-codec: Device registered as /dev/video18
+Apr  7 02:47:03 localhost kernel: [   10.180096] bcm2835-codec bcm2835-codec: Loaded V4L2 image_fx
+Apr  7 02:47:03 localhost kernel: [   10.198888] bcm2835-codec bcm2835-codec: Device registered as /dev/video31
+Apr  7 02:47:03 localhost kernel: [   10.199001] bcm2835-codec bcm2835-codec: Loaded V4L2 encode_image
+Apr  7 02:47:03 localhost kernel: [   10.405628] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Apr  7 02:47:03 localhost kernel: [   10.455061] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Apr  7 02:47:03 localhost kernel: [   10.492029] cfg80211: loaded regulatory.db is malformed or signature is missing/invalid
+Apr  7 02:47:03 localhost kernel: [   10.955140] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43430-sdio for chip BCM43430/1
+Apr  7 02:47:03 localhost kernel: [   10.956395] usbcore: registered new interface driver brcmfmac
+Apr  7 02:47:03 localhost kernel: [   11.108487] w1_master_driver w1_bus_master1: w1_search: max_slave_count 64 reached, will continue next search.
+Apr  7 02:47:03 localhost kernel: [   11.208020] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43430-sdio for chip BCM43430/1
+Apr  7 02:47:03 localhost kernel: [   11.221296] brcmfmac: brcmf_c_preinit_dcmds: Firmware: BCM43430/1 wl0: Jul 19 2021 03:24:18 version 7.45.98 (TOB) (56df937 CY) FWID 01-8e14b897
+Apr  7 02:47:03 localhost kernel: [   11.982838] SPI driver ads7846 has no spi_device_id for ti,tsc2046
+Apr  7 02:47:03 localhost kernel: [   11.982880] SPI driver ads7846 has no spi_device_id for ti,ads7843
+Apr  7 02:47:03 localhost kernel: [   11.982897] SPI driver ads7846 has no spi_device_id for ti,ads7845
+Apr  7 02:47:03 localhost kernel: [   11.982914] SPI driver ads7846 has no spi_device_id for ti,ads7873
+Apr  7 02:47:03 localhost kernel: [   11.989660] ads7846 spi0.1: supply vcc not found, using dummy regulator
+Apr  7 02:47:03 localhost kernel: [   12.000064] ads7846 spi0.1: touchscreen, irq 184
+Apr  7 02:47:03 localhost kernel: [   12.006520] spi0.0: ttySC1 at I/O 0x1 (irq = 185, base_baud = 115200) is a SC16IS762
+Apr  7 02:47:03 localhost kernel: [   12.006619] input: ADS7846 Touchscreen as /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0
+Apr  7 02:47:03 localhost kernel: [   13.393359] FAT-fs (mmcblk0p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+Apr  7 02:47:03 localhost kernel: [   14.082800] EXT4-fs (mmcblk0p4): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+Apr  7 02:47:03 localhost rsyslogd: imuxsock: Acquired UNIX socket '/run/systemd/journal/syslog' (fd 3) from systemd.  [v8.2102.0]
+Apr  7 02:47:03 localhost rsyslogd: [origin software="rsyslogd" swVersion="8.2102.0" x-pid="508" x-info="https://www.rsyslog.com"] start
+Apr  7 02:47:03 localhost kernel: [   15.984288] Adding 102396k swap on /var/swap.  Priority:-2 extents:1 across:102396k SSFS
+Apr  7 02:47:03 localhost kernel: [   16.060169] uart-pl011 3f201000.serial: no DMA platform data
+Apr  7 02:47:05 localhost kernel: [   17.860782] 8021q: 802.1Q VLAN Support v1.8
+Apr  7 02:47:06 localhost kernel: [   18.148505] brcmfmac: brcmf_cfg80211_set_power_mgmt: power save disabled
+Apr  7 02:47:06 localhost kernel: [   18.445110] smsc95xx 1-1.1:1.0 eth0: hardware isn't capable of remote wakeup
+Apr  7 02:47:06 localhost kernel: [   18.598532] smsc95xx 1-1.1:1.0 eth0: Link is Down
+Apr  7 02:47:08 localhost kernel: [   20.798256] smsc95xx 1-1.1:1.0 eth0: Link is Up - 100Mbps/Full - flow control off
+Apr  7 02:47:08 localhost kernel: [   20.798352] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Apr  7 02:47:09 localhost kernel: [   21.709979] Bluetooth: Core ver 2.22
+Apr  7 02:47:09 localhost kernel: [   21.710113] NET: Registered PF_BLUETOOTH protocol family
+Apr  7 02:47:09 localhost kernel: [   21.710124] Bluetooth: HCI device and connection manager initialized
+Apr  7 02:47:09 localhost kernel: [   21.710151] Bluetooth: HCI socket layer initialized
+Apr  7 02:47:09 localhost kernel: [   21.710166] Bluetooth: L2CAP socket layer initialized
+Apr  7 02:47:09 localhost kernel: [   21.710193] Bluetooth: SCO socket layer initialized
+Apr  7 02:47:09 localhost kernel: [   21.726181] Bluetooth: HCI UART driver ver 2.3
+Apr  7 02:47:09 localhost kernel: [   21.726213] Bluetooth: HCI UART protocol H4 registered
+Apr  7 02:47:09 localhost kernel: [   21.726894] Bluetooth: HCI UART protocol Three-wire (H5) registered
+Apr  7 02:47:09 localhost kernel: [   21.727557] Bluetooth: HCI UART protocol Broadcom registered
+Apr  7 02:47:09 localhost kernel: [   22.078487] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Apr  7 02:47:09 localhost kernel: [   22.078516] Bluetooth: BNEP filters: protocol multicast
+Apr  7 02:47:09 localhost kernel: [   22.078540] Bluetooth: BNEP socket layer initialized
+Apr  7 02:47:09 localhost kernel: [   22.105929] NET: Registered PF_ALG protocol family
+Apr  7 02:52:04 localhost kernel: [   33.761089] cam-dummy-reg: disabling
+Apr  7 02:52:04 localhost kernel: [   33.792119] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+Apr  7 02:52:04 localhost kernel: [   33.801150] Bridge firewalling registered
+Apr  7 02:52:04 localhost kernel: [   34.322458] Initializing XFRM netlink socket
+Apr  7 02:52:10 localhost kernel: [   39.739475] br-46df242588a3: port 1(veth56cbb85) entered blocking state
+Apr  7 02:52:10 localhost kernel: [   39.739511] br-46df242588a3: port 1(veth56cbb85) entered disabled state
+Apr  7 02:52:10 localhost kernel: [   39.739903] device veth56cbb85 entered promiscuous mode
+Apr  7 02:52:10 localhost kernel: [   39.978806] IPv6: ADDRCONF(NETDEV_CHANGE): veth07c6942: link becomes ready
+Apr  7 02:52:10 localhost kernel: [   39.979008] IPv6: ADDRCONF(NETDEV_CHANGE): veth56cbb85: link becomes ready
+Apr  7 02:52:10 localhost kernel: [   39.979088] br-46df242588a3: port 1(veth56cbb85) entered blocking state
+Apr  7 02:52:10 localhost kernel: [   39.979105] br-46df242588a3: port 1(veth56cbb85) entered forwarding state
+Apr  7 02:52:10 localhost kernel: [   39.979267] IPv6: ADDRCONF(NETDEV_CHANGE): br-46df242588a3: link becomes ready
+Apr  7 02:52:13 localhost kernel: [   42.717900] br-46df242588a3: port 1(veth56cbb85) entered disabled state
+Apr  7 02:52:13 localhost kernel: [   42.718804] eth0: renamed from veth07c6942
+Apr  7 02:52:13 localhost kernel: [   42.750014] br-46df242588a3: port 1(veth56cbb85) entered blocking state
+Apr  7 02:52:13 localhost kernel: [   42.750053] br-46df242588a3: port 1(veth56cbb85) entered forwarding state
+Apr  7 02:52:28 localhost kernel: [   58.057297] w1_master_driver w1_bus_master1: Attaching one wire slave 00.800000000000 crc 8c
+Apr  7 02:52:28 localhost kernel: [   58.072163] w1_master_driver w1_bus_master1: Family 0 for 00.800000000000.8c is not registered.
+Apr  7 02:53:27 localhost kernel: [  117.142376] w1_master_driver w1_bus_master1: Attaching one wire slave 00.400000000000 crc 46
+Apr  7 02:53:31 localhost kernel: [  120.920901] w1_master_driver w1_bus_master1: Family 0 for 00.400000000000.46 is not registered.
+Apr  7 02:54:18 localhost kernel: [  168.262174] w1_master_driver w1_bus_master1: Attaching one wire slave 00.c00000000000 crc ca
+Apr  7 02:54:18 localhost kernel: [  168.279395] w1_master_driver w1_bus_master1: Family 0 for 00.c00000000000.ca is not registered.
+Apr  7 02:55:28 localhost kernel: [  238.639656] w1_master_driver w1_bus_master1: Attaching one wire slave 00.200000000000 crc 23
+Apr  7 02:55:30 localhost kernel: [  240.684663] w1_master_driver w1_bus_master1: Family 0 for 00.200000000000.23 is not registered.

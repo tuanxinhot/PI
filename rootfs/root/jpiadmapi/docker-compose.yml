@@ -1,0 +1,36 @@
+version: '2.1'
+services:
+  nodejs:
+    container_name: jpiadmapi_nodejs
+    image: docker.corp.jabil.org/devservices/jpi-admin-api:latest
+    volumes:
+      - /boot:/host/boot:z
+      - /etc:/host/etc:z
+      - /lib/systemd/system:/host/lib/systemd/system:z
+      - /patch:/host/patch:z
+      - /root:/host/root:z
+      - /storage:/host/storage:z
+      - /storage/jpiadmapi/logs:/jpiadmapi/logs:z
+      - /usr/lib/pi-updater:/host/usr/lib/pi-updater:z
+      - /var/log:/host/var/log:z
+      - /var/run:/var/run:z
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+      - /lib/firmware/raspberrypi/bootloader:/host/lib/firmware/raspberrypi/bootloader:ro
+      - /usr/local/etc:/host/usr/local/etc:z
+    environment:
+      - REDISPWD
+    depends_on:
+      - redis
+    network_mode: host
+    privileged: true
+  redis:
+    container_name: jpiadmapi_redis
+    image: docker.corp.jabil.org/devservices/jpi-redis:latest
+    sysctls:
+      - net.core.somaxconn=511
+    volumes:
+      - /root/jpiadmapi/redis.conf:/usr/local/etc/redis/redis.conf:z
+    ports:
+      - 127.0.0.1:3001:6379
+    command: $REDISPWD
+    privileged: true

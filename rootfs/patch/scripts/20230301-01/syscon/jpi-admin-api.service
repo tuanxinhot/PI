@@ -1,0 +1,12 @@
+#version=1.0.0
+[Unit]
+Description=Jabil Pi Admin Api
+After=docker.service network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/root/jpiadmapi/jpi-admin-api.sh start
+ExecStop=/root/jpiadmapi/jpi-admin-api.sh stop
+ExecReload=/root/jpiadmapi/jpi-admin-api.sh reload
+Restart=always

@@ -1,0 +1,11 @@
+[Unit]
+Description=Install rpi firmware based on commit id
+After=docker.target network.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/jpiadmapi
+ExecStart=/bin/bash /root/jpiadmapi/firmware-install.sh %i
+RemainAfterExit=false
+Restart=no

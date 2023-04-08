@@ -1,0 +1,31 @@
+{
+  "PasswordHash": "81defd9e2e8f85c7f09874bbe5b8d9a9a5503c6d915a3afe4b65758f28d71fb7",
+  "AdminPasswordHash": "83cf8b609de60036a8277bd0e96135751bbc07eb234256d4b65b893360651bf2",
+  "FlowCount": 1,
+  "Flows": [
+    {
+      "Mode": "Scan",
+      "BarcodePrefix": "",
+      "BarcodeSuffix": "",
+      "ValidationTrigger": "BA",
+      "RescanTimeout": 12,
+      "RescanLimit": 2,
+      "TriggerTime": 3,
+      "PlugIns": [
+        "MES"
+      ]
+    },
+    {
+      "Mode": "Scan",
+      "BarcodePrefix": "",
+      "BarcodeSuffix": "",
+      "ValidationTrigger": "BA",
+      "RescanTimeout": 12,
+      "RescanLimit": 2,
+      "TriggerTime": 3,
+      "PlugIns": [
+        "MES"
+      ]
+    }
+  ]
+}

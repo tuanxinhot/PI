@@ -1,0 +1,223 @@
+[   289.175] 
+X.Org X Server 1.20.4
+X Protocol Version 11, Revision 0
+[   289.182] Build Operating System: Linux 4.15.0-99-generic armv8l Raspbian
+[   289.183] Current Operating System: Linux jpi0ff894391 5.15.84-v8+ #1613 SMP PREEMPT Thu Jan 5 12:03:08 GMT 2023 aarch64
+[   289.186] Kernel command line: coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 bcm2708_fb.fbwidth=800 bcm2708_fb.fbheight=480 bcm2708_fb.fbswap=1 vc_mem.mem_base=0x3ec00000 vc_mem.mem_size=0x40000000  console=ttyS0,115200 console=tty1 root=PARTUUID=96427aa2-02 cgroup_enable=memory cgroup_memory=1 systemd.unified_cgroup_hierarchy=0 rootfstype=ext4 fsck.repair=yes rootwait
+[   289.191] Build Date: 27 August 2020  08:51:48AM
+[   289.192] xorg-server 2:1.20.4-1+rpt2+deb10u1 (https://www.debian.org/support) 
+[   289.192] Current version of pixman: 0.36.0
+[   289.192] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[   289.193] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[   289.197] (==) Log file: "/var/log/Xorg.0.log", Time: Fri Apr  7 02:56:19 2023
+[   289.207] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[   289.217] (==) No Layout section.  Using the first Screen section.
+[   289.217] (==) No screen section available. Using defaults.
+[   289.218] (**) |-->Screen "Default Screen Section" (0)
+[   289.218] (**) |   |-->Monitor "<default monitor>"
+[   289.232] (==) No monitor specified for screen "Default Screen Section".
+	Using a default monitor configuration.
+[   289.232] (==) Automatically adding devices
+[   289.232] (==) Automatically enabling devices
+[   289.232] (==) Automatically adding GPU devices
+[   289.232] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[   289.233] (WW) The directory "/usr/share/fonts/X11/misc" does not exist.
+[   289.233] 	Entry deleted from font path.
+[   289.233] (WW) The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[   289.233] 	Entry deleted from font path.
+[   289.233] (WW) The directory "/usr/share/fonts/X11/100dpi/" does not exist.
+[   289.233] 	Entry deleted from font path.
+[   289.233] (WW) The directory "/usr/share/fonts/X11/75dpi/" does not exist.
+[   289.233] 	Entry deleted from font path.
+[   289.233] (WW) The directory "/usr/share/fonts/X11/Type1" does not exist.
+[   289.233] 	Entry deleted from font path.
+[   289.234] (WW) The directory "/usr/share/fonts/X11/100dpi" does not exist.
+[   289.234] 	Entry deleted from font path.
+[   289.234] (WW) The directory "/usr/share/fonts/X11/75dpi" does not exist.
+[   289.234] 	Entry deleted from font path.
+[   289.234] (==) FontPath set to:
+	built-ins
+[   289.234] (==) ModulePath set to "/usr/lib/xorg/modules"
+[   289.234] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[   289.234] (II) Loader magic: 0x1fcf80
+[   289.234] (II) Module ABI versions:
+[   289.234] 	X.Org ANSI C Emulation: 0.4
+[   289.234] 	X.Org Video Driver: 24.0
+[   289.234] 	X.Org XInput driver : 24.1
+[   289.234] 	X.Org Server Extension : 10.0
+[   289.253] (--) using VT number 2
+
+[   289.254] (II) systemd-logind: logind integration requires -keeptty and -keeptty was not provided, disabling logind integration
+[   289.255] (II) no primary bus or device found
+[   289.255] (II) LoadModule: "glx"
+[   289.256] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[   289.463] (II) Module glx: vendor="X.Org Foundation"
+[   289.463] 	compiled for 1.20.4, module version = 1.0.0
+[   289.463] 	ABI class: X.Org Server Extension, version 10.0
+[   289.463] (==) Matched modesetting as autoconfigured driver 0
+[   289.463] (==) Matched fbdev as autoconfigured driver 1
+[   289.463] (==) Assigned the driver to the xf86ConfigLayout
+[   289.463] (II) LoadModule: "modesetting"
+[   289.465] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   289.518] (II) Module modesetting: vendor="X.Org Foundation"
+[   289.518] 	compiled for 1.20.4, module version = 1.20.4
+[   289.518] 	Module class: X.Org Video Driver
+[   289.518] 	ABI class: X.Org Video Driver, version 24.0
+[   289.518] (II) LoadModule: "fbdev"
+[   289.519] (II) Loading /usr/lib/xorg/modules/drivers/fbdev_drv.so
+[   289.524] (II) Module fbdev: vendor="X.Org Foundation"
+[   289.524] 	compiled for 1.20.3, module version = 0.5.0
+[   289.524] 	Module class: X.Org Video Driver
+[   289.524] 	ABI class: X.Org Video Driver, version 24.0
+[   289.525] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[   289.525] (II) FBDEV: driver for framebuffer: fbdev
+[   289.558] (WW) Falling back to old probe method for modesetting
+[   289.558] (EE) open /dev/dri/card0: No such file or directory
+[   289.558] (WW) Falling back to old probe method for fbdev
+[   289.559] (II) Loading sub module "fbdevhw"
+[   289.559] (II) LoadModule: "fbdevhw"
+[   289.566] (II) Loading /usr/lib/xorg/modules/libfbdevhw.so
+[   289.574] (II) Module fbdevhw: vendor="X.Org Foundation"
+[   289.574] 	compiled for 1.20.4, module version = 0.0.2
+[   289.574] 	ABI class: X.Org Video Driver, version 24.0
+[   289.582] (II) FBDEV(0): using default device
+[   289.583] (II) FBDEV(0): Creating default Display subsection in Screen section
+	"Default Screen Section" for depth/fbbpp 24/32
+[   289.583] (==) FBDEV(0): Depth 24, (==) framebuffer bpp 32
+[   289.583] (==) FBDEV(0): RGB weight 888
+[   289.583] (==) FBDEV(0): Default visual is TrueColor
+[   289.583] (==) FBDEV(0): Using gamma correction (1.0, 1.0, 1.0)
+[   289.595] (II) FBDEV(0): hardware: BCM2708 FB (video memory: 1500kB)
+[   289.595] (DB) xf86MergeOutputClassOptions unsupported bus type 0
+[   289.600] (II) FBDEV(0): checking modes against framebuffer device...
+[   289.601] (II) FBDEV(0): checking modes against monitor...
+[   289.601] (II) FBDEV(0): Virtual size is 800x480 (pitch 800)
+[   289.601] (**) FBDEV(0):  Built-in mode "current"
+[   289.601] (==) FBDEV(0): DPI set to (96, 96)
+[   289.601] (II) Loading sub module "fb"
+[   289.601] (II) LoadModule: "fb"
+[   289.602] (II) Loading /usr/lib/xorg/modules/libfb.so
+[   289.693] (II) Module fb: vendor="X.Org Foundation"
+[   289.693] 	compiled for 1.20.4, module version = 1.0.0
+[   289.694] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[   289.694] (**) FBDEV(0): using shadow framebuffer
+[   289.694] (II) Loading sub module "shadow"
+[   289.694] (II) LoadModule: "shadow"
+[   289.694] (II) Loading /usr/lib/xorg/modules/libshadow.so
+[   289.780] (II) Module shadow: vendor="X.Org Foundation"
+[   289.780] 	compiled for 1.20.4, module version = 1.1.0
+[   289.780] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[   289.780] (II) UnloadModule: "modesetting"
+[   289.780] (II) Unloading modesetting
+[   289.903] (==) FBDEV(0): Backing store enabled
+[   289.932] (==) FBDEV(0): DPMS enabled
+[   289.952] (II) Initializing extension Generic Event Extension
+[   289.953] (II) Initializing extension SHAPE
+[   289.957] (II) Initializing extension MIT-SHM
+[   289.967] (II) Initializing extension XInputExtension
+[   289.973] (II) Initializing extension XTEST
+[   289.978] (II) Initializing extension BIG-REQUESTS
+[   289.979] (II) Initializing extension SYNC
+[   289.980] (II) Initializing extension XKEYBOARD
+[   289.982] (II) Initializing extension XC-MISC
+[   289.983] (II) Initializing extension SECURITY
+[   289.986] (II) Initializing extension XFIXES
+[   289.987] (II) Initializing extension RENDER
+[   290.000] (II) Initializing extension RANDR
+[   290.010] (II) Initializing extension COMPOSITE
+[   290.026] (II) Initializing extension DAMAGE
+[   290.027] (II) Initializing extension MIT-SCREEN-SAVER
+[   290.028] (II) Initializing extension DOUBLE-BUFFER
+[   290.035] (II) Initializing extension RECORD
+[   290.036] (II) Initializing extension DPMS
+[   290.037] (II) Initializing extension Present
+[   290.045] (II) Initializing extension DRI3
+[   290.045] (II) Initializing extension X-Resource
+[   290.046] (II) Initializing extension XVideo
+[   290.047] (II) Initializing extension XVideo-MotionCompensation
+[   290.049] (II) Initializing extension SELinux
+[   290.049] (II) SELinux: Disabled on system
+[   290.049] (II) Initializing extension GLX
+[   290.050] (II) AIGLX: Screen 0 is not DRI2 capable
+[   292.648] (II) IGLX: Loaded and initialized swrast
+[   292.648] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[   292.648] (II) Initializing extension XFree86-VidModeExtension
+[   292.649] (II) Initializing extension XFree86-DGA
+[   292.650] (II) Initializing extension XFree86-DRI
+[   292.659] (II) Initializing extension DRI2
+[   293.136] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/event0)
+[   293.137] (**) ADS7846 Touchscreen: Applying InputClass "libinput touchscreen catchall"
+[   293.137] (II) LoadModule: "libinput"
+[   293.138] (II) Loading /usr/lib/xorg/modules/input/libinput_drv.so
+[   293.207] (II) Module libinput: vendor="X.Org Foundation"
+[   293.207] 	compiled for 1.20.3, module version = 0.28.2
+[   293.207] 	Module class: X.Org XInput Driver
+[   293.207] 	ABI class: X.Org XInput driver, version 24.1
+[   293.207] (II) Using input driver 'libinput' for 'ADS7846 Touchscreen'
+[   293.207] (**) ADS7846 Touchscreen: always reports core events
+[   293.207] (**) Option "Device" "/dev/input/event0"
+[   293.207] (**) Option "_source" "server/udev"
+[   293.394] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.396] (II) event0  - ADS7846 Touchscreen: device is a touch device
+[   293.397] (II) event0  - ADS7846 Touchscreen: device removed
+[   293.416] (**) Option "config_info" "udev:/sys/devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0/event0"
+[   293.416] (II) XINPUT: Adding extended input device "ADS7846 Touchscreen" (type: TOUCHSCREEN, id 6)
+[   293.417] (**) Option "AccelerationScheme" "none"
+[   293.417] (**) ADS7846 Touchscreen: (accel) selected scheme none/0
+[   293.417] (**) ADS7846 Touchscreen: (accel) acceleration factor: 2.000
+[   293.417] (**) ADS7846 Touchscreen: (accel) acceleration threshold: 4
+[   293.427] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.428] (II) event0  - ADS7846 Touchscreen: device is a touch device
+[   293.434] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/mouse0)
+[   293.434] (II) No input driver specified, ignoring this device.
+[   293.434] (II) This device may have been added with another device file.
+[   293.485] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/mouse0)
+[   293.485] (II) No input driver specified, ignoring this device.
+[   293.485] (II) This device may have been added with another device file.
+[   293.490] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/mouse0)
+[   293.491] (II) No input driver specified, ignoring this device.
+[   293.491] (II) This device may have been added with another device file.
+[   293.492] (II) config/udev: removing device ADS7846 Touchscreen
+[   293.493] (II) event0  - ADS7846 Touchscreen: device removed
+[   293.517] (II) UnloadModule: "libinput"
+[   293.520] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/event0)
+[   293.520] (**) ADS7846 Touchscreen: Applying InputClass "libinput touchscreen catchall"
+[   293.520] (II) Using input driver 'libinput' for 'ADS7846 Touchscreen'
+[   293.521] (**) ADS7846 Touchscreen: always reports core events
+[   293.521] (**) Option "Device" "/dev/input/event0"
+[   293.521] (**) Option "_source" "server/udev"
+[   293.535] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.537] (II) event0  - ADS7846 Touchscreen: device is a touch device
+[   293.538] (II) event0  - ADS7846 Touchscreen: device removed
+[   293.560] (**) Option "config_info" "udev:/sys/devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0/event0"
+[   293.560] (II) XINPUT: Adding extended input device "ADS7846 Touchscreen" (type: TOUCHSCREEN, id 6)
+[   293.561] (**) Option "AccelerationScheme" "none"
+[   293.561] (**) ADS7846 Touchscreen: (accel) selected scheme none/0
+[   293.561] (**) ADS7846 Touchscreen: (accel) acceleration factor: 2.000
+[   293.561] (**) ADS7846 Touchscreen: (accel) acceleration threshold: 4
+[   293.570] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.572] (II) event0  - ADS7846 Touchscreen: device is a touch device
+[   293.579] (II) config/udev: removing device ADS7846 Touchscreen
+[   293.581] (II) event0  - ADS7846 Touchscreen: device removed
+[   293.600] (II) UnloadModule: "libinput"
+[   293.604] (II) config/udev: Adding input device ADS7846 Touchscreen (/dev/input/event0)
+[   293.604] (**) ADS7846 Touchscreen: Applying InputClass "libinput touchscreen catchall"
+[   293.604] (II) Using input driver 'libinput' for 'ADS7846 Touchscreen'
+[   293.604] (**) ADS7846 Touchscreen: always reports core events
+[   293.604] (**) Option "Device" "/dev/input/event0"
+[   293.604] (**) Option "_source" "server/udev"
+[   293.619] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.621] (II) event0  - ADS7846 Touchscreen: device is a touch device
+[   293.622] (II) event0  - ADS7846 Touchscreen: device removed
+[   293.644] (**) Option "config_info" "udev:/sys/devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0/event0"
+[   293.644] (II) XINPUT: Adding extended input device "ADS7846 Touchscreen" (type: TOUCHSCREEN, id 6)
+[   293.645] (**) Option "AccelerationScheme" "none"
+[   293.645] (**) ADS7846 Touchscreen: (accel) selected scheme none/0
+[   293.645] (**) ADS7846 Touchscreen: (accel) acceleration factor: 2.000
+[   293.645] (**) ADS7846 Touchscreen: (accel) acceleration threshold: 4
+[   293.655] (II) event0  - ADS7846 Touchscreen: is tagged by udev as: Touchscreen
+[   293.657] (II) event0  - ADS7846 Touchscreen: device is a touch device

@@ -1,0 +1,8 @@
+[Unit]
+Description=NTP Updater
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/ntp-updater.sh

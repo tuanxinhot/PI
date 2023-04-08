@@ -1,0 +1,78 @@
+#!/bin/bash
+#version=2.0.0
+
+# this library module is to create driver config file in /usr/local/etc/modules.d/.
+#
+# example: ./drivers_create_conf_file.lib docker.corp.jabil.org/raspberry-pi/arducam-16mp /mnt/part2
+
+# parameter(s)
+IMAGE=$1
+MOUNT_PATH=$2
+
+# set log path
+LOG_PATH=$(/scripts/libs/drivers_log_path.lib)
+
+# ensure parameter 1 exists
+if [ "$IMAGE" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 1) docker image variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 1) docker image variable is empty."
+  exit 1
+fi
+
+# break docker image into name and tag
+SUB_PATH_1=$(echo $IMAGE | awk -F ':' '{print $1}' | tr -d '\r\n')
+SUB_PATH_2=$(echo $IMAGE | awk -F ':' '{print $2}' | tr -d '\r\n')
+
+# define driver config file path
+CONF_FILE="/usr/local/etc/modules.d/$SUB_PATH_1.conf"
+# define library modules path
+FIND_PATH="/lib/modules"
+
+# if only it is prefixed with mount point
+if [ "$MOUNT_PATH" != "" ]; then
+  CONF_FILE="$MOUNT_PATH$CONF_FILE"
+  FIND_PATH="$MOUNT_PATH$FIND_PATH"
+fi
+
+# get repo digest from docker image
+REPO_DIGEST=$(docker inspect $IMAGE | jq -r .[0].RepoDigests[0] | awk -F '@' '{print $2}')
+# ensure the driver config file's directory created
+mkdir -p ${CONF_FILE%/*}/
+# create driver config file
+touch $CONF_FILE
+# save repo digest into driver config file
+echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: Set repo digest as '$REPO_DIGEST' into $CONF_FILE" >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+echo "$REPO_DIGEST" > $CONF_FILE
+
+if [ -d $FIND_PATH ]; then
+  # iterate all kernel_version from the library module path
+  for FOUND_PATH in $FIND_PATH/*/; do
+    # ensure at least a kernel version exists in the library module path
+    if [ "$FOUND_PATH" == "$FIND_PATH/*/" ]; then
+      echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: $FIND_PATH has no kernel version." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+      echo "ERROR: $FIND_PATH has no kernel version."
+      exit 1
+    fi
+
+    FIND_PATH_LENGTH=${#FIND_PATH}
+    FOUND_PATH_LENGTH=${#FOUND_PATH}
+    # get kernel version
+    KERNEL_VERSION=$(echo "$FOUND_PATH" | cut -c$((FIND_PATH_LENGTH+2))-$((FOUND_PATH_LENGTH-1)))
+    # set driver full path
+    DRIVER_PATH="$FIND_PATH/$KERNEL_VERSION/extra/$SUB_PATH_1"
+    
+    # if install.sh and uninstall.sh files found from the driver path
+    if [ -f "$DRIVER_PATH/install.sh" ] && [ -f "$DRIVER_PATH/uninstall.sh" ]; then
+      # save repo digest into driver config file
+      echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: Set kernel version '$KERNEL_VERSION' with value 0 into $CONF_FILE" >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+      echo "$KERNEL_VERSION 0" >> $CONF_FILE
+    fi
+  done
+
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: $CONF_FILE created." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "$CONF_FILE created."
+else
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: $FIND_PATH not found." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: $FIND_PATH not found."
+  exit 1
+fi

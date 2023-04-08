@@ -1,0 +1,42 @@
+version: '2'
+### com.jabil.app.name=x11-webkiosk
+### com.jabil.app.developer.email=pi_support@jabil.com
+### com.jabil.app.owner.name=DeveloperServices
+### com.jabil.app.owner.email=pi_support@jabil.com
+### v5.2
+services:
+  webkiosk_chromium:
+    ### This application is web kiosk using Google Chromium browser. 
+    image: docker.corp.jabil.org/raspberry-pi/x11-webkiosk
+    volumes:
+      - /storage/pi:/storage/pi:z
+    ### This command value will be first launched homepage.
+    command: 'https://pi-update.docker.corp.jabil.org'
+    dns_search: corp.jabil.org
+    environment:
+      ###
+      ### AUTOLOGIN setting to input credential when prompting login/password, option values are:
+      ###        FALSE - (Default) Nothing will happen.
+      ###        TRUE  - For ASP.NET application which requires windows authentication.
+      ###        FORCE - Force to input credential.
+      - AUTOLOGIN=FALSE
+      ###
+      ### TIME_AUTOLOGIN is the waiting time to decide when to input credential after prompting login/password.
+      ### TIME_AUTOLOGIN only required to set when AUTOLOGIN=FORCE
+      ### Default waiting time is 10seconds.
+      - TIME_AUTOLOGIN=10
+      ###
+      ### TZ value will be determined from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      ### For instance, Malaysia is equal to "TZ=Kuala_Lumpur", Vietname is equal to "Asia/Ho_Chi_Minh".
+      ### Default value is UTC time.
+      ### e.g. TZ=Asia/Kuala_Lumpur
+      ### e.g. TZ=Asia/Ho_Chi_Minh
+      ### e.g. TZ=Europe/Budapest
+      - TZ=Etc/UTC
+    ports:
+      ### Default port 8080 is for VNC client connect.
+      ### Port 5900 is container settings. User is not allowed to change.
+      - 8080:5900
+    shm_size: '1gb'
+    privileged: true
+

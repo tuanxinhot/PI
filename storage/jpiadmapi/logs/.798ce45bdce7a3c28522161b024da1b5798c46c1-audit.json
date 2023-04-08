@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 90
+    },
+    "auditLog": "/jpiadmapi/logs/.798ce45bdce7a3c28522161b024da1b5798c46c1-audit.json",
+    "files": [
+        {
+            "date": 1680835616579,
+            "name": "/jpiadmapi/logs/sysadmin_2023-04-07_debug.log",
+            "hash": "441e475d7bcf23d31259ff84924d74be"
+        }
+    ]
+}

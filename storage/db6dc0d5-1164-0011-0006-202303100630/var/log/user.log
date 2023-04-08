@@ -1,0 +1,6 @@
+Feb 21 04:08:10 localhost mtp-probe: checking bus 1, device 3: "/sys/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1"
+Feb 21 04:08:10 localhost mtp-probe: bus: 1, device: 3 was not an MTP device
+Feb 21 04:08:36 localhost rfkill: unblock set for type wlan
+Feb 21 04:08:36 localhost rfkill: unblock set for type wifi
+Apr  7 02:47:03 localhost mtp-probe: checking bus 1, device 3: "/sys/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.1"
+Apr  7 02:47:03 localhost mtp-probe: bus: 1, device: 3 was not an MTP device

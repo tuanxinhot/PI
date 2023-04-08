@@ -1,0 +1,13 @@
+[Unit]
+Description=Docker Image Puller
+After=docker.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/compose-pull.sh start
+Restart=always
+RestartSec=3600
+TTYPath=/dev/tty8
+TTYReset=yes
+StandardInput=tty

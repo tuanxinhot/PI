@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sensor Driver Requirements &mdash; libcamera v0.0.4+22-923f5d70 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="libcamera v0.0.4+22-923f5d70 documentation" href="index.html"/>
+        <link rel="next" title="Lens Driver Requirements" href="lens_driver_requirements.html"/>
+        <link rel="prev" title="Environment variables" href="environment_variables.html"/> 
+
+</head>
+
+<body role="document">
+  <header>
+    <div id="navbar">
+      <div class="navbar-brand">
+        <div class="navbar-logo">   _
++-/ \-+
+| (o) |
++-----+</div>
+        <div class="navbar-name"><span class="text-light">lib</span>camera</div>
+      </div>
+
+      <div class="navbar">
+        <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/introduction.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/application-developer.html">Application Writer's Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/pipeline-handler.html">Pipeline Handler Writer's Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/ipa.html">IPA Writer's guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/tracing.html">Tracing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment_variables.html">Environment variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sensor driver requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lens_driver_requirements.html">Lens driver requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-bindings.html">Python Bindings</a></li>
+</ul>
+
+        <div class="searchbox" role="search">
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+	    <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div id="content">
+    
+    <div class="block">
+      
+  <div class="section" id="sensor-driver-requirements">
+<span id="id1"></span><h1>Sensor Driver Requirements<a class="headerlink" href="#sensor-driver-requirements" title="Permalink to this headline">¶</a></h1>
+<p>libcamera handles imaging devices in the CameraSensor class and defines
+a consistent interface through its API towards other library components.</p>
+<p>The CameraSensor class uses the V4L2 subdev kernel API to interface with the
+camera sensor through one or multiple sub-devices exposed in userspace by
+the sensor driver.</p>
+<p>In order for libcamera to be fully operational and provide all the required
+information to interface with the camera sensor to applications and pipeline
+handlers, a set of mandatory and optional features the driver has to support
+has been defined.</p>
+<div class="section" id="mandatory-requirements">
+<h2>Mandatory Requirements<a class="headerlink" href="#mandatory-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The sensor driver is assumed to be fully compliant with the V4L2 specification.</p>
+<p>For RAW sensors, the sensor driver shall support the following V4L2 controls:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-image-source.html">V4L2_CID_ANALOGUE_GAIN</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/control.html">V4L2_CID_EXPOSURE</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-image-source.html">V4L2_CID_HBLANK</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-image-process.html">V4L2_CID_PIXEL_RATE</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-image-source.html">V4L2_CID_VBLANK</a></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">ANALOGUE_GAIN</span></code> control units are sensor-specific. libcamera requires
+a sensor-specific CameraSensorHelper implementation to translate between the
+sensor specific <code class="docutils literal notranslate"><span class="pre">gain</span> <span class="pre">code</span></code> and the analogue <code class="docutils literal notranslate"><span class="pre">gain</span> <span class="pre">value</span></code> expressed as an
+absolute number as defined by <code class="docutils literal notranslate"><span class="pre">controls::AnalogueGain</span></code>.</p>
+<p>While V4L2 doesn’t specify a unit for the <code class="docutils literal notranslate"><span class="pre">EXPOSURE</span></code> control, libcamera
+requires it to be expressed as a number of image lines. Camera sensor drivers
+that do not comply with this requirement will need to be adapted or will produce
+incorrect results.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">HBLANK</span></code>, <code class="docutils literal notranslate"><span class="pre">PIXEL_RATE</span></code> and <code class="docutils literal notranslate"><span class="pre">VBLANK</span></code> controls are used to compute the
+sensor output timings.</p>
+</div>
+<div class="section" id="optional-requirements">
+<h2>Optional Requirements<a class="headerlink" href="#optional-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The sensor driver should support the following V4L2 controls:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-camera.html">V4L2_CID_CAMERA_ORIENTATION</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/ext-ctrls-camera.html">V4L2_CID_CAMERA_SENSOR_ROTATION</a></p></li>
+</ul>
+<p>The controls are used to register the camera location and rotation.</p>
+<p>In order to support rotating the image the sensor driver should support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/control.html">V4L2_CID_HFLIP</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/control.html">V4L2_CID_VFLIP</a></p></li>
+</ul>
+<p>The controls must be writable from userspace. In case of a RAW Bayer sensors,
+drivers should correctly report if vertical/horizontal flips modify the Bayer
+pattern ordering by reporting the <cite>V4L2_CTRL_FLAG_MODIFY_LAYOUT</cite> control flag.</p>
+<p>The sensor driver should implement support for the V4L2 Selection API,
+specifically it should implement support for the
+<a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/vidioc-subdev-g-selection.html#c.V4L.VIDIOC_SUBDEV_G_SELECTION">VIDIOC_SUBDEV_G_SELECTION</a> ioctl with support for the following selection
+targets:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/v4l2-selection-targets.html">V4L2_SEL_TGT_CROP_BOUNDS</a> to report the readable pixel array area size</p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/v4l2-selection-targets.html">V4L2_SEL_TGT_CROP_DEFAULT</a> to report the active pixel array area size</p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/v4l2-selection-targets.html">V4L2_SEL_TGT_CROP</a> to report the analogue selection rectangle</p></li>
+</ul>
+<p>Support for the selection API is scheduled to become a mandatory feature in
+the near future.</p>
+</div>
+</div>
+
+
+    </div>
+  </div>
+
+  
+<footer>
+  <div id="signature">
+        &copy; Copyright 2018-2023, The libcamera documentation authors.
+  </div>
+</footer>
+</body>
+</html>

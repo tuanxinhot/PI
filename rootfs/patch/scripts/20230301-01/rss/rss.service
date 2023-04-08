@@ -1,0 +1,13 @@
+#version=1.0.0
+[Unit]
+Description=Remote Secure Shell Service
+After=docker.target network.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/rss
+ExecStartPre=/root/rss/rss-startup.sh
+ExecStart=/usr/local/bin/docker-compose -f /root/rss/docker-compose.yml up --force-recreate
+ExecStop=/usr/local/bin/docker-compose -f /root/rss/docker-compose.yml down
+Restart=no

@@ -1,0 +1,8 @@
+[Unit]
+Description=Driver Uninstallation
+After=docker.service network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/drivers_uninstall.sh

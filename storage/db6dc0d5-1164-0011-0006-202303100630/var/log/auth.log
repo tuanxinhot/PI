@@ -1,0 +1,15 @@
+Feb 21 04:08:11 localhost systemd-logind[459]: New seat seat0.
+Feb 21 04:08:11 localhost systemd-logind[459]: Watching system buttons on /dev/input/event0 (vc4)
+Feb 21 04:08:12 localhost sudo:     root : PWD=/ ; USER=root ; COMMAND=/usr/bin/sed -i s/127.0.1.1.*/127.0.1.1\tjpi0ff894391/g /etc/hosts
+Feb 21 04:08:12 localhost sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 04:08:12 localhost sudo: pam_unix(sudo:session): session closed for user root
+Feb 21 04:08:12 localhost sudo:     root : PWD=/ ; USER=root ; COMMAND=/lib/systemd/systemd-modules-load
+Feb 21 04:08:12 localhost sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 04:08:12 localhost sudo: pam_unix(sudo:session): session closed for user root
+Apr  7 02:47:04 localhost systemd-logind[528]: New seat seat0.
+Apr  7 02:47:04 localhost sudo:     root : PWD=/ ; USER=root ; COMMAND=/usr/bin/sed -i s/127.0.1.1.*/127.0.1.1\tjpi0ff894391/g /etc/hosts
+Apr  7 02:47:04 localhost sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+Apr  7 02:47:04 localhost sudo: pam_unix(sudo:session): session closed for user root
+Apr  7 02:47:04 localhost sudo:     root : PWD=/ ; USER=root ; COMMAND=/lib/systemd/systemd-modules-load
+Apr  7 02:47:04 localhost sudo: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=0)
+Apr  7 02:47:04 localhost sudo: pam_unix(sudo:session): session closed for user root

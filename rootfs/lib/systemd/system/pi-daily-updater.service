@@ -1,0 +1,10 @@
+[Unit]
+Description=Pi Daily Updater
+DefaultDependencies=no
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/pi-updater/daily_update_service.sh
+Restart=always

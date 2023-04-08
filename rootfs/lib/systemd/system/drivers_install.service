@@ -1,0 +1,8 @@
+[Unit]
+Description=Driver Installation
+After=docker.service network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/drivers_install.sh

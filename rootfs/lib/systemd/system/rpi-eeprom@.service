@@ -1,0 +1,12 @@
+#version=1.0.0
+[Unit]
+Description=Update Raspberry Pi EEPROM
+After=docker.target network.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/jpiadmapi
+ExecStart=/bin/bash /root/jpiadmapi/update-boot-order.sh %i
+RemainAfterExit=false
+Restart=no

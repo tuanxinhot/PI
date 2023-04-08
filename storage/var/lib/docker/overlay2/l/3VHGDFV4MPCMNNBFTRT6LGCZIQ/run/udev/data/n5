@@ -1,0 +1,4 @@
+I:290790347
+E:ID_NET_NAMING_SCHEME=v240
+E:SYSTEMD_ALIAS=/sys/subsystem/net/devices/br-46df242588a3
+G:systemd

@@ -1,0 +1,7 @@
+S:input/by-path/platform-3f204000.spi-event
+I:290759949
+E:ID_INPUT=1
+E:ID_INPUT_TOUCHSCREEN=1
+E:ID_PATH=platform-3f204000.spi
+E:ID_PATH_TAG=platform-3f204000_spi
+E:LIBINPUT_DEVICE_GROUP=0/0/0:spi0

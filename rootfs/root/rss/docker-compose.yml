@@ -1,0 +1,15 @@
+# 1.0.0
+version: '2'
+services:
+  rss:
+    container_name: rss
+    image: docker.corp.jabil.org/raspberry-pi/rss:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/log:/host/var/log
+      - /storage:/host/storage
+      - /boot:/host/boot
+      - /root/rss/shadow:/etc/shadow
+    ports:
+      - 2222:2222
+    privileged: true

@@ -1,0 +1,15 @@
+config_item:
+    config_name: 'network_interface'
+    datatype: 'networkperplugin'
+    display_name: 'Network Interface'
+    tootip: 'Choose a network.'
+---
+config_item:
+    config_name: 'ping_interval'
+    datatype: 'int'
+    display_name: 'PING interval timeout'
+    tooltip: 'Enter PING interval (int)'
+    min: 21
+    max: 500
+    default: '70'
+    unit: 'sec'

@@ -1,0 +1,13 @@
+[Unit]
+Description=Jabil Pi Configuration
+After=network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/jabilpi-config.sh
+Restart=always
+TTYPath=/dev/tty11
+TTYReset=yes
+StandardInput=tty
+KillMode=process

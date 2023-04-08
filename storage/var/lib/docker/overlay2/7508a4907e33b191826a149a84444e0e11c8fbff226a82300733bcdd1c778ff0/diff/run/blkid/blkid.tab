@@ -1,0 +1,3 @@
+<device DEVNO="0xb301" TIME="1680836177.37284" LABEL_FATBOOT="bootfs" LABEL="bootfs" UUID="37CA-39EC" TYPE="vfat" PARTUUID="96427aa2-01">/dev/mmcblk0p1</device>
+<device DEVNO="0xb302" TIME="1680836177.40818" LABEL="rootfs" UUID="db6dc0d5-1164-0011-0006-202303100630" TYPE="ext4" PARTUUID="96427aa2-02">/dev/mmcblk0p2</device>
+<device DEVNO="0xb304" TIME="1680836177.110442" UUID="f7131bb2-5953-485c-8e0c-8a4e13a8dc80" TYPE="ext4" PARTUUID="96427aa2-04">/dev/mmcblk0p4</device>

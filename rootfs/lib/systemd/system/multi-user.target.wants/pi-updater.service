@@ -1,0 +1,13 @@
+[Unit]
+Description=Pi AB Updater
+DefaultDependencies=no
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/pi-updater/update_service.sh
+Restart=always
+TTYPath=/dev/tty9
+TTYReset=yes
+StandardInput=tty

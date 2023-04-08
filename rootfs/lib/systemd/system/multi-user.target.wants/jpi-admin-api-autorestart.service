@@ -1,0 +1,13 @@
+#version=2.0.0
+
+[Unit]
+Description=Jabil Pi Admin Api auto restart service
+After=docker.service network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/jpiadmapi
+ExecStart=/root/jpiadmapi/syscon-autorestart.sh
+Restart=on-failure
+RestartSec=900

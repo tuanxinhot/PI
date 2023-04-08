@@ -1,0 +1,10 @@
+/var/log/wpa_supplicant.log
+{
+    daily
+    missingok
+    copytruncate
+    rotate 8
+    compress
+    create 0600 root root
+}
+

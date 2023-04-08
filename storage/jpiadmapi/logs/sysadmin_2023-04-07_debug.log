@@ -1,0 +1,8 @@
+2023-04-07 02:46:56: INFO: App launched!
+2023-04-07 02:53:46: INFO: App launched!
+2023-04-07 02:56:38: ERROR: 10.124.205.85 - GET /sysconf/compose - Unknown security handler (Bearer): No token found.
+2023-04-07 02:56:39: DEBUG: Successfully read file: /host/boot/compose.yml
+2023-04-07 02:56:39: INFO: 127.0.0.1 - GET /sysconf/compose - (localhost @local application) Successfully downloaded file: /boot/compose.yml.
+2023-04-07 02:56:39: DEBUG: Successfully read file: /jpiadmapi/upload/772da804e6fd66ef622da3aae98e233d
+2023-04-07 02:56:39: DEBUG: Successfully wrote file: /host/boot/compose.yml
+2023-04-07 02:56:39: INFO: 127.0.0.1 - POST /sysconf/compose - (localhost local application) Successfully updated file: /boot/compose.yml.

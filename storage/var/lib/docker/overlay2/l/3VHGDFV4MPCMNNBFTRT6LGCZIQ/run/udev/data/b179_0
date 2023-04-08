@@ -1,0 +1,11 @@
+S:disk/by-id/mmc-SC16G_0x98cb2422
+S:disk/by-path/platform-3f202000.mmc
+W:1
+I:290024229
+E:ID_NAME=SC16G
+E:ID_SERIAL=0x98cb2422
+E:ID_PATH=platform-3f202000.mmc
+E:ID_PATH_TAG=platform-3f202000_mmc
+E:ID_PART_TABLE_UUID=96427aa2
+E:ID_PART_TABLE_TYPE=dos
+G:systemd

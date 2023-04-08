@@ -1,0 +1,64 @@
+#!/bin/bash
+#version=2.0.0
+
+# this library module is to install driver.
+#
+# example: ./drivers_install_module.lib /lib/modules/5.10.63-v7l+/extra/docker.corp.jabil.org/raspberry-pi/arducam-16mp /usr/local/etc/modules.d/docker.corp.jabil.org/raspberry-pi/arducam-16mp.conf 5.10.63-v7l+
+
+# parameter(s)
+DRIVER_PATH=$1
+CONF_FILE=$2
+KERNEL_VERSION=$3
+
+# set log path
+LOG_PATH=$(/scripts/libs/drivers_log_path.lib)
+
+# ensure parameter 1 exists
+if [ "$DRIVER_PATH" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 1) docker path variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 1) driver path variable is empty."
+  exit 1
+fi
+
+# ensure parameter 2 exists
+if [ "$CONF_FILE" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 2) config file path variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 2) config file path variable is empty."
+  exit 1
+fi
+
+# ensure parameter 3 exists
+if [ "$KERNEL_VERSION" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 3) kernel version variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 3) kernel version variable is empty."
+  exit 1
+fi
+
+# ensure install file exists from driver path
+if [ -f "$DRIVER_PATH/install.sh" ]; then
+  # go into driver path
+  cd $DRIVER_PATH
+  # when file exists, do driver installation
+  $DRIVER_PATH/install.sh | tee -a $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  RES=$?
+
+  # get status of installation
+  if [ "$RES" -ne 0 ]; then
+    # if failed, do driver uninstallation
+    echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: failed to install from $DRIVER_PATH/." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+    echo "ERROR: failed to install from $DRIVER_PATH/."
+    ./uninstall_module.lib $DRIVER_PATH
+    exit 1
+  else
+    # if succeeded, update installation success flag into driver config file
+    echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: Successfully install driver from $DRIVER_PATH." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+    echo "Successfully install driver from $DRIVER_PATH."
+    sed -i "s/$KERNEL_VERSION.*/$KERNEL_VERSION 1/" $CONF_FILE
+    exit 0
+  fi
+else
+  # when file not exists, do nothing
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: $DRIVER_PATH/install.sh not found." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: $DRIVER_PATH/install.sh not found."
+  exit 1
+fi

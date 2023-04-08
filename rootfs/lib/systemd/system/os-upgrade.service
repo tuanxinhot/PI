@@ -1,0 +1,14 @@
+[Unit]
+Description=Pi Docker OS Upgrader
+Conflicts=shutdown.target
+After=boot.mount -.mount storage.mount
+Requires=boot.mount -.mount storage.mount
+Before=sysconf.service
+
+[Service]
+Type=oneshot
+ExecStart=+/bin/bash -x /os_upgrade/do_upgrade.sh
+RemainAfterExit=yes
+Restart=no
+StandardInput=tty
+StandardOutput=journal

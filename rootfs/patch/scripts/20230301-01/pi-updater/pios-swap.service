@@ -1,0 +1,9 @@
+#version=1.2.0
+[Unit]
+Description=Pi AB Swapper
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/pi-updater/pios_swap.sh

@@ -1,0 +1,27 @@
+version: "2"
+services:
+  pfc:
+    volumes:
+      - /storage/pi/appconfig:/appconfig
+      - /storage/pico/:/storage/
+      - /var/run:/var/run:z
+      - /etc/dhcpcd.conf:/etc/dhcpcd.conf
+      - /etc/systemd/system:/etc/systemd/system
+      - /scripts:/scripts
+      - /storage/var/lib/docker/containers/:/log/
+      - /sys/class/net/eth0/:/log/eth0
+      - /sys/class/net/wlan0/:/log/wlan0
+    image: docker.corp.jabil.org/pico/pfc:prod
+    logging:
+      options:
+        max-size: 50m
+    network_mode: host
+    privileged: true
+    labels:
+      - "commit: ded02ee7575b23fb482621d7ab6a853d59d0f815"
+      - "version: 2.2.5-20220221-prod.1"
+  kiosk:
+    image: docker.corp.jabil.org/pico/pfc:webkiosk
+    command: http://localhost
+    privileged: true
+    network_mode: host

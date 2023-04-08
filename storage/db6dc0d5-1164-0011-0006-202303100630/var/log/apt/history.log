@@ -1,0 +1,45 @@
+
+Start-Date: 2023-03-10  06:27:54
+Commandline: /usr/bin/apt-get -q -y purge apt-utils avahi-daemon debconf-i18n dmidecode dosfstools ed groff-base hardlink info install-info less libfreetype6-dev libnss-mdns libpng-dev libraspberrypi-dev libraspberrypi-doc libicu6? luajit man-db manpages manpages-dev mkvtoolnix ncdu tasksel tasksel-data v4l-utils vim-common vim-tiny xdg-user-dirs zlib1g-dev build-essential gcc cpp g++ gdb gcc-?? g++-?? cpp-?? dpkg-dev userconf-pi libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libfile-fcntllock-perl libdpkg-perl libtext-charwidth-perl libtext-iconv-perl libtext-wrapi18n-perl
+Purge: cifs-utils:arm64 (2:6.11-3.1+deb11u1), dmidecode:arm64 (3.3-2), libalgorithm-merge-perl:arm64 (0.08-3), manpages-dev:arm64 (5.10-1), debconf-i18n:arm64 (1.5.77), bind9-host:arm64 (1:9.16.37-1~deb11u1), g++-10:arm64 (10.2.1-6), dosfstools:arm64 (4.2-1), gcc-10:arm64 (10.2.1-6), build-essential:arm64 (12.9), libfreetype6-dev:arm64 (2.10.4+dfsg-1+deb11u1), luajit:arm64 (2.1.0~beta3+dfsg-5.3), cpp:arm64 (4:10.2.1-1), g++:arm64 (4:10.2.1-1), gcc:arm64 (4:10.2.1-1), gdb:arm64 (10.1-1.7), userconf-pi:arm64 (0.5), tasksel-data:arm64 (3.68+deb11u1), libalgorithm-diff-perl:arm64 (1.201-1), libpng-dev:arm64 (1.6.37-3), tasksel:arm64 (3.68+deb11u1), vim-common:arm64 (2:8.2.2434-3+deb11u1), avahi-daemon:arm64 (0.8-5+deb11u1), libwbclient0:arm64 (2:4.13.13+dfsg-1~deb11u5), zlib1g-dev:arm64 (1:1.2.11.dfsg-2+deb11u2), libxml2:arm64 (2.9.10+dfsg-6.7+deb11u3), less:arm64 (551-2), libraspberrypi-dev:arm64 (1:2+git20220616~133208+6e8f786-1), libraspberrypi-doc:arm64 (1:2+git20220616~133208+6e8f786-1), v4l-utils:arm64 (1.20.0-2), libfile-fcntllock-perl:arm64 (0.22-3+b7), dpkg-dev:arm64 (1.20.12), manpages:arm64 (5.10-1), man-db:arm64 (2.9.4-2), libtext-charwidth-perl:arm64 (0.04-10+b1), vim-tiny:arm64 (2:8.2.2434-3+deb11u1), libtext-wrapi18n-perl:arm64 (0.06-9), pkg-config:arm64 (0.29.2-1), cpp-10:arm64 (10.2.1-6), libdpkg-perl:arm64 (1.20.12), mkvtoolnix:arm64 (54.0.0+really52.0.0-3), bind9-libs:arm64 (1:9.16.37-1~deb11u1), ncdu:arm64 (1.15.1-1), hardlink:arm64 (0.3.2+b1), libfreetype-dev:arm64 (2.10.4+dfsg-1+deb11u1), libboost-regex1.74.0:arm64 (1.74.0-9), ed:arm64 (1.17-1), libtext-iconv-perl:arm64 (1.7-7+b1), apt-utils:arm64 (2.2.4), libalgorithm-diff-xs-perl:arm64 (0.04-6+b1), groff-base:arm64 (1.22.4-6), libicu67:arm64 (67.1-7), libnss-mdns:arm64 (0.14.1-2), libsource-highlight4v5:arm64 (3.1.9-3+b1)
+End-Date: 2023-03-10  06:28:03
+
+Start-Date: 2023-03-10  06:28:53
+Commandline: /usr/bin/apt-get -y -q upgrade
+Upgrade: libcurl4:arm64 (7.74.0-1.3+deb11u5, 7.74.0-1.3+deb11u7), raspberrypi-bootloader:arm64 (1:1.20230106-1, 1:1.20230306-1), libcurl3-gnutls:arm64 (7.74.0-1.3+deb11u5, 7.74.0-1.3+deb11u7), libtiff5:arm64 (4.2.0-1+deb11u3, 4.2.0-1+deb11u4), python3-picamera2:arm64 (0.3.8-1, 0.3.9-1), libcamera-apps-lite:arm64 (0~git20230125+9f08463-1, 0~git20230301+54a781d-1), libcamera0:arm64 (0~git20230124+9b860a66-1, 0~git20230302+923f5d70-1), curl:arm64 (7.74.0-1.3+deb11u5, 7.74.0-1.3+deb11u7), raspberrypi-kernel:arm64 (1:1.20230106-1, 1:1.20230306-1), python3-libcamera:arm64 (0~git20230124+9b860a66-1, 0~git20230302+923f5d70-1), python3-v4l2:arm64 (0.3.1-1, 0.3.2-1), linux-libc-dev:arm64 (1:1.20230106-1, 1:1.20230306-1)
+End-Date: 2023-03-10  06:29:15
+
+Start-Date: 2023-03-10  06:29:19
+Commandline: /usr/bin/apt-get -y -q autoremove
+Remove: libtsan0:arm64 (10.2.1-6), libtevent0:arm64 (0.10.2-1), libmatroska7:arm64 (1.6.2-1), libavahi-common-data:arm64 (0.8-5+deb11u1), libluajit-5.1-2:arm64 (2.1.0~beta3+dfsg-5.3), libfakeroot:arm64 (1.25.3-1.1), libavahi-core7:arm64 (0.8-5+deb11u1), patch:arm64 (2.7.6-7), libpipeline1:arm64 (1.5.3-1), libv4l2rds0:arm64 (1.20.0-2), libdebuginfod1:arm64 (0.183-1), libmpfr6:arm64 (4.1.0-3), libcc1-0:arm64 (10.2.1-6), libboost-filesystem1.74.0:arm64 (1.74.0-9), libflac8:arm64 (1.3.3-2+deb11u1), libmpc3:arm64 (1.2.0-1), libxpm4:arm64 (1:3.5.12-1), libfontconfig1:arm64 (2.13.1-4.2), libmaxminddb0:arm64 (1.5.2-1), libpcre2-posix2:arm64 (10.36-2+deb11u1), fontconfig-config:arm64 (2.13.1-4.2), libasan6:arm64 (10.2.1-6), libuchardet0:arm64 (0.0.7-1), libnsl-dev:arm64 (1.3.0-2), libprotobuf-c1:arm64 (1.3.3-1+b2), libpython3.9:arm64 (3.9.2-1), libebml5:arm64 (1.4.2-1), libcrypt-dev:arm64 (1:4.4.18-4), libbrotli-dev:arm64 (1.0.9-2+b2), libavahi-common3:arm64 (0.8-5+deb11u1), libitm1:arm64 (10.2.1-6), libsource-highlight-common:arm64 (3.1.9-3), libv4l-0:arm64 (1.20.0-2), libogg0:arm64 (1.3.4-0.1), libc-dev-bin:arm64 (2.31-13+rpt2+rpi1+deb11u5), libvorbis0a:arm64 (1.3.7-1), libpng-tools:arm64 (1.6.37-3), libdaemon0:arm64 (0.14-7.1), liblmdb0:arm64 (0.9.24-1), libc-devtools:arm64 (2.31-13+rpt2+rpi1+deb11u5), libisl23:arm64 (0.23-1), libc6-dbg:arm64 (2.31-13+rpt2+rpi1+deb11u5), libc6-dev:arm64 (2.31-13+rpt2+rpi1+deb11u5), libv4lconvert0:arm64 (1.20.0-2), fonts-dejavu-core:arm64 (2.37-2), dos2unix:arm64 (7.4.1-1), libubsan1:arm64 (10.2.1-6), liblsan0:arm64 (10.2.1-6), libgd3:arm64 (2.3.0-2), libgcc-10-dev:arm64 (10.2.1-6), libtalloc2:arm64 (2.3.1-2+b1), libstdc++-10-dev:arm64 (10.2.1-6), libdvdread8:arm64 (6.1.1-2), libfstrm0:arm64 (0.6.0-1+b1), libtirpc-dev:arm64 (1.3.1-1+deb11u1), libuv1:arm64 (1.40.0-2), fakeroot:arm64 (1.25.3-1.1), libatomic1:arm64 (10.2.1-6), libbabeltrace1:arm64 (1.5.8-1+b3), libluajit-5.1-common:arm64 (2.1.0~beta3+dfsg-5.3), libpugixml1v5:arm64 (1.11.4-1), linux-libc-dev:arm64 (1:1.20230306-1)
+End-Date: 2023-03-10  06:29:24
+
+Start-Date: 2023-03-10  06:30:32
+Commandline: /usr/bin/apt-get -y -q install acl
+Install: acl:arm64 (2.2.53-10)
+End-Date: 2023-03-10  06:30:34
+
+Start-Date: 2023-03-10  06:30:54
+Commandline: apt-get install -y -qq apt-transport-https ca-certificates curl
+Install: apt-transport-https:arm64 (2.2.4)
+End-Date: 2023-03-10  06:30:55
+
+Start-Date: 2023-03-10  06:31:19
+Commandline: apt-get install -y -qq docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras docker-buildx-plugin
+Install: containerd.io:arm64 (1.6.18-1), docker-compose-plugin:arm64 (2.16.0-1~debian.11~bullseye), libltdl7:arm64 (2.4.6-15, automatic), docker-ce-cli:arm64 (5:23.0.1-1~debian.11~bullseye), dbus-user-session:arm64 (1.12.24-0+deb11u1, automatic), git:arm64 (1:2.30.2-1+deb11u2, automatic), apparmor:arm64 (2.13.6-10, automatic), patch:arm64 (2.7.6-7, automatic), libslirp0:arm64 (4.4.0-1+deb11u2, automatic), less:arm64 (551-2, automatic), docker-buildx-plugin:arm64 (0.10.2-1~debian.11~bullseye), docker-ce:arm64 (5:23.0.1-1~debian.11~bullseye), docker-ce-rootless-extras:arm64 (5:23.0.1-1~debian.11~bullseye), liberror-perl:arm64 (0.17029-1, automatic), slirp4netns:arm64 (1.0.1-2, automatic), git-man:arm64 (1:2.30.2-1+deb11u2, automatic)
+End-Date: 2023-03-10  06:31:35
+
+Start-Date: 2023-03-10  06:31:49
+Commandline: /usr/bin/apt-get -y -q install sqlite3 jq netcat-openbsd traceroute wavemon tcpdump lshw
+Install: tcpdump:arm64 (4.99.0-2+deb11u1), libonig5:arm64 (6.9.6-1.1, automatic), usb.ids:arm64 (2022.05.20-0+deb11u1, automatic), wavemon:arm64 (0.9.1-1), lshw:arm64 (02.18.85-0.7), traceroute:arm64 (1:2.1.0-2), jq:arm64 (1.6-2.1), sqlite3:arm64 (3.34.1-3), libjq1:arm64 (1.6-2.1, automatic), netcat-openbsd:arm64 (1.217-3)
+End-Date: 2023-03-10  06:31:52
+
+Start-Date: 2023-03-10  06:31:56
+Commandline: /usr/bin/apt-get -q -y purge git docker-ce-rootless-extras docker-compose-plugin
+Purge: docker-compose-plugin:arm64 (2.16.0-1~debian.11~bullseye), git:arm64 (1:2.30.2-1+deb11u2), docker-ce-rootless-extras:arm64 (5:23.0.1-1~debian.11~bullseye)
+End-Date: 2023-03-10  06:31:58
+
+Start-Date: 2023-03-10  06:32:03
+Commandline: /usr/bin/apt-get -q -y autoremove
+Remove: libslirp0:arm64 (4.4.0-1+deb11u2), liberror-perl:arm64 (0.17029-1), slirp4netns:arm64 (1.0.1-2), git-man:arm64 (1:2.30.2-1+deb11u2)
+End-Date: 2023-03-10  06:32:06

@@ -1,0 +1,8 @@
+I:290246168
+E:ID_NET_NAMING_SCHEME=v240
+E:ID_NET_NAME_MAC=wlxb827ebdc16c4
+E:ID_OUI_FROM_DATABASE=Raspberry Pi Foundation
+E:ID_PATH=platform-3f300000.mmcnr
+E:ID_PATH_TAG=platform-3f300000_mmcnr
+E:SYSTEMD_ALIAS=/sys/subsystem/net/devices/wlan0
+G:systemd

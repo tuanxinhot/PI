@@ -1,0 +1,31 @@
+Feb 21 04:08:10 localhost kernel: [    0.000000] pcpu-alloc: s77336 r8192 d29160 u114688 alloc=28*4096
+Feb 21 04:08:10 localhost kernel: [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+Feb 21 04:08:10 localhost kernel: [    2.885020] dwc_otg: Microframe scheduler enabled
+Feb 21 04:08:10 localhost kernel: [    2.934850] dwc_otg: FIQ enabled
+Feb 21 04:08:10 localhost kernel: [    2.934869] dwc_otg: NAK holdoff enabled
+Feb 21 04:08:10 localhost kernel: [    2.934883] dwc_otg: FIQ split-transaction FSM enabled
+Feb 21 04:08:10 localhost kernel: [    2.934905] Module dwc_common_port init
+Feb 21 04:08:10 localhost kernel: [    3.347023]   with arguments:
+Feb 21 04:08:10 localhost kernel: [    3.347037]     /sbin/init
+Feb 21 04:08:10 localhost kernel: [    3.347053]   with environment:
+Feb 21 04:08:10 localhost kernel: [    3.347065]     HOME=/
+Feb 21 04:08:10 localhost kernel: [    3.347079]     TERM=linux
+Feb 21 04:08:10 localhost kernel: [    3.347093]     cgroup_memory=1
+Feb 21 04:08:10 localhost kernel: [   10.177792] brcmfmac: F1 signature read @0x18000000=0x1541a9a6
+Feb 21 04:08:10 localhost kernel: [   10.655495] checking generic (3eace000 12c000) vs hw (0 ffffffffffffffff)
+Feb 21 04:08:10 localhost thd[461]: Found socket passed from systemd
+Apr  7 02:47:03 localhost kernel: [    0.000000] pcpu-alloc: s77336 r8192 d29160 u114688 alloc=28*4096
+Apr  7 02:47:03 localhost kernel: [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+Apr  7 02:47:03 localhost kernel: [    2.851322] dwc_otg: Microframe scheduler enabled
+Apr  7 02:47:03 localhost kernel: [    2.893267] dwc_otg: FIQ enabled
+Apr  7 02:47:03 localhost kernel: [    2.893286] dwc_otg: NAK holdoff enabled
+Apr  7 02:47:03 localhost kernel: [    2.893301] dwc_otg: FIQ split-transaction FSM enabled
+Apr  7 02:47:03 localhost kernel: [    2.893323] Module dwc_common_port init
+Apr  7 02:47:03 localhost kernel: [    3.746140]   with arguments:
+Apr  7 02:47:03 localhost kernel: [    3.746155]     /sbin/init
+Apr  7 02:47:03 localhost kernel: [    3.746170]   with environment:
+Apr  7 02:47:03 localhost kernel: [    3.746183]     HOME=/
+Apr  7 02:47:03 localhost kernel: [    3.746197]     TERM=linux
+Apr  7 02:47:03 localhost kernel: [    3.746210]     cgroup_memory=1
+Apr  7 02:47:03 localhost kernel: [   10.935422] brcmfmac: F1 signature read @0x18000000=0x1541a9a6
+Apr  7 02:47:03 localhost thd[538]: Found socket passed from systemd

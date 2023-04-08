@@ -1,0 +1,13 @@
+[Unit]
+Description=System Info
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/sysinfo.sh
+Restart=always
+TTYPath=/dev/tty10
+TTYReset=yes
+StandardInput=tty
+KillMode=process

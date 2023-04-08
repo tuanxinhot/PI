@@ -1,0 +1,11 @@
+[Unit]
+Description=Jabil Power Auto Shutdown
+ConditionPathExists=/boot/jpas.conf
+DefaultDependencies=no
+After=sysinit.target
+Before=shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=-/usr/bin/jpas --cfg /boot/jpas.conf

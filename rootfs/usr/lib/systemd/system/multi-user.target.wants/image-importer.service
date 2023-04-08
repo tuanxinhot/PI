@@ -1,0 +1,7 @@
+[Unit]
+Description=Image Importer
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/image-importer.sh

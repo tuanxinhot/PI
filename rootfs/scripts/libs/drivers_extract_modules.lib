@@ -1,0 +1,51 @@
+#!/bin/bash
+#version=2.0.0
+
+# this library module is to extract module folder with the files into temporary /storage/drivers/ directory from docker container.
+#
+# example: ./drivers_extract_modules.lib docker.corp.jabil.org/raspberry-pi/arducam-16mp:b5f97c94-af0b
+
+# parameter(s)
+IMAGE=$1
+
+# set log path
+LOG_PATH=$(/scripts/libs/drivers_log_path.lib)
+
+# ensure parameter 1 exists
+if [ "$IMAGE" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 1) docker image variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 1) docker image variable is empty."
+  exit 1
+fi
+
+# break docker image into name and tag
+SUB_PATH_1=$(echo $IMAGE | awk -F ':' '{print $1}' | tr -d '\r\n')
+SUB_PATH_2=$(echo $IMAGE | awk -F ':' '{print $2}' | tr -d '\r\n')
+
+# docker pull and run
+docker pull $IMAGE
+CONTAINER_ID=$(docker run -d $IMAGE)
+
+# ensure pull and container ran suceessfully
+if [ "$CONTAINER_ID" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: container id is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: container id is empty."
+  exit 1
+fi
+
+# define container source path
+SOURCE_PATH="/usr/local/lib/modules"
+# define host storage temporary path
+STORAGE_DRIVER_PATH="/storage/drivers/$SUB_PATH_1/$SUB_PATH_2"
+# ensure destination path is always starting with clean
+rm -rf $STORAGE_DRIVER_PATH/
+# make sure destination path exists in host
+mkdir -p $STORAGE_DRIVER_PATH/
+
+# copy container's modules folder and its sub folders into host
+echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: Copying container's drivers to $STORAGE_DRIVER_PATH." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+echo "Copying container's drivers to $STORAGE_DRIVER_PATH."
+docker cp $CONTAINER_ID:$SOURCE_PATH/ $STORAGE_DRIVER_PATH/
+
+# remove container from docker
+docker rm $CONTAINER_ID

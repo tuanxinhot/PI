@@ -1,0 +1,42 @@
+update-alternatives 2023-03-10 06:27:55: run with --remove idmap-plugin /usr/lib/aarch64-linux-gnu/cifs-utils/idmapwb.so
+update-alternatives 2023-03-10 06:27:55: link group idmap-plugin fully removed
+update-alternatives 2023-03-10 06:27:55: run with --remove c++ /usr/bin/g++
+update-alternatives 2023-03-10 06:27:55: link group c++ fully removed
+update-alternatives 2023-03-10 06:27:55: run with --quiet --remove cc /usr/bin/gcc
+update-alternatives 2023-03-10 06:27:55: link group cc fully removed
+update-alternatives 2023-03-10 06:27:55: run with --quiet --remove c89 /usr/bin/c89-gcc
+update-alternatives 2023-03-10 06:27:55: link group c89 fully removed
+update-alternatives 2023-03-10 06:27:55: run with --quiet --remove c99 /usr/bin/c99-gcc
+update-alternatives 2023-03-10 06:27:55: link group c99 fully removed
+update-alternatives 2023-03-10 06:27:55: run with --quiet --remove cpp /usr/bin/cpp
+update-alternatives 2023-03-10 06:27:55: link group cpp fully removed
+update-alternatives 2023-03-10 06:27:56: run with --remove editor /bin/ed
+update-alternatives 2023-03-10 06:27:56: run with --quiet --remove pager /usr/bin/less
+update-alternatives 2023-03-10 06:27:56: link group pager updated to point to /bin/more
+update-alternatives 2023-03-10 06:27:58: run with --remove vi /usr/bin/vim.tiny
+update-alternatives 2023-03-10 06:27:58: link group vi fully removed
+update-alternatives 2023-03-10 06:27:58: run with --remove view /usr/bin/vim.tiny
+update-alternatives 2023-03-10 06:27:58: link group view fully removed
+update-alternatives 2023-03-10 06:27:58: run with --remove ex /usr/bin/vim.tiny
+update-alternatives 2023-03-10 06:27:58: link group ex fully removed
+update-alternatives 2023-03-10 06:27:58: run with --remove editor /usr/bin/vim.tiny
+update-alternatives 2023-03-10 06:27:58: run with --remove rview /usr/bin/vim.tiny
+update-alternatives 2023-03-10 06:27:58: link group rview fully removed
+update-alternatives 2023-03-10 06:29:19: run with --remove fakeroot /usr/bin/fakeroot-sysv
+update-alternatives 2023-03-10 06:29:19: link group fakeroot updated to point to /usr/bin/fakeroot-tcp
+update-alternatives 2023-03-10 06:29:19: run with --remove fakeroot /usr/bin/fakeroot-tcp
+update-alternatives 2023-03-10 06:29:19: link group fakeroot fully removed
+update-alternatives 2023-03-10 06:31:31: run with --quiet --install /usr/bin/pager pager /usr/bin/less 77 --slave /usr/share/man/man1/pager.1.gz pager.1.gz /usr/share/man/man1/less.1.gz
+update-alternatives 2023-03-10 06:31:31: link group pager updated to point to /usr/bin/less
+update-alternatives 2023-03-10 06:31:52: run with --install /usr/bin/traceroute traceroute /usr/bin/traceroute.db 100 --slave /usr/sbin/traceroute traceroute.sbin /usr/bin/traceroute.db --slave /usr/share/man/man1/traceroute.1.gz traceroute.1.gz /usr/share/man/man1/traceroute.db.1.gz
+update-alternatives 2023-03-10 06:31:52: link group traceroute updated to point to /usr/bin/traceroute.db
+update-alternatives 2023-03-10 06:31:52: run with --install /usr/bin/traceroute6 traceroute6 /usr/bin/traceroute6.db 100 --slave /usr/share/man/man1/traceroute6.1.gz traceroute6.1.gz /usr/share/man/man1/traceroute6.db.1.gz
+update-alternatives 2023-03-10 06:31:52: link group traceroute6 updated to point to /usr/bin/traceroute6.db
+update-alternatives 2023-03-10 06:31:52: run with --install /usr/bin/lft lft /usr/bin/lft.db 100 --slave /usr/share/man/man1/lft.1.gz lft.1.gz /usr/share/man/man1/lft.db.1.gz
+update-alternatives 2023-03-10 06:31:52: link group lft updated to point to /usr/bin/lft.db
+update-alternatives 2023-03-10 06:31:52: run with --install /usr/bin/traceproto traceproto /usr/bin/traceproto.db 100 --slave /usr/share/man/man1/traceproto.1.gz traceproto.1.gz /usr/share/man/man1/traceproto.db.1.gz
+update-alternatives 2023-03-10 06:31:52: link group traceproto updated to point to /usr/bin/traceproto.db
+update-alternatives 2023-03-10 06:31:52: run with --install /usr/sbin/tcptraceroute tcptraceroute /usr/sbin/tcptraceroute.db 100 --slave /usr/share/man/man8/tcptraceroute.8.gz tcptraceroute.8.gz /usr/share/man/man8/tcptraceroute.db.8.gz
+update-alternatives 2023-03-10 06:31:52: link group tcptraceroute updated to point to /usr/sbin/tcptraceroute.db
+update-alternatives 2023-03-10 06:31:52: run with --install /bin/nc nc /bin/nc.openbsd 50 --slave /bin/netcat netcat /bin/nc.openbsd --slave /usr/share/man/man1/nc.1.gz nc.1.gz /usr/share/man/man1/nc_openbsd.1.gz --slave /usr/share/man/man1/netcat.1.gz netcat.1.gz /usr/share/man/man1/nc_openbsd.1.gz
+update-alternatives 2023-03-10 06:31:52: link group nc updated to point to /bin/nc.openbsd

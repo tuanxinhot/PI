@@ -1,0 +1,75 @@
+#!/bin/bash
+#version=2.0.0
+
+# this library module is to copy the module files from /storage/drivers/ into /lib/modules/.
+#
+# example: ./drivers_copy_modules.lib docker.corp.jabil.org/raspberry-pi/arducam-16mp:b5f97c94-af0b /mnt/part2
+
+# parameter(s)
+IMAGE=$1
+MOUNT_PATH=$2
+
+# set log path
+LOG_PATH=$(/scripts/libs/drivers_log_path.lib)
+
+# ensure parameter 1 exists
+if [ "$IMAGE" == "" ]; then
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: (parameter 1) docker image variable is empty." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: (parameter 1) docker image variable is empty."
+  exit 1
+fi
+
+# break docker image into name and tag
+SUB_PATH_1=$(echo $IMAGE | awk -F ':' '{print $1}' | tr -d '\r\n')
+SUB_PATH_2=$(echo $IMAGE | awk -F ':' '{print $2}' | tr -d '\r\n')
+
+# define library modules path
+DESTINATION_BASE_PATH="/lib/modules"
+
+# if only it is prefixed with mount point
+if [ "$MOUNT_PATH" != "" ]; then
+  DESTINATION_BASE_PATH="$MOUNT_PATH$DESTINATION_BASE_PATH"
+fi
+
+# define source path for kernel version modules to copy
+SOURCE_PATH="/storage/drivers/$SUB_PATH_1/$SUB_PATH_2/modules"
+
+# ensure source path exists
+if [ -d $SOURCE_PATH ]; then
+  # iterate all kernel_version from the source path and copy the files to the destination path
+  for FOUND_PATH in $SOURCE_PATH/*/; do
+    # ensure at least a kernel version exists in the source path
+    if [ "$FOUND_PATH" == "$SOURCE_PATH/*/" ]; then
+      echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: $SOURCE_PATH has no module to copy." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+      echo "ERROR: $SOURCE_PATH has no module to copy."
+      exit 1
+    fi
+
+    SOURCE_PATH_LENGTH=${#SOURCE_PATH}
+    FOUND_PATH_LENGTH=${#FOUND_PATH}
+    # get kernel version
+    KERNEL_VERSION=$(echo "$FOUND_PATH" | cut -c$((SOURCE_PATH_LENGTH+2))-$((FOUND_PATH_LENGTH-1)))
+    # set destination path in /lib/modules
+    DESTINATION_PATH="$DESTINATION_BASE_PATH/$KERNEL_VERSION/extra/$SUB_PATH_1/"
+    
+    # ensure the kernel version target exist, otherwise, reject to copy
+    if [ -d "$DESTINATION_BASE_PATH/$KERNEL_VERSION" ]; then
+      # remove the existing files if exists
+      rm -rf $DESTINATION_PATH
+      # ensure target path exists
+      mkdir -p $DESTINATION_PATH
+      # copy kernel version's module files from /storage/driver to /lib/modules
+      echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] INFO: Copying modules to $DESTINATION_PATH." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+      echo "Copying modules to $DESTINATION_PATH."
+      cp $FOUND_PATH* $DESTINATION_PATH
+    else
+      # not copy for unknown kernel version driver
+      echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] WARNING: Kernel version '$KERNEL_VERSION' not existed. Not copying." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+      echo "Kernel version '$KERNEL_VERSION' not existed. Not copying."
+    fi
+  done
+else
+  echo "[$(date -u +"%Y-%m-%d %H:%M:%S")] ERROR: $SOURCE_PATH not found." >> $LOG_PATH/drivers_$(date -u +"%Y-%m-%d").log
+  echo "ERROR: $SOURCE_PATH not found."
+  exit 1
+fi

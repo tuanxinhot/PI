@@ -1,0 +1,5 @@
+{"log":"App launched!\n","stream":"stdout","time":"2023-04-07T02:53:46.639161428Z"}
+{"log":"To get full API List, please run: curl http://10.124.205.85:3000/api/v1.0/commands\n","stream":"stdout","time":"2023-04-07T02:53:46.738739772Z"}
+{"log":"10.124.205.85 - GET /sysconf/compose - Unknown security handler (Bearer): No token found.\n","stream":"stdout","time":"2023-04-07T02:56:38.925021622Z"}
+{"log":"127.0.0.1 - GET /sysconf/compose - (localhost @local application) Successfully downloaded file: /boot/compose.yml.\n","stream":"stdout","time":"2023-04-07T02:56:39.055870349Z"}
+{"log":"127.0.0.1 - POST /sysconf/compose - (localhost local application) Successfully updated file: /boot/compose.yml.\n","stream":"stdout","time":"2023-04-07T02:56:39.323066342Z"}

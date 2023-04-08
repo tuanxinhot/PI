@@ -1,0 +1,6 @@
+config_item:
+    config_name: 'network_interface'
+    datatype: 'network'
+    display_name: 'Network Interface'
+    tootip: 'Choose a network.'
+    default: 'eth0'

@@ -1,0 +1,11 @@
+{
+"verNumber": "2.2.5",
+"verBuild": "20220221",
+"verText": "prod",
+"verRev": "1",
+"verInfo": "For production use",
+"imageTag": "2.2.5-20220221-prod.1",
+"gitTag": "2.2.5-20220221-prod.1",
+"gitCommitHash": "ded02ee7575b23fb482621d7ab6a853d59d0f815",
+"verFullString": "2.2.5-20220221-prod.1-pico_dev"
+}

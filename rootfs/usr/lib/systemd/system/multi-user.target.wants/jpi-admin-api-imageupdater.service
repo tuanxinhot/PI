@@ -1,0 +1,12 @@
+#version=2.0.0
+
+[Unit]
+Description=Jabil Pi Admin Api Image Puller
+After=docker.service network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/root/jpiadmapi/jpi-admin-api-pull.sh
+Restart=always
+RestartSec=3600

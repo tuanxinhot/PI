@@ -1,0 +1,9 @@
+I:283614068
+E:ID_PATH=platform-bcm2835_audio
+E:ID_PATH_TAG=platform-bcm2835_audio
+E:ID_FOR_SEAT=sound-platform-bcm2835_audio
+E:SOUND_INITIALIZED=1
+E:SOUND_FORM_FACTOR=internal
+E:SYSTEMD_WANTS=sound.target
+G:systemd
+G:seat

@@ -1,0 +1,13 @@
+#!/bin/bash
+#version=2.0.0
+
+# this library module is set log path for drivers.
+
+# get partition #2
+DEVICE_PART_2=$(findmnt / -o source -n)
+
+# set log path
+OSID=$(dumpe2fs -h "$DEVICE_PART_2" 2>&1 | grep 'Filesystem UUID' | cut -d: -f 2 | tr -d ' ')
+LOG_PATH="/storage/$OSID/drivers/logs"
+mkdir -p $LOG_PATH
+echo $LOG_PATH

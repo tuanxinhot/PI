@@ -1,0 +1,4 @@
+I:290794453
+E:ID_NET_NAMING_SCHEME=v240
+E:SYSTEMD_ALIAS=/sys/subsystem/net/devices/docker0
+G:systemd

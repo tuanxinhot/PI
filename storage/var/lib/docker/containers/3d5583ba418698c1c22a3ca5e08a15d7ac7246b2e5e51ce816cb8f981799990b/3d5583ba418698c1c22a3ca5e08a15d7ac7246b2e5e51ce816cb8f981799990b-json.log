@@ -1,0 +1,7 @@
+{"log":"vm.overcommit_memory = 1\n","stream":"stdout","time":"2023-04-07T02:52:13.691279351Z"}
+{"log":"37:C 07 Apr 02:52:13.766 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo\n","stream":"stdout","time":"2023-04-07T02:52:13.767687111Z"}
+{"log":"37:C 07 Apr 02:52:13.766 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=37, just started\n","stream":"stdout","time":"2023-04-07T02:52:13.767942736Z"}
+{"log":"37:C 07 Apr 02:52:13.767 # Configuration loaded\n","stream":"stdout","time":"2023-04-07T02:52:13.768001747Z"}
+{"log":"37:M 07 Apr 02:52:13.789 * Running mode=standalone, port=6379.\n","stream":"stdout","time":"2023-04-07T02:52:13.790374143Z"}
+{"log":"37:M 07 Apr 02:52:13.790 # Server initialized\n","stream":"stdout","time":"2023-04-07T02:52:13.790719195Z"}
+{"log":"37:M 07 Apr 02:52:13.790 * Ready to accept connections\n","stream":"stdout","time":"2023-04-07T02:52:13.792443465Z"}

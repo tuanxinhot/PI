@@ -1,0 +1,9 @@
+[2023-04-07 02:46:27] Copied RSS docker-compose file.
+[2023-04-07 02:46:27] Copied RSS shadow file.
+[2023-04-07 02:46:27] Copied rss.service file.
+[2023-04-07 02:46:27] Copied rss-startup.sh file.
+[2023-04-07 02:46:30] RSS service updated and Pi require restart.
+[2023-04-07 02:46:31] Copied firmware install service file.
+[2023-04-07 02:46:31] Copied firmware install script file.
+[2023-04-07 02:46:48] Copied rpi-eeprom@.service file.
+[2023-04-07 02:46:48] Copied update-boot-order.sh file.

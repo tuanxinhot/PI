@@ -1,0 +1,12 @@
+[2023-04-07 02:45:32] START - /scripts/drivers_install.sh
+[2023-04-07 02:45:32] ERROR: /usr/local/etc/modules.d/ not found.
+[2023-04-07 02:45:32] END - /scripts/drivers_install.sh
+-
+-
+-
+[2023-04-07 02:52:08] START - /scripts/drivers_install.sh
+[2023-04-07 02:52:08] ERROR: /usr/local/etc/modules.d/ not found.
+[2023-04-07 02:52:08] END - /scripts/drivers_install.sh
+-
+-
+-

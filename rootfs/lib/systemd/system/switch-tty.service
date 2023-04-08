@@ -1,0 +1,8 @@
+[Unit]
+Description=Switch TTY and Set Timezone
+Before=docker.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/scripts/switch-tty.sh

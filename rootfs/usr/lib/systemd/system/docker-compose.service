@@ -1,0 +1,17 @@
+#version=2.0.0
+
+[Unit]
+Description=Docker Compose
+After=docker.service
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+WorkingDirectory=/boot
+ExecStart=/scripts/compose.sh start
+ExecStop=/scripts/compose.sh stop
+ExecReload=/scripts/compose.sh reload
+Restart=always
+TTYPath=/dev/tty7
+TTYReset=yes
+StandardInput=tty

@@ -1,0 +1,8 @@
+[Unit]
+Description=Roll back to previous Jabil Pi OS
+After=sysinit.target network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/pi-updater/rollback.sh

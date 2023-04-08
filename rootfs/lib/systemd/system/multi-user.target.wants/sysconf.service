@@ -1,0 +1,11 @@
+[Unit]
+Description=Pi System Configuration
+Before=dhcpcd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/scripts/sysconf.sh
+
+[Install]
+WantedBy=multi-user.target
