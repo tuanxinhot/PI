@@ -1,0 +1,187 @@
+This package was debianized by Simon Richter <sjr@debian.org> on
+Mon, 21 May 2001 22:20:43 +0200.
+As of 2004-01-05, it is maintained by Matthias Urlichs <smurf@debian.org>.
+
+It was downloaded from https://pypi.python.org/pypi/Pillow/
+
+Files excluded because of missing license data:
+
+ Tests/images/a.fli
+ Tests/test_file_fli.py
+ Tests/test_file_mcidas.py
+ Tests/images/cmx3g8_wv_1998.260_0745_mcidas.ara
+ Tests/images/cmx3g8_wv_1998.260_0745_mcidas.png
+
+Copyright:
+
+The Python Imaging Library is
+
+Copyright (c) 1997-2011 by Secret Labs AB
+Copyright (c) 1995-2011 by Fredrik Lundh
+Copyright (c) 2010-2020 by Alex Clark and contributors
+
+By obtaining, using, and/or copying this software and/or its
+associated documentation, you agree that you have read, understood,
+and will comply with the following terms and conditions:
+
+Permission to use, copy, modify, and distribute this software and its
+associated documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appears in all
+copies, and that both that copyright notice and this permission notice
+appear in supporting documentation, and that the name of Secret Labs
+AB or the author not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior
+permission.
+
+SECRET LABS AB AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS.  IN NO EVENT SHALL SECRET LABS AB OR THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Tests/fonts:
+
+NotoNastaliqUrdu-Regular.ttf, NotoSansSymbols-Regular.ttf
+  from https://github.com/googlei18n/noto-fonts
+
+NotoSans-Regular.ttf
+  from https://www.google.com/get/noto/
+
+NotoSansJP-Regular.otf
+  from https://www.google.com/get/noto/help/cjk/
+
+NotoColorEmoji.ttf
+  from https://github.com/googlefonts/noto-emoji
+
+AdobeVFPrototype.ttf
+  from https://github.com/adobe-fonts/adobe-variable-font-prototype
+
+TINY5x3GX.ttf
+  from http://velvetyne.fr/fonts/tiny
+
+ArefRuqaa-Regular.ttf
+  from https://github.com/google/fonts/tree/master/ofl/arefruqaa
+
+ter-x20b.pcf
+  from http://terminus-font.sourceforge.net/
+
+BungeeColor-Regular_colr_Windows.ttf
+  from https://github.com/djrrb/bungee
+
+All of the above fonts are published under the
+SIL Open Font License (OFL) v1.1
+(http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL),
+which allows you to copy, modify, and redistribute them if you need
+to.
+
+FreeMono.ttf
+
+Licensed under GPL3 with GPL font exception
+
+Tests/fonts/OpenSansCondensed-LightItalic.ttf
+  from https://fonts.google.com/specimen/Open+Sans
+
+Licensed under Apache 2.0
+
+DejaVuSans-24-*-stripped.ttf
+
+based on DejaVuSans.ttf converted using FontForge to add bitmap strikes and
+keep only the ASCII range.
+
+10x20-ISO8859-1.pcf, from https://packages.ubuntu.com/xenial/xfonts-base
+
+"Public domain font.  Share and enjoy."
+
+Tests/images/bmp/* from https://github.com/jsummers/bmpsuite
+
+Public domain
+
+docs/example/DdsImagePlugin.py
+src/PIL/BlpImagePlugin.py
+src/PIL/DdsImagePlugin.py
+src/PIL/FtexImagePlugin.py
+src/libImaging/BcnDecode.c
+
+Public domain (CC0)
+Full text of the CC0 license:
+  https://creativecommons.org/publicdomain/zero/1.0/
+
+src/libImaging/QuantOctree.c
+
+ Copyright 2010 Oliver Tonnhofer <olt@bogosoft.com>, Omniscale
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+
+src/Tk/_tkmini.h
+
+ Copyright
+ 1987-1994 The Regents of the University of California.
+ 1993-1996 Lucent Technologies.
+ 1994-1998 Sun Microsystems, Inc.
+ 1998-2000 by Scriptics Corporation.
+ 2002 by Kevin B. Kenny.  All rights reserved.
+
+ This software is copyrighted by the Regents of the University
+ of California, Sun Microsystems, Inc., Scriptics Corporation,
+ and other parties. The following terms apply to all files
+ associated with the software unless explicitly disclaimed in
+ individual files.
+ .
+ The authors hereby grant permission to use, copy, modify,
+ distribute, and license this software and its documentation
+ for any purpose, provided that existing copyright notices are
+ retained in all copies and that this notice is included
+ verbatim in any distributions. No written agreement, license,
+ or royalty fee is required for any of the authorized uses.
+ Modifications to this software may be copyrighted by their
+ authors and need not follow the licensing terms described
+ here, provided that the new terms are clearly indicated on
+ the first page of each file where they apply.
+ .
+ IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO
+ ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR
+ CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OF THIS
+ SOFTWARE, ITS DOCUMENTATION, OR ANY DERIVATIVES THEREOF, EVEN
+ IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH
+ DAMAGE.
+ .
+ THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ PURPOSE, AND NON-INFRINGEMENT. THIS SOFTWARE IS PROVIDED ON
+ AN "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO
+ OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES,
+ ENHANCEMENTS, OR MODIFICATIONS.
+ .
+ GOVERNMENT USE: If you are acquiring this software on behalf
+ of the U.S. government, the Government shall have only
+ "Restricted Rights" in the software and related documentation
+ as defined in the Federal Acquisition Regulations (FARs) in
+ Clause 52.227.19 (c) (2). If you are acquiring the software
+ on behalf of the Department of Defense, the software shall be
+ classified as "Commercial Computer Software" and the
+ Government shall have only "Restricted Rights" as defined in
+ Clause 252.227-7013 (c) (1) of DFARs. Notwithstanding the
+ foregoing, the authors grant the U.S. Government and others
+ acting in its behalf permission to use and distribute the
+ software in accordance with the terms specified in this
+ license

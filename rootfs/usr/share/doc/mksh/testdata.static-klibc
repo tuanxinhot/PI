@@ -1,0 +1,3 @@
+cat=fastbox,shell:legacy-no,int:32,shell:textmode-no,shell:binmode-yes,smksh,binsh,no-histfile,stdout-ed,no-stderr-ed
+shell=/usr/lib/klibc/bin/mksh
+skip=0

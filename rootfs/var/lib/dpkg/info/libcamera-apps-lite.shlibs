@@ -1,0 +1,6 @@
+libcamera_app 1 libcamera-apps-lite
+libencoders 1 libcamera-apps-lite
+libimages 1 libcamera-apps-lite
+liboutputs 1 libcamera-apps-lite
+libpost_processing_stages 1 libcamera-apps-lite
+libpreview 1 libcamera-apps-lite

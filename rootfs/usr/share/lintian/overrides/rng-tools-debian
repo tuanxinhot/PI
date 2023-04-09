@@ -1,0 +1,5 @@
+# supposed to be used as /sbin/MAKEDEV
+rng-tools-debian: command-with-path-in-maintainer-script
+
+# tracked in #504044
+rng-tools-debian: missing-systemd-service-for-init.d-script

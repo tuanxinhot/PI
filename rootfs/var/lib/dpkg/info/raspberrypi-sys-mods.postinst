@@ -1,0 +1,161 @@
+#!/bin/sh -e
+
+remove_ms_stubs () {
+  eval "$(apt-config shell APT_SOURCE_PARTS Dir::Etc::sourceparts/d)"
+  CODE_SOURCE_PART="${APT_SOURCE_PARTS}vscode.list"
+  eval "$(apt-config shell APT_TRUSTED_PARTS Dir::Etc::trustedparts/d)"
+  CODE_TRUSTED_PART="${APT_TRUSTED_PARTS}microsoft.gpg"
+  grep -qsv '^[[:space:]]*#' "$CODE_SOURCE_PART" || rm -f "$CODE_SOURCE_PART" ||:
+  grep -qsv '^[[:space:]]*#' "$CODE_TRUSTED_PART" || rm -f "$CODE_TRUSTED_PART" ||:
+}
+
+add_remove_flush_option () {
+  echo "Checking if boot partition needs 'flush' option..."
+  BOOT_PART="$(findmnt -f -n -o SOURCE -t vfat /boot || true)"
+  if [ -z "$BOOT_PART" ]; then
+    echo "Could not find suitable boot partition"
+    return 0
+  fi
+  CLUSTER_BYTES=$(fsck.vfat -n -v "$BOOT_PART" | sed -n 's/^[^0-9]*\([0-9]\+\) bytes per cluster$/\1/p')
+  if [ -z "$CLUSTER_BYTES" ]; then
+    echo "Could not determine cluster size"
+    return 0
+  fi
+  echo "Found $BOOT_PART with $CLUSTER_BYTES bytes per cluster"
+  if [ "$CLUSTER_BYTES" -lt 1024 ]; then
+    echo "Adding 'flush' option to boot partition, if not present..."
+    sed -i '/flush/!s#\(\s/boot\s.*defaults\S*\) \{0,7\}#\1,flush #' /etc/fstab
+  else
+    echo "Removing 'flush' option from boot partition, if present..."
+    sed -i '/\s\/boot\s.*,flush/s#,flush#      #' /etc/fstab
+  fi
+}
+
+case "${1}" in
+  configure)
+    if dpkg --compare-versions "${2}" lt-nl "20210928"; then
+      if [ -f /etc/systemd/system/dhcpcd.service.d/wait.conf ]; then
+        echo "Fixing previous dhcpcd path in wait.conf drop-in..."
+        sed -i 's|lib/dhcpcd5|sbin|' /etc/systemd/system/dhcpcd.service.d/wait.conf
+      fi
+      if [ "$(readlink -f /etc/systemd/network/99-default.link)" = "/dev/null" ]; then
+        echo "Fixing predictable interface names..."
+        ln -sf /dev/null /etc/systemd/network/73-usb-net-by-mac.link
+      fi
+    fi
+    if dpkg --compare-versions "${2}" lt-nl "20220110+1"; then
+      if [ -f /etc/systemd/system/dhcpcd.service.d/wait.conf ]; then
+        echo "Fixing previous dhcpcd wait.conf drop-in to prevent double logging..."
+        sed -i 's|dhcpcd -w$|dhcpcd -w -q|' /etc/systemd/system/dhcpcd.service.d/wait.conf
+      fi
+    fi
+    if dpkg --compare-versions "${2}" lt-nl "20220106"; then
+      echo "Removing vscode repo stubs..."
+      remove_ms_stubs
+    fi
+    if dpkg --compare-versions "${2}" lt-nl "20220809" && \
+        [ "$(dpkg --print-architecture | grep -o '^.\{3\}')" = "arm" ]; then
+      add_remove_flush_option
+    fi
+    if dpkg --compare-versions "${2}" lt-nl "20220909"; then
+      IMG_VER="$(grep -s -m1 -o '[[:digit:]]\{4\}-[[:digit:]]\{2\}-[[:digit:]]\{2\}' /etc/rpi-issue || true)"
+      if [ "$IMG_VER" = "2022-09-06" ] && [ -f /test.log ]; then
+        rm -f /test.log
+      fi
+    fi
+    ;;
+
+  abort-upgrade|abort-remove|abort-deconfigure)
+
+    ;;
+
+  *)
+    echo "postinst called with unknown argument \`${1}'" >&2
+    exit 1
+    ;;
+esac
+
+# Automatically added by dh_installdeb/13.3.4
+dpkg-maintscript-helper rm_conffile /etc/profile.d/sshpasswd.sh 20161220 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/profile.d/wifi-country.sh 20190429 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/modprobe.d/blacklist-rtl8192cu.conf 20190730 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/apt/preferences.d/3rd_parties.pref 20210310 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/modules-load.d/aes-neon.conf 20220224 -- "$@"
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if deb-systemd-helper debian-installed 'apply_noobs_os_config.service'; then
+		# This will only remove masks created by d-s-h on package removal.
+		deb-systemd-helper unmask 'apply_noobs_os_config.service' >/dev/null || true
+
+		if deb-systemd-helper --quiet was-enabled 'apply_noobs_os_config.service'; then
+			# Create new symlinks, if any.
+			deb-systemd-helper enable 'apply_noobs_os_config.service' >/dev/null || true
+		fi
+	fi
+
+	# Update the statefile to add new symlinks (if any), which need to be cleaned
+	# up on purge. Also remove old symlinks.
+	deb-systemd-helper update-state 'apply_noobs_os_config.service' >/dev/null || true
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if deb-systemd-helper debian-installed 'regenerate_ssh_host_keys.service'; then
+		# This will only remove masks created by d-s-h on package removal.
+		deb-systemd-helper unmask 'regenerate_ssh_host_keys.service' >/dev/null || true
+
+		if deb-systemd-helper --quiet was-enabled 'regenerate_ssh_host_keys.service'; then
+			# Create new symlinks, if any.
+			deb-systemd-helper enable 'regenerate_ssh_host_keys.service' >/dev/null || true
+		fi
+	fi
+
+	# Update the statefile to add new symlinks (if any), which need to be cleaned
+	# up on purge. Also remove old symlinks.
+	deb-systemd-helper update-state 'regenerate_ssh_host_keys.service' >/dev/null || true
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'rpi-display-backlight.service' >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'rpi-display-backlight.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'rpi-display-backlight.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'rpi-display-backlight.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'sshswitch.service' >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'sshswitch.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'sshswitch.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'sshswitch.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.3.4
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if [ -d /run/systemd/system ]; then
+		systemctl --system daemon-reload >/dev/null || true
+		deb-systemd-invoke start 'sshswitch.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+

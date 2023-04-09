@@ -1,0 +1,11 @@
+/usr/lib/systemd/catalog systemd/noawait
+/etc/rsyslog.d rsyslog/noawait
+/lib/udev/hwdb.d udev/noawait
+/usr/lib/mime/packages mailcap/noawait
+/usr/share/applications mailcap/noawait
+/usr/lib/aarch64-linux-gnu/gio/modules libglib2.0-0:arm64/noawait
+/usr/lib/gio/modules libglib2.0-0:arm64/noawait
+/usr/share/glib-2.0/schemas libglib2.0-0:arm64
+/etc/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system-services dbus/noawait

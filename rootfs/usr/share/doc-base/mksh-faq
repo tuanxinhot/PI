@@ -1,0 +1,10 @@
+Document: mksh-faq
+Title: The MirBSD Korn Shell — Frequently Asked Questions
+Abstract: This is an offline copy of the FAQ shipped with mksh,
+ for convenient local reading. The online version, which will be
+ more up-to-date, is linked from within.
+Section: Shells
+
+Format: HTML
+Index: /usr/share/doc/mksh/FAQ.htm
+Files: /usr/share/doc/mksh/FAQ.htm*

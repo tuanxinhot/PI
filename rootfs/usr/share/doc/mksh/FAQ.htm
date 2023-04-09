@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title>mksh 59c-9+b2 FAQ (local copy)</title>
+ <meta name="source" content="$MirOS: src/bin/mksh/mksh.faq,v 1.23+locale-tracking 2021/07/10 17:39:27 tg Exp $" />
+ <meta name="generator" content="$MirOS: src/bin/mksh/FAQ2HTML.sh,v 1.3 2021/06/15 01:09:43 tg Exp $" />
+ <style type="text/css"><!--/*--><![CDATA[/*><!--*/
+ .boxhead {
+	margin-bottom:0px;
+ }
+
+ .boxtext {
+	border:4px ridge green;
+	margin:0px 24px 0px 18px;
+	padding:2px 3px 2px 3px;
+ }
+
+ .boxfoot {
+	margin-top:0px;
+ }
+
+ h2:before {
+	content:"🔗 ";
+ }
+
+ a[href^="ftp://"]:after,
+ a[href^="http://"]:after,
+ a[href^="https://"]:after,
+ a[href^="irc://"]:after,
+ a[href^="mailto:"]:after,
+ a[href^="news:"]:after,
+ a[href^="nntp://"]:after {
+	content:"⏍";
+	color:#FF0000;
+	vertical-align:super;
+	margin:0 0 0 1px;
+ }
+
+ pre {
+	/*      ↑   →   ↓    ←   */
+	margin:0px 9px 0px 15px;
+ }
+
+ tt {
+	white-space:nowrap;
+ }
+ /*]]>*/--></style>
+</head><body>
+<p>Note: Links marked like <a href="irc://irc.mirbsd.org/!/bin/mksh">this
+ one to the mksh IRC channel</a> connect to external resources.</p>
+<p>⚠ <b>Notice:</b> the website will have <a
+ href="http://www.mirbsd.org/mksh-faq.htm">the latest version of the
+ mksh FAQ</a> online.</p>
+<h1>Table of Contents</h1>
+<ul>
+<li><a href="#spelling">How do you spell <tt>mksh</tt>? How do you pronounce it?</a></li>
+<li><a href="#sowhatismksh">I’m a $OS (<i>Android, OS/2, …</i>) user, so what’s mksh?</a></li>
+<li><a href="#os2">I’m an OS/2 user, what else do I need to know?</a></li>
+<li><a href="#kornshell">How does this relate to ksh or the Korn Shell?</a></li>
+<li><a href="#packaging">How should I package mksh? (common cases)</a></li>
+<li><a href="#mkshrc">How does mksh load configuration files?</a></li>
+<li><a href="#testsuite-fails">The testsuite fails!</a></li>
+<li><a href="#selinux-androidiocy">I forbid stat(2) in my SELinux policy, and some things do not work!</a></li>
+<li><a href="#makefile">Why doesn’t this use a Makefile to build?</a></li>
+<li><a href="#oldbsd">Why do other BSDs and QNX still use pdksh instead of mksh?</a></li>
+<li><a href="#openbsd">Why is there no mksh in OpenBSD’s ports tree?</a></li>
+<li><a href="#book">I’d like an introduction.</a></li>
+<li><a href="#ps1conv">My prompt from &lt;<i>some other shell</i>&gt; does not work!</a></li>
+<li><a href="#ps1weird">My prompt is weird!</a></li>
+<li><a href="#env">On startup files and <tt>$ENV</tt> across and detecting various shells</a></li>
+<li><a href="#ctrl-x-e">Multiline command editing</a></li>
+<li><a href="#escaping">Some characters don’t display right</a></li>
+<li><a href="#ctrl-l-cls">^L (Ctrl-L) does not clear the screen</a></li>
+<li><a href="#ctrl-u-pico">^U (Ctrl-U) clears the entire line</a></li>
+<li><a href="#ctrl-w-bash">^W (Ctrl-W) deletes a word, not a bigword</a></li>
+<li><a href="#cur-up-zsh">Cursor Up behaves differently from zsh</a></li>
+<li><a href="#current">Can mksh set the title of the window according to the command running?</a></li>
+<li><a href="#other-tty">How do I start mksh on a specific terminal?</a></li>
+<li><a href="#completion">What about programmable tab completion?</a></li>
+<li><a href="#posix-mode">How POSIX compliant is mksh? Also, UTF-8 vs. locales?</a></li>
+<li><a href="#function-local-scopes">What differences in function-local scopes are there?</a></li>
+<li><a href="#regex-comparison">I get an error in this regex comparison</a></li>
+<li><a href="#trim-vector">${@?}: bad substitution</a></li>
+<li><a href="#extensions-to-avoid">Are there any extensions to avoid?</a></li>
+<li><a href="#while-read-pipe">Something is going wrong with my while...read loop</a></li>
+<li><a href="#command-alias">“command” doesn’t expand aliases as in ksh93</a></li>
+<li><a href="#builtin-cat">Didn’t there used to be a cat(1) builtin?</a></li>
+<li><a href="#builtin-rename">“rename” doesn’t work as expected!</a></li>
+<li><a href="#builtin-sleep">Didn’t there used to be a sleep(1) builtin?</a></li>
+<li><a href="#arith-import">Some integer variables are 0?</a></li>
+<li><a href="#string-concat">“+=” behaves differently from other shells</a></li>
+<li><a href="#set-e">I use “set -e” and my code unexpectedly errors out</a></li>
+<li><a href="#set-eo-pipefail">I use “set -eo pipefail” and my code unexpectedly errors out</a></li>
+<li><a href="#faq">My question is not answered here!</a></li>
+<li><a href="#contact">How do I contact you (to say thanks, for bugreports and questions)?</a></li>
+</ul>
+
+<h1>Frequently Asked Questions</h1>
+<h2 id="spelling"><a href="#spelling">How do you spell <tt>mksh</tt>? How do you pronounce it?</a></h2>
+<div><p>This <a href="http://www.mirbsd.org/mksh.htm">shell</a> is spelt either
+ “<tt>mksh</tt>” (with, even at the beginning of a sentence, <a
+ href="https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Capital_letters#Items_that_require_initial_lower_case">an
+ initial lowercase letter</a>; this is important) or “MirBSD Korn Shell”,
+ possibly with “the”.</p>
+<p>I usually pronounce it as “<span xml:lang="de-DE-1901">em-ka-es-ha</span>”,
+ that is, the letters individually in my native German, emphasis on the
+ first syllable, or say “MirBSD Korn Shell”, although it is manageable,
+ mostly for Slavic speakers, to actually say “mksh” as if it were a word ☺</p>
+<p>Oh… I’ve run into this one, didn’t I? “MirBSD” is pronounced “<span
+ xml:lang="de-DE-1901">Mir-Be-Es-De</span>” germanically, for anglophones
+ “Mir-beas’tie” is fine.</p>
+<p>This translates well into other languages, such as <span
+ xml:lang="es">eme-ka-ese-ache</span> in Spanish, although English
+ speakers may still find “Mir-beastie korn shell” more palatable.</p></div>
+<h2 id="sowhatismksh"><a href="#sowhatismksh">I’m a $OS (<i>Android, OS/2, …</i>) user, so what’s mksh?</a></h2>
+<div><p>mksh is a so-called (Unix) “shell” or “command interpreter”, similar to
+ <tt>COMMAND.COM</tt>, <tt>CMD.EXE</tt> or PowerShell on other operating
+ systems you might know. Basically, it runs in a terminal (“console” or
+ “DOS box”) window, taking user input and running that as commands. It’s
+ also used to write so-called (shell) “script”s, short programs made by
+ putting several of those commands into a “batch file”.</p>
+<p>On Android, mksh is used as the system shell — basically, the one
+ running commands at system startup, in the background, and on user
+ behalf (but never of its own). Any privilege pop-ups you might <a
+ href="https://forum.xda-developers.com/showthread.php?t=1963976">be
+ encountering</a> are therefore <a
+ href="https://forum.xda-developers.com/showpost.php?p=33550523&amp;postcount=1553">not
+ caused by mksh</a> but by some other code invoking mksh to do something
+ on its behalf.</p></div>
+<h2 id="os2"><a href="#os2">I’m an OS/2 user, what else do I need to know?</a></h2>
+<div><p>Unlike the native command prompt, the current working directory is,
+ for security reasons common on Unix systems which the shell is designed
+ for, not in the search path at all; if you really need this, run the
+ command <tt>PATH=.$PATHSEP$PATH</tt> or add that to a suitable
+ initialisation file (<tt>~/.mkshrc</tt>).</p>
+<p>There are two different newline modes for mksh-os2: standard (Unix)
+ mode, in which only LF (0A hex) is supported as line separator, and
+ “textmode”, which also accepts ASCII newlines (CR+LF), like most other
+ tools on OS/2, but creating an incompatibility with standard mksh. If
+ you compiled mksh from source, you will get the standard Unix mode unless
+ <tt>-T</tt> is added during compilation; however, you will most likely
+ have gotten this shell through komh’s port on Hobbes, or from his OS/2
+ Factory on eComStation Korea, which uses “textmode”, though. Most OS/2
+ users will want to use “textmode” unless they need absolute compatibility
+ with Unix mksh and other Unix shells and tools.</p></div>
+<h2 id="kornshell"><a href="#kornshell">How does this relate to ksh or the Korn Shell?</a></h2>
+<div><p>The Korn Shell (AT&amp;T ksh) was authored by David Korn; two major
+ flavours exist (ksh88 and ksh93), the latter having been maintained
+ until 2012 (last formal release) and 2014 (last beta snapshot, buggy).
+ A ksh86 did exist.</p>
+<p>There’s now <tt>ksh2020</tt>, a project having restarted development
+ around November 2017 forking the last <tt>ksh93 v-</tt> (beta) snapshot
+ and continuing to develop it, presented at FOSDEM.</p>
+<p>AT&amp;T ksh88 is “the (original) Korn Shell”. Other implementations,
+ of varying quality (MKS Toolkit’s MKS ksh being named as an example of
+ the lower end, MirBSD’s mksh at the upper end). They are all <em>not</em>
+ “Korn Shell” or “ksh”. However, mksh got blessed by David Korn, as long
+ as it cannot be confused with the original Korn Shell.</p>
+<p>The POSIX shell standard, while lacking most Korn Shell features, was
+ largely based on AT&amp;T ksh88, with some from the Bourne shell.</p>
+<p>mksh is the currently active development of what started as the Public
+ Domain Bourne Shell in the mid-1980s with ksh88-compatibl-ish extensions
+ having been added later, making the Public Domain Korn Shell (pdksh),
+ which, while never officially blessed, was the only way for most to get
+ a Korn Shell-like command interpreter for AT&amp;T’s was proprietary,
+ closed-source code for a very long time. pdksh’s development ended in
+ 1999, with some projects like Debian and NetBSD® creating small bug fixes
+ (which often introduced new bugs) as part of maintenance. Around 2003,
+ OpenBSD started cleaning up their shipped version of pdksh, removing old
+ and compatibility code and modernising it. In 2002, development of what
+ is now mksh started as the system shell of MirBSD, which took over almost
+ all of OpenBSD’s cleanup, adding compatibility to other operating systems
+ back on top of it, and after 2004, independent, massive development of
+ bugfixes including a complete reorganisation of the way the parser works,
+ and of new features both independent and compatible with other shells
+ (ksh93, GNU bash, zsh, BSD csh) started and was followed by working with
+ the group behind POSIX to fix issues both in the standard and in mksh.
+ mksh became the system shell in several other operating systems and Linux
+ distributions and Android and thus is likely the Korn shell, if not Unix
+ shell, flavour with the largest user base. It has replaced pdksh in all
+ contemporary systems except QNX, NetBSD® and OpenBSD (who continue to
+ maintain their variant on “low flame”).</p>
+<p>dtksh is the “Desktop Korn Shell”, a build of AT&amp;T ksh93 with some
+ additional built-in utilities for graphics programming (windows, menu
+ bars, dialogue boxes, etc.) utilising Motif bindings.</p>
+<p>MKS ksh is a proprietary reimplemention aiming for, but not quite
+ getting close to, ksh88 compatibility.</p>
+<p>SKsh is an AmigaOS-specific Korn Shell-lookalike by Steve Koren.</p>
+<p>The <a href="http://www.mirbsd.org/ksh-chan.htm">Homepage of the <tt>#ksh</tt>
+ channel on IRC</a> contains more information about the Korn Shell in
+ general and its flavours.</p></div>
+<h2 id="packaging"><a href="#packaging">How should I package mksh? (common cases)</a></h2>
+<div><p>Export a few environment variables, namely <tt>CC</tt> (the C compiler),
+ <tt>CPPFLAGS</tt> (all C præprocessor definitions), <tt>CFLAGS</tt> (only
+ compiler flags, <em>no</em> <tt>-Dfoo</tt> or anything!), <tt>LDFLAGS</tt>
+ (for anything to pass to the C compiler while linking) and <tt>LIBS</tt>
+ (appended to the linking command line after everything else. You might
+ wish to <tt>export LDSTATIC=-static</tt> for a static build as well.</p>
+<p>When cross-compiling, <tt>CC</tt> is the <em>cross</em> compiler (mksh
+ currently does not require a compiler targetting the build system), but
+ you <em>must</em> also export <tt>TARGET_OS</tt> to whatever system you
+ are compiling for, e.g. “Linux”. For most operating systems, that’s just
+ the uname(1) output. Some very rare systems also need <tt>TARGET_OSREV</tt>;
+ consult the source code of <tt>Build.sh</tt> for details.</p>
+<p>Create two subdirectories, say <tt>build-mksh</tt> and <tt>build-lksh</tt>.
+ In each of them, start a compilation by issuing <tt>sh ../Build.sh -r</tt>
+ followed by running the testsuite<a href="#packaging-fn1">¹</a> via
+ <tt>./test.sh</tt>. For lksh(1) add <tt>-DMKSH_BINSHPOSIX</tt> to
+ <tt>CPPFLAGS</tt> and use <tt>sh ../Build.sh -r -L</tt> to compile.</p>
+<p>See <a href="#testsuite-fails">below</a> if the testsuite fails.</p>
+<p>Install <tt>build-mksh/mksh</tt> as <tt>/bin/mksh</tt> (or similar),
+ <tt>build-lksh/lksh</tt> as <tt>/bin/lksh</tt> with a symlink(7) to it
+ from <tt>/bin/sh</tt> (if desred), and <tt>mksh.1</tt> and <tt>lksh.1</tt>
+ as manpages (mdoc macropackage required). Install <tt>dot.mkshrc</tt>
+ either as <tt>/etc/skel/.mkshrc</tt> (meaning your users will have to
+ manually resynchronise their home directories’ copies after every package
+ upgrade) or as <tt>/etc/mkshrc</tt>, in which case you install a <a
+ href="https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/mksh.git;a=blob;f=debian/.mkshrc;hb=HEAD">redirection
+ script like Debian’s</a> into <tt>/etc/skel/.mkshrc</tt>. You may need a <a
+ href="http://www.mirbsd.org/TaC-mksh.txt">summary of the licence information</a>.</p>
+<p>At runtime, the presence of <tt>/bin/ed</tt> as default history editor
+ is recommended, as well as a manpage formatter; you can also install
+ preformatted manpages from <tt>build-*ksh/*ksh.cat1</tt> if nroff(1) (or
+ <tt>$NROFF</tt>) is available at build time by removing the <tt>-r</tt>
+ flag from either <tt>Build.sh</tt> invocation.</p>
+<p>Some shell features require the ability to create temporary files and
+ FIFOS (cf. mkfifo(2))/pipes at runtime. Set <tt>TMPDIR</tt> to a suitable
+ location if <tt>/tmp</tt> isn’t it; if this is known ahead of time, you
+ can add <tt>-DMKSH_DEFAULT_TMPDIR=\"/path/to/tmp\"</tt> to CPPFLAGS. We
+ currently are unable to determine one on Android because its bionic libc
+ does not expose any method suitable to do so in the generic case.</p>
+<p id="packaging-fn1">① To run the testsuite, ed(1) must be available as
+ <tt>/bin/ed</tt>, and perl(1) is needed. When cross-compiling, the version
+ of the first <tt>ed</tt> binary on the <tt>PATH</tt> <em>must</em> be the
+ same as that in the target system on which the tests are to be run, in
+ order to be able to detect which flavour of ed to adjust the tests for.
+ Busybox ed is broken beyond repair, and all three ed-related tests will
+ always fail with it.</p></div>
+<h2 id="mkshrc"><a href="#mkshrc">How does mksh load configuration files?</a></h2>
+<div><p>The shell loads first <tt>/etc/profile</tt> then <tt>~/.profile</tt>
+ if called as login shell or with the <tt>-l</tt> flag, then loads the file
+ <tt>$ENV</tt> points to (defaulting to <tt>~/.mkshrc</tt>) for interactive
+ shells (that includes login shells).</p>
+<p>Distributors should take care to either install the <tt>dot.mkshrc</tt>
+ example provided into <tt>/etc/skel/.mkshrc</tt> (so that it’s available
+ for newly created user accounts) and ensure it can propagate to existing
+ accounts or, if upgrading these is difficult, install the shipped file
+ as, for example, <tt>/etc/mkshrc</tt> and install a skeleton file, such
+ as the one in Debian, that sources the file in <tt>/etc</tt>.</p>
+<p>It’s vital that users can change the configuration, so do not force a
+ root-provided config file onto them; the shipped file, after all, is just
+ an example.</p>
+<p>If you need central user and configuration management and cannot use
+ something that installs skeleton files upon home directory creation
+ (like pam_mkhomedir), you can <tt>export ENV</tt> in <tt>/etc/profile</tt>
+ to a file (say <tt>/etc/shellrc</tt>) that sources the per-shell file.
+ Users can, this way, still override it by setting a different <tt>$ENV</tt>
+ in their <tt>~/.profile</tt>.</p></div>
+<h2 id="testsuite-fails"><a href="#testsuite-fails">The testsuite fails!</a></h2>
+<div><p>The mksh testsuite has uncovered numerous bugs in operating systems
+ (kernels, libraries), compilers and toolchains. It is likely that you
+ just ran into one. If you’re using LTO (the <tt>Build.sh</tt> option
+ <tt>-c lto</tt>) try to disable it first — especially GCC is a repeat
+ offender breaking LTO and its antecessor <tt>-fwhole-program --combine</tt>
+ and tends to do wrong code generation quite a bit. Otherwise, try
+ lowering the optimisation levels, bisecting, etc.</p></div>
+<h2 id="selinux-androidiocy"><a href="#selinux-androidiocy">I forbid stat(2) in my SELinux policy, and some things do not work!</a></h2>
+<div>Don’t break Unix. Read up on the GIGO principle. Duh.</div>
+<h2 id="makefile"><a href="#makefile">Why doesn’t this use a Makefile to build?</a></h2>
+<div><p>Not all supported target operating environments have a make utility
+ available, and shell was required for “mirtoconf” (like autoconf)
+ already anyway, so it was chosen to run the make part as well.</p>
+<p>You can, however, add the <tt>-M</tt> flag to your <tt>Build.sh</tt>
+ invocations to let it produce a <tt>Makefrag.inc</tt> file <em>tailored
+ for this specific build</em> which you can then include in a Makefile,
+ such as with the BSD make(1) “.include” command or <a
+ href="https://www.gnu.org/software/make/manual/make.html#Include">GNU
+ make</a> equivalent. It even contains, for the user to start out with,
+ a commented-out example of how to do that in the most basic manner.</p></div>
+<h2 id="oldbsd"><a href="#oldbsd">Why do other BSDs and QNX still use pdksh instead of mksh?</a></h2>
+<div><p>Some systems are resistant to change, mostly due to bikeshedding
+ (some people would, for example, rather see all shells banned to
+ ports/pkgsrc®) and hysterial raisins (historical reasons ☻). Most
+ BSDs have mksh packages available, and it works on all of them and
+ QNX just fine.</p>
+<p>In fact, on all of these systems, you can replace their 1999-era
+ <tt>/bin/ksh</tt> (which is a pdksh) with mksh. On at least NetBSD®
+ 1.6 and up (not 1.5) and OpenBSD, even <tt>/bin/sh</tt> is fair game.</p>
+<p>MidnightBSD notably has adopted mksh as system shell (thanks laffer1).</p></div>
+<h2 id="openbsd"><a href="#openbsd">Why is there no mksh in OpenBSD’s ports tree?</a></h2>
+<div>OpenBSD don’t like people who fork off their project at all; heck,
+they don’t even like the people they themselves forked off (NetBSD®).
+Several people tried over the years to get one committed, but nobody
+dared so as to not lose their commit bit. If you try, succeed, and
+survive Theo, however, kudos to you! See also <a href="#oldbsd">the
+“other BSDs” FAQ entry</a>.</div>
+<h2 id="book"><a href="#book">I’d like an introduction.</a></h2>
+<div>Unfortunately, nobody has written a book about mksh yet, although
+other shells have received (sometimes decent) attention from authors
+and publishers. This FAQ lists a subset of things packagers and
+generic people ask, and the mksh(1) manpage is more of a reference,
+so you are probably best off starting with a shell-agnostic, POSIX
+or ksh88 reference such as the first edition (the second one deals
+with ksh93 which differs far more from mksh than ksh88, as ancient
+as it is, does) of the O’Reilly book (⚠ disclaimer: only an example,
+not a recommendation) and going forward by reading scripts (the
+“shellsnippets” repository referenced in the <tt>#ksh</tt> channel
+homepage (see the top of this document) has many examples) and
+trying to understand them and the mksh specifics from the manpage.</div>
+<h2 id="ps1conv"><a href="#ps1conv">My prompt from &lt;<i>some other shell</i>&gt; does not work!</a></h2>
+<div><a href="#contact">Contact</a> us on the mailing list or on IRC,
+we’ll convert it for you. Also have a look at the PS1 section in
+the mksh(1) manpage (search for “otherwise unused char”, e.g. with
+<tt>/</tt> in less(1), to spot it quickly).</div>
+<h2 id="ps1weird"><a href="#ps1weird">My prompt is weird!</a></h2>
+<div><p>There are several reasons why your <tt>PS1</tt> might be not
+ what you’d expect:</p><ul>
+<li><tt>$PS1</tt> is <tt>export</tt>ed. <strong>Do not export PS1!</strong>
+ (This was agreed upon as suggestion in a discussion between bash, zsh and
+ Korn shell developers.) The feature set of different shells vastly differs
+ and each shell should use its default PS1 or from its startup files.</li>
+<li><tt>$ENV</tt> <a href="#env">is set and probably <tt>export</tt>ed</a>.</li>
+<li>Your prompt is just “<tt># </tt>”: you’re entering a root shell, and
+ <tt>$PS1</tt> does not contain the ‘#’ character, in which case the shell
+ forces this prompt, making extra privileges obvious.</li>
+<li>Your prompt is just “<tt>$ </tt>”: perhaps your system administrator
+ did not install the shipped <tt>dot.mkshrc</tt> file, or you did not copy
+ <tt>/etc/skel/.mkshrc</tt> into your home directory (perhaps it was created
+ before <tt>mksh</tt> was installed?). Without another idea for a fix, get <a
+ href="http://www.mirbsd.org/cvs.cgi/~checkout~/src/bin/mksh/dot.mkshrc?rev=HEAD;content-type=text%2Fplain">this
+ file</a> and store it as <tt>~/.mkshrc</tt> then run <tt>mksh</tt>; this
+ will at the very least install our sample (“user@host:path $ ”) prompt.</li>
+<li>Your prompt contains things like “\u” or “\w”: it is for another shell
+ and <a href="#ps1conv">needs converting</a>.</li>
+<li>Your prompt contains colours, and when the command line is long the
+ cursor position or screen contents, especially using the history, is off:
+ terminal escapes must be escaped from the shell; check the PS1 section in
+ the manpage: search for “otherwise unused char” (see above).</li>
+<li>If the prompt doesn’t leave enough space on the right, the shell inserts
+ a line break after it when rendering.</li>
+</ul></div>
+<h2 id="env"><a href="#env">On startup files and <tt>$ENV</tt> across and detecting various shells</a></h2>
+<div><p>Interactive shells look at <tt>~/.mkshrc</tt> (or <tt>/system/etc/mkshrc</tt>
+on Android and <tt>/etc/mkshrc</tt> on FreeWRT and OpenWrt) by default. This
+location can, however, be overridden by setting the <tt>ENV</tt> environment
+variable. (FreeBSD is rumoured to set it in their system profile.) It’s better
+to not set <tt>$ENV</tt> if possible and let every shell user their native
+startup files; otherwise, you must ensure that it runs under all shells. Check
+<tt>$BASH_VERSION</tt> (GNU bash), <tt>$KSH_VERSION</tt> (contains “LEGACY KSH”
+or “MIRBSD KSH” for mksh, “PD KSH” for ancient mirbsdksh/oksh/pdksh, “Version”
+for ksh93); <tt>$NETBSD_SHELL</tt> (NetBSD ash); <tt>POSH_VERSION</tt> (posh, a
+pdksh derivative); <tt>$SH_VERSION</tt> (“PD KSH” as sh), <tt>$YASH_VERSION</tt>
+(yash), <tt>$ZSH_VERSION</tt> (or if <tt>$VERSION</tt> begins with “zsh”); a <a
+href="http://www.mirbsd.org/ksh-chan.htm#which-shell">list of more approaches</a> exists.</p>
+
+<p>Note that, in some scenarios, it might be very useful to actually set
+ <tt>$ENV</tt>: the regular interactive shell startup file lies in the
+ user’s home directory, relying on being copied from <tt>/etc/skel/</tt>
+ which normally is only done at user creation time. If mksh was installed
+ later, the user often won’t get it at all, and delivering updates is
+ challenging. One way of partially working around this is to ship an
+ <tt>/etc/skel/.mkshrc</tt> that reads <tt>/etc/mkshrc</tt> by default
+ (but the user can change it of course) and ship the <tt>dot.mkshrc</tt>
+ file as <tt>/etc/mkshrc</tt>, but that won’t fully help. This is where
+ <tt>$ENV</tt> comes into play:</p><ul>
+  <li>In <tt>/etc/profile</tt>, set <tt>ENV</tt> to a, say, <tt>shrc</tt>
+   file shipped in <tt>/etc/</tt> and export it.</li>
+  <li>In that new file, which must use only constructs compatible with
+   all shells, usually a subset of POSIX, read the various rc files
+   (<tt>.mkshrc</tt> for mksh, <tt>.kshrc</tt> for AT&amp;T ksh93, etc.)
+   from the user’s home if they exist, from <tt>/etc/skel/</tt> otherwise.</li>
+</ul><p>This may very well be <em>required</em> if the alternative would
+ be <a href="#ps1weird">to <del><tt>export PS1</tt></del>[sic!]</a>. <a
+  href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/12398#note_146574"
+ >alpine Linux</a> encountered this very problem, and the linked post is
+ a (draft) solution using the <tt>$ENV</tt> method and looks at various
+ other shells’ startup file situation as well.</p></div>
+<h2 id="ctrl-x-e"><a href="#ctrl-x-e">Multiline command editing</a></h2>
+<div><p>mksh is very independent of the terminal and external libraries and
+ databases, such as termcap, and therefore is conservative in which ANSI
+ control codes are sent to the terminal.</p>
+<p>For this reason, mksh’s input line editing uses a “windowed one-line”
+ concept: the line the cursor is on is a “window” into the whole input,
+ horizontally scrolled. Some other shells (that are much larger and have
+ more dependencies on external tooling) use a “multi-line” editing mode,
+ and users occasionally wish for this. It is on the long-term TODO, but
+ (due to the aforementioned implications) this is not trivial.</p>
+<p>One way to achieve multi-line editing is to <em>dis</em>able input
+ line editing: <tt>set +o emacs +o vi</tt><br />This will, however, lose
+ you all editing features: tab completion, cursor keys, history, etc.</p>
+<p>Another way, if you don’t need it all the time, is to use a function
+ that spawns your editor on the input line: press <tt>^Xe</tt> in the
+ default emacs mode or <tt>Esc + v</tt> in vi mode. Once you exit the
+ editor, whatever was written there is run; this includes the original
+ command line if you quit without saving, so request the editor to exit
+ nōn-zero (e.g. using jupp’s “abendjoe” command) to prevent execution.
+ This is <em>really</em> useful to write ad-hōc scripts as well.</p></div>
+<h2 id="escaping"><a href="#escaping">Some characters don’t display right</a></h2>
+<div><p>First, make sure that either you’re using a UTF-8 terminal and system
+ and the shell’s UTF-8 mode is on (<tt>set -U</tt>) or that you’re using
+ an 8-bit codepage/CCSID and the UTF-8 mode is off (<tt>set +U</tt>). If
+ you’re on an EBCDIC system ensure to pick a codepage that has a bijective
+ mapping to (Extended) ASCII and in which all necessary characters are
+ present, for example 1047. Furthermore ensure the compile-time and runtime
+ codepages match. (Other encoding schemes, e.g. DBCS or ISO-2022-JP, are
+ not supported.) This should already fix most relevant issues.</p>
+<p>If using an 8-bit coding system that (unlike e.g. ISO 8859 or EBCDIC)
+ does not assign control characters to “Extended ASCII” codepoints 0x80‥0x9F,
+ such as codepages 437, 850, 1252, … (usually on OS/2 or DOS-based systems),
+ enable the option <tt>set -o asis</tt> (new in R60); otherwise, they will
+ be escaped to avoid accidentally setting off terminal control sequences.</p>
+<p>Note that escaping of characters is, at runtime, dependent on whether the
+ shell was compiled for EBCDIC and/or <tt>utf8-mode</tt> and/or <tt>asis</tt>
+ are enabled, the latter being ignored if either of the former two are true
+ (in UTF-8 mode, UCS C1 codepoints are always escaped).</p></div>
+<h2 id="ctrl-l-cls"><a href="#ctrl-l-cls">^L (Ctrl-L) does not clear the screen</a></h2>
+<div>Use ^[^L (Escape+Ctrl-L) or rebind it:<br />
+<tt>bind '^L=clear-screen'</tt></div>
+<h2 id="ctrl-u-pico"><a href="#ctrl-u-pico">^U (Ctrl-U) clears the entire line</a></h2>
+<div>If you want it to only delete the line up to the cursor, use:<br />
+<tt>bind -m ^U='^[0^K'</tt></div>
+<h2 id="ctrl-w-bash"><a href="#ctrl-w-bash">^W (Ctrl-W) deletes a word, not a bigword</a></h2>
+<div>If you want it to delete more, with R60 you can use:<br />
+<tt>bind '^W=delete-bigword-backward'</tt></div>
+<h2 id="cur-up-zsh"><a href="#cur-up-zsh">Cursor Up behaves differently from zsh</a></h2>
+<div>Some shells make Cursor Up search in the history only for commands
+starting with what was already entered. mksh separates the shortcuts:
+Cursor Up goes up one command and PgUp searches the history as described
+above. You can, of course, rebind:<br />
+<tt>bind '^XA=search-history-up'</tt></div>
+<h2 id="current"><a href="#current">Can mksh set the title of the window according to the command running?</a></h2>
+<div>There’s no such thing as “the command currently running”; consider
+pipelines and delays (<tt>cmd1 | (cmd2; sleep 3; cmd3) | cmd4</tt>).
+There is, however, a way to make the shell display the command <em>line</em>
+during the time it is executed; for testing, you will need to download <a
+href="https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=shellsnippets/shellsnippets.git;a=blob;f=mksh/terminal-title;hb=HEAD">this
+script</a> and <tt>source</tt> it. For merging into your <tt>~/.mkshrc</tt>
+you should first understand how it works: lines 4–18 set a <tt>PS1</tt>
+(prompt) equivalent to lines 84–96 of the stock <tt>dot.mkshrc</tt>, with
+one change: line 15 (<tt>print &gt;/dev/tty …</tt>) is new, inserted just
+before the <tt>return</tt> command of the function substitution in the
+default prompt; this is what you’ll need to merge into your own, custom,
+prompt (if you have one; otherwise pull this adaption to the default
+one). Line 19 is the only other thing in this script rebinding the Ctrl-M
+key (which is normally produced by the Enter/Return key) to code that…
+does <em>something crazy</em>. This trick however <em>does funny things with
+multiline commands</em>, so if you type something out in multiple lines,
+for example <strong>here documents</strong> or <strong>loops</strong> press
+<strong>Ctrl-J instead of Enter/Return</strong> after <em>each</em> line
+including the first (at PS1) and final (at PS2) one.</div>
+<h2 id="other-tty"><a href="#other-tty">How do I start mksh on a specific terminal?</a></h2>
+<div><p>Normally: <tt>mksh -T<i>/dev/tty2</i></tt></p>
+<p>However, if you want for it to return (e.g. for an embedded system rescue
+ shell), use this on your real console device instead:
+ <tt>mksh -T!<i>/dev/ttyACM0</i></tt></p>
+<p>mksh can also daemonise (send to the background):
+ <tt>mksh -T- -c 'exec cdio lock'</tt></p></div>
+<h2 id="completion"><a href="#completion">What about programmable tab completion?</a></h2>
+<div>The shell itself provides static deterministic tab completion.
+However, you can use hooks like reprogramming the Tab key to a
+command line editor macro, and using the <tt>evaluate-region</tt>
+editor command together with <tt>quote-region</tt> and shell functions to
+implement a programmable completion engine. Multiple people have
+been considering doing so in our IRC channel; we’ll hyperlink to
+these engines when they are available.</div>
+<h2 id="posix-mode"><a href="#posix-mode">How POSIX compliant is mksh? Also, UTF-8 vs. locales?</a></h2>
+<div><p>You’ll need to use the <tt>lksh</tt> binary, unless your C <tt>long</tt>
+ type is 32 bits wide, for POSIX-compliant arithmetic in the shell. This is
+ because <tt>mksh</tt> provides consistent, wraparound-defined, 32-bit
+ arithmetics on all platforms normally. You’ll also need to enable POSIX mode
+ (<tt>set -o posix</tt>) explicitly, which also disables brace expansion upon
+ being enabled (use <tt>set -o braceexpand</tt> to reenable if needed).</p>
+<p>For the purpose of POSIX, mksh supports only the <tt>C</tt> locale. mksh’s
+ <tt>utf8-mode</tt> (which only supports the BMP (Basic Multilingual Plane) of
+ UCS and maps raw octets into the U+EF80‥U+EFFF wide character range; see
+ <tt>Arithmetic expressions</tt> in mksh(1) for details) <em>must</em> stay
+ disabled in POSIX mode (it is disabled upon enabling POSIX mode in R56+ but
+ don’t depend on this to stay once locale tracking will be implemented; the
+ disabling code is not present in this build).</p>
+<p><strong>Future compatibility note:</strong> there’s work underway to use
+ full 21-bit UTF-8 in mksh R60 or so. Raw octet mapping will almost certainly
+ be moved out of the PUA and to some range outside of UCS.</p>
+<p class="boxhead">The following POSIX sh-compatible code toggles the
+ <tt>utf8-mode</tt> option dependent on the current POSIX locale, for mksh
+ to allow using the UTF-8 mode, within the constraints outlined above, in
+ code portable across various shell implementations:</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>case ${KSH_VERSION:-} in
+<span style="display:none;">	</span>*MIRBSD KSH*|*LEGACY KSH*)
+<span style="display:none;">	</span>	case ${LC_ALL:-${LC_CTYPE:-${LANG:-}}} in
+<span style="display:none;">	</span>	*[Uu][Tt][Ff]8*|*[Uu][Tt][Ff]-8*) set -U ;;
+<span style="display:none;">	</span>	*) set +U ;;
+<span style="display:none;">	</span>	esac ;;
+<span style="display:none;">	</span>esac
+ </pre>
+</div><p class="boxfoot">In near future, (UTF-8) locale tracking will
+ be implemented, though. This build of mksh already enables it.</p>
+<p>The shell is pretty close to POSIX, when run as <tt>lksh -o posix</tt>
+ under the "C" locale it is intended to match. It does not do everything
+ like other POSIX-compatible or ‑compliant shells, though.</p></div>
+<h2 id="function-local-scopes"><a href="#function-local-scopes">What differences in function-local scopes are there?</a></h2>
+<div><p><tt>mksh</tt> has a different scope model from AT&amp;T <tt>ksh</tt>,
+ which leads to subtle differences in semantics for identical builtins.
+ This can cause issues with a <tt>nameref</tt> to suddenly point to a
+ local variable by accident. (Other common shells share mksh’s scoping
+ model.)</p>
+<p class="boxhead">GNU <tt>bash</tt> allows unsetting local variables; in
+ <tt>mksh</tt>, doing so in a function allows back access to the global
+ variable (actually the one in the next scope up) with the same name. The
+ following code, when run before function definitions, changes the behaviour
+ of <tt>unset</tt> to behave like other shells (the alias can be removed
+ after the definitions):</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>case ${KSH_VERSION:-} in
+<span style="display:none;">	</span>*MIRBSD KSH*|*LEGACY KSH*)
+<span style="display:none;">	</span>	function unset_compat {
+<span style="display:none;">	</span>		\\builtin typeset unset_compat_x
+
+<span style="display:none;">	</span>		for unset_compat_x in "$@"; do
+<span style="display:none;">	</span>			eval "\\\\builtin unset $unset_compat_x[*]"
+<span style="display:none;">	</span>		done
+<span style="display:none;">	</span>	}
+<span style="display:none;">	</span>	\\builtin alias unset=unset_compat
+<span style="display:none;">	</span>	;;
+<span style="display:none;">	</span>esac
+ </pre>
+</div><p class="boxfoot">When a local variable is created (e.g. using
+ <tt>local</tt>, <tt>typeset</tt>, <tt>integer</tt> or
+ <tt>\\builtin typeset</tt>) it does not, like in other shells, inherit
+ the value from the global (next scope up) variable with the same name;
+ it is rather created without any value (unset but defined).</p></div>
+<h2 id="regex-comparison"><a href="#regex-comparison">I get an error in this regex comparison</a></h2>
+<div><p>Use extglobs instead of regexes:<br />
+ <tt>[[ foo =~ (foo|bar).*baz ]]</tt><br />
+ … becomes…<br />
+ <tt>[[ foo = *@(foo|bar)*baz* ]]</tt></p></div>
+<h2 id="trim-vector"><a href="#trim-vector">${@?}: bad substitution</a></h2>
+<div><p>In mksh, you cannot assign to or trim a vector (yet). For most
+ cases it is possible to write the affected code in a way avoiding
+ this extension; for example, trimming <tt>${@#foo}</tt> could be
+ applied to <tt>$1</tt> only and <tt>${@?}</tt> can be replaced
+ with a test whether <tt>$# -eq 0</tt>.</p></div>
+<h2 id="extensions-to-avoid"><a href="#extensions-to-avoid">Are there any extensions to avoid?</a></h2>
+<div><p>GNU <tt>bash</tt> supports “<tt>&amp;&gt;</tt>” (and “|&amp;”) to redirect
+ both stdout and stderr in one go, but this breaks POSIX and Korn Shell syntax;
+ use POSIX redirections instead:</p>
+<table border="1" cellpadding="3">
+ <tr><td>GNU bash</td><td>
+  <tt>foo |&amp; bar |&amp; baz &amp;&gt;log</tt>
+ </td></tr>
+ <tr><td>POSIX</td><td>
+  <tt>foo 2&gt;&amp;1 | bar 2&gt;&amp;1 | baz &gt;log 2&gt;&amp;1</tt>
+ </td></tr>
+</table></div>
+<h2 id="while-read-pipe"><a href="#while-read-pipe">Something is going wrong with my while...read loop</a></h2>
+<div><p class="boxhead">Most likely, you’ve encountered the problem in which
+ the shell runs all parts of a pipeline as subshell. The inner loop will
+ be executed in a subshell and variable changes cannot be propagated if
+ run in a pipeline:</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>bar | baz | while read foo; do ...; done
+ </pre>
+</div><p class="boxfoot">Note that <tt>exit</tt> in the inner loop will
+ also only exit the subshell and not the original shell. Likewise, if the
+ code is inside a function, <tt>return</tt> in the inner loop will only
+ exit the subshell and won’t terminate the function.</p>
+<p class="boxhead">Use co-processes instead:</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>bar | baz |&amp;
+<span style="display:none;">	</span>while read -p foo; do ...; done
+<span style="display:none;">	</span>exec 3&gt;&amp;p; exec 3&gt;&amp;-
+ </pre>
+</div><p class="boxfoot">If <tt>read</tt> is run in a way such as
+ <tt>while read foo; do ...; done</tt> then leading whitespace will be
+ removed (IFS) and backslashes processed. You might want to use
+ <tt>while IFS= read -r foo; do ...; done</tt> for pristine I/O.</p>
+<p class="boxhead">Similarly, when using the <tt>-a</tt> option, use of the
+ <tt>-r</tt> option might be prudent (<tt>read -raN-1 arr &lt;file</tt>);
+ the same applies for NUL-terminated lines:</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>find . -type f -print0 |&amp; \
+<span style="display:none;">	</span>    while IFS= read -d '' -pr filename; do
+<span style="display:none;">	</span>	print -r -- "found &lt;${filename#./}&gt;"
+<span style="display:none;">	</span>done
+ </pre>
+</div></div>
+<h2 id="command-alias"><a href="#command-alias">“command” doesn’t expand aliases as in ksh93</a></h2>
+<div>This is because AT&amp;T ksh93 ships a predefined alias enabling this:<br />
+<tt>alias command='command '</tt><br />
+put this into your <tt>~/.mkshrc</tt>
+(note the space before the closing single quote)</div>
+<h2 id="builtin-cat"><a href="#builtin-cat">Didn’t there used to be a cat(1) builtin?</a></h2>
+<div><p>Up to and including mksh R59c, we indeed shipped a built-in cat(1)
+ inside mksh; this was added originally because Android did not have
+ one <em>at all</em> (but they have since imported a BSD cat). While
+ it could speed up some sh scripts correct signal handling is hard to
+ get right, so (with regret) it was removed in 2021. 🙀</p></div>
+<h2 id="builtin-rename"><a href="#builtin-rename">“rename” doesn’t work as expected!</a></h2>
+<div><p>There’s a <tt>rename</tt> built-in utility in mksh, which is a very
+ thin wrapper around the rename(2) syscall. It receives two pathnames,
+ source and destination where the first is then atomically renamed to
+ the latter. It does not move, i.e. fails for different filesystems.</p>
+<p>The GNU package <tt>util-linux</tt> has a different <tt>rename</tt>
+ command. If you wish to invoke an external utility (in favour over a
+ builtin), you can use <tt>dot.mkshrc</tt>’s function <tt>enable</tt>
+ or put the following into your <tt>~/.mkshrc</tt>:</p>
+<pre>alias rename="$(whence -p rename)"</pre></div>
+<h2 id="builtin-sleep"><a href="#builtin-sleep">Didn’t there used to be a sleep(1) builtin?</a></h2>
+<div><p>Up to and including mksh R59c, we indeed shipped a subsecond-capable
+ select(2)-based built-in sleep(1). This got originally added because
+ too many platforms do not support sub-second sleep, which nowadays is
+ of less concern. It also led to users complaining about lack for system
+ *ahem* GNU extensions, but the cause of its demise is that getting signal
+ handling right, in a portable way and without too many syscalls (there’s
+ a threshold over which fork+exec is cheaper!), isn’t feasible if even at
+ all possible.</p>
+<p>The MirOS Project now ships <a href="http://www.mirbsd.org/subprj.htm#sleep">a
+ portable sleep</a> which similarily is select(2)-based and capable of
+ subsecond sleep but in addition supports all GNU extensions related to
+ specifying the amount of time to sleep. It will work on <em>at least</em>
+ all platforms on which mksh had a builtin before. Please install this
+ if your operating system lacks a good enough sleep(1) utility.</p>
+<p>Note that, if your OS lacks select(2), you’ll lose out either way.
+ In that case, GNU coreutils’ sleep, which is built on older syscalls,
+ may work if the copyleft licence isn’t a showstopper for you.</p></div>
+<h2 id="arith-import"><a href="#arith-import">Some integer variables are 0?</a></h2>
+<div><p class="boxhead">To mitigate potential exploits, variables imported
+ from the environment are not trusted in arithmetic context; that is…</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>foo=1+1 mksh -c 'integer foo; print $foo'
+<span style="display:none;">	</span>foo=1+1 mksh -c 'integer foo=$foo; print $foo'
+ </pre>
+</div><p class="boxfoot">… will lose the value in the first line,
+ while the second line explicitly “untaints”, to use a Perl term,
+ the content. Purely numeric values will pass, though.</p></div>
+<h2 id="string-concat"><a href="#string-concat">“+=” behaves differently from other shells</a></h2>
+<div><p>In POSIX shell, “=” in code like <tt>var=content</tt> is a string
+ assignment, always. You can use <tt>var=$((content))</tt> for an
+ arithmetic assignment that mostly uses C language rules.</p>
+<p>It stands to consider that the common shell extension “+=” as in
+ <tt>var+=content</tt> would always do string concatenation; it does
+ in mksh, but not in some other shells, in which, when <tt>var</tt> has
+ been declared integer, addition is done instead.</p>
+<p>You can make the code portable by using “((…))” (a.k.a. <tt>let</tt>)
+ instead: <tt>(( var += content ))</tt> does arithmetic addition in
+ all shells involved.</p></div>
+<h2 id="set-e"><a href="#set-e">I use “set -e” and my code unexpectedly errors out</a></h2>
+<div><p>I personally recommend people to not use “<tt>set -e</tt>”, as it
+makes error handling more difficult. However, some insist. There have
+been bugfixes (relative to e.g. oksh/loksh and posh) in this aspect,
+and the user has to make sure <tt>$?</tt> is always 0 ASAP even after
+a command that doesn’t check it.</p>
+<pre>istwo() {
+        for i in "$@"; do
+                test x"$i" = x"2" &amp;&amp; echo two
+        done
+}
+set -e
+istwo 1
+echo END</pre>
+<p>This can be fixed by either adding an explicit “<tt>:</tt>” (or
+“<tt>true</tt>”) after the comparison, or even…</p>
+<pre>test x"$i" = x"2" &amp;&amp; echo two || :</pre>
+<p>… or right after the <tt>done</tt> inside the function, but…</p>
+<pre>test x"$i" != x"2" || echo two</pre>
+<p>… negating the condition and using “<tt>||</tt>” is preferable.</p>
+
+<p>Remember that Korn shell-style functions (with <tt>function</tt>
+ keyword and <strong>without</strong> parenthesēs) in AT&amp;T ksh93
+ and mksh R51 and up have their own shell option scope, but while…</p>
+<pre>function istwo {
+        set +e
+        …
+}</pre>
+<p>… might help in error handling, the return status of a function is
+ still the last errorlevel inside, so an explicit true (“<tt>:</tt>”)
+ or, more explicitly, “<tt>return 0</tt>” at its end is still needed
+ if the <em>caller</em> runs under <tt>set -e</tt>.</p></div>
+<h2 id="set-eo-pipefail"><a href="#set-eo-pipefail">I use “set -eo pipefail” and my code unexpectedly errors out</a></h2>
+<div><p class="boxhead">Related to the above FAQ entry, using
+ <tt>set -o pipefail</tt> makes the following construct error out:</p>
+<div class="boxtext">
+ <pre>
+<span style="display:none;">	</span>set -e
+<span style="display:none;">	</span>for x in 1 2; do
+<span style="display:none;">	</span>	false &amp;&amp; echo $x
+<span style="display:none;">	</span>done | cat
+ </pre>
+</div><p class="boxfoot">This is because, while the <tt>&amp;&amp;</tt>
+ ensures that the inner command’s failure is not taken, it sets the entire
+ <tt>for</tt>‥<tt>done</tt> loop’s errorlevel, which is passed on by
+ <tt>-o pipefail</tt>.</p>
+<p>Invert the inner command:<br />
+ <tt>true || echo $x</tt></p></div>
+<h2 id="faq"><a href="#faq">My question is not answered here!</a></h2>
+<div>Do read the mksh(1) and lksh(1) manual page. You might also wish to read the <a
+ href="http://www.mirbsd.org/ksh-chan.htm">homepage of the <tt>#ksh</tt> IRC channel</a>
+which lists several resources for Korn or POSIX-compatible shells in general.
+Or, <a href="#contact">contact</a> us (developer and users).</div>
+<h2 id="contact"><a href="#contact">How do I contact you (to say thanks, for bugreports and questions)?</a></h2>
+<div><p>You can say hi in the <tt>#!/bin/mksh</tt> channel on <a
+ href="http://www.mirbsd.org/irc.htm">IRC</a> (OFTC, for now), although… a
+ <a href="http://www.mirbsd.org/danke.htm">donation</a> wouldn’t be amiss ☻
+<br />The <a href="http://www.mirbsd.org/rss.htm#lists">mailing list</a> can also
+ be used for this. The <a href="#faq">extra resources</a> from the FAQ
+ entry just one above should also be considered ;-)</p>
+<p>If you insist on sending a bugreport, IRC and the mailing list are
+ great places for that; <a href="https://launchpad.net/mksh">Launchpad</a>,
+ an external gratis service provided by a company, can also be used if you
+ like web-based issue trackers better.</p></div>
+<h1>Imprint</h1>
+<p>This offline HTML page for mksh 59c-9+b2 was automatically generated
+ from the sources.</p>
+</body></html>

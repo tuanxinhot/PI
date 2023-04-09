@@ -1,0 +1,20 @@
+# deliberate, and detailed in README.Debian, and same as mksh-static
+mksh: statically-linked-binary bin/lksh
+
+# deliberate, and detailed in README.Debian, choices for mksh-static
+mksh: statically-linked-binary usr/lib/*
+
+# see musl.lintian-overrides for the rationale
+mksh: triplet-dir-and-architecture-mismatch usr/lib/*-linux-musl/ is for musl-linux-*
+
+# lintian bug #966316
+mksh: acute-accent-in-manual-page usr/share/man/man1/lksh.1.gz:23
+mksh: acute-accent-in-manual-page usr/share/man/man1/mksh.1.gz:26
+
+# false positive (“test a -ot b”)
+mksh: typo-in-manual-page usr/share/man/man1/mksh.1.gz ot to
+
+# correct placement
+mksh: executable-in-usr-lib usr/lib/diet/bin/mksh
+mksh: executable-in-usr-lib usr/lib/klibc/bin/mksh
+mksh: executable-in-usr-lib usr/lib/*-linux-musl/bin/mksh

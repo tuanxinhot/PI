@@ -1,0 +1,9 @@
+91667739fe44b58ed1f0d9c59b890a0c  usr/lib/systemd/user/dbus.service
+67ace2f695f27b1d288bda671b6503d3  usr/lib/systemd/user/dbus.socket
+38a717139fa82e8d2c85a53bb8cba0de  usr/share/doc/dbus-user-session/AUTHORS.gz
+b1f79bf118c81237ef19e97f5e74d707  usr/share/doc/dbus-user-session/NEWS.gz
+c2ccbf47bb6c6ee6f5154a89863ade80  usr/share/doc/dbus-user-session/README.gz
+e2259dd46dda5348647bec39a36a7514  usr/share/doc/dbus-user-session/changelog.Debian.gz
+a46dbfafef4a76ece7bf07172be7c116  usr/share/doc/dbus-user-session/changelog.gz
+8caeab292befe4a6ffc224d0ab0e87db  usr/share/doc/dbus-user-session/copyright
+ee47e71345ad596cc09800305c9f7060  usr/share/lintian/overrides/dbus-user-session

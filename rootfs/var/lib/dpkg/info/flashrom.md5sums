@@ -1,0 +1,8 @@
+5e6bc258f3672f78e17ceb959563dbda  lib/udev/rules.d/60-flashrom.rules
+2546e793d96d8157df92196c91f8ba28  usr/sbin/flashrom
+5c94ac06d17bcc6634a57c1a1b21957f  usr/share/doc/flashrom/README.Debian
+1f7d4b74d24f4f20fb4acb3cb0e29321  usr/share/doc/flashrom/changelog.Debian.gz
+6bd9f8e6e79c10d7c1a183c0a6b76251  usr/share/doc/flashrom/copyright
+dfcdd85201c1a7dae20b049cd4980c7e  usr/share/doc/flashrom/mysteries_intel.txt.gz
+3a95c01b1043c1d72fc0489521ea7e30  usr/share/doc/flashrom/serprog-protocol.txt.gz
+7c04d3fcc33288bae204af312fcd313b  usr/share/man/man8/flashrom.8.gz

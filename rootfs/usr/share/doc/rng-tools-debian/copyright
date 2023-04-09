@@ -1,0 +1,28 @@
+Copyright:
+ Copyright (C) 2001 Philipp Rumpf
+ Copyright (C) 2001 Jeff Garzik <jgarzik@pobox.com>
+ Copyright (C) 2004-2010 Henrique de Moraes Holschuh <hmh@debian.org>
+ Copyright (C) 2019, 2020 mirabilos <t.glaser@tarent.de>
+Debian packaging:
+ Copyright © 2014, 2019, 2020 mirabilos <t.glaser@tarent.de>
+ Copyright © 2015 mirabilos <thorsten.glaser@teckids.org>
+ Copyright (c) 2003-2010 Henrique de Moraes Holschuh <hmh@debian.org>
+ Copyright (c) 2002 Viral Shah <viral@debian.org>
+ distributed under the same license as the upstream source it applies to.
+Upstream Authors:
+ Philipp Rumpf,
+ Jeff Garzik <jgarzik@pobox.com>
+ Henrique de Moraes Holschuh <hmh@debian.org>
+Changes:
+ The Debian version of rngd is extensively patched with added
+ functionality and bugs courtesy of Henrique de Moraes Holschuh.
+ All changes were supposed to be proposed to be merged upstream, but the
+ deviation got too large to handle, so it hasn't happened.  See upstream
+ changelog for a list of all changes.
+Licence:
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+
+The GPL may be found in /usr/share/common-licenses/GPL-2 on a Debian system.

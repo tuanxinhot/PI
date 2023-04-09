@@ -1,0 +1,3 @@
+cat=fastbox,shell:legacy-yes,shell:textmode-no,shell:binmode-yes,binsh,no-histfile,int:64,stdout-ed,no-stderr-ed
+shell=/bin/lksh
+skip=0
